@@ -135,6 +135,9 @@
                                         <state key="normal" title="注册帐号">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="registerAccountClict:" destination="3AA-cx-6qQ" eventType="touchUpInside" id="5YU-ZJ-32N"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -241,6 +244,9 @@
                                         <state key="normal" title="已有帐号?">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="loginAccountClick:" destination="3AA-cx-6qQ" eventType="touchUpInside" id="0Ie-Ro-W0Y"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -273,10 +279,12 @@
                     <navigationItem key="navigationItem" title="登录MM" id="ZTy-Wf-76K"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
+                        <outlet property="leftSpace" destination="zrZ-j9-y4p" id="w6S-RU-0b2"/>
                         <outlet property="loginLineOne" destination="IzU-rG-uNu" id="mgO-JL-ECj"/>
                         <outlet property="loginLineTwo" destination="UUE-qp-J0f" id="kAv-Rf-pIM"/>
                         <outlet property="registerLineOne" destination="Mth-iJ-z34" id="AoP-Mw-Ceg"/>
                         <outlet property="registerLineTwo" destination="mGC-NG-ZVu" id="ZVd-YZ-mbZ"/>
+                        <outlet property="rightSpace" destination="TNW-7x-lpW" id="8Ni-fu-o8v"/>
                         <outlet property="txtLoginAccount" destination="08u-4h-goD" id="lwY-3a-2Dm"/>
                         <outlet property="txtLoginPassword" destination="JhD-hC-gNS" id="hTu-jd-tCf"/>
                         <outlet property="txtRegisterAccount" destination="V54-Ac-JFd" id="qA6-Yj-Kcg"/>

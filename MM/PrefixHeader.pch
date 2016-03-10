@@ -43,6 +43,9 @@
 // 标签按钮背景颜色
 #define MMTagBgColor JWColor(60, 120, 200);
 
+// 约束
+#define MMConstantMargin 20;
+
 /**********************Controller******************************/
 #import "MMTabBarController.h"
 #import "ConversationViewController.h"
