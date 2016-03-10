@@ -1,0 +1,25 @@
+//
+//  MeViewController.m
+//  MM
+//
+//  Created by xiyang on 16/3/9.
+//  Copyright © 2016年 jinwen.huang. All rights reserved.
+//
+
+#import "MeViewController.h"
+
+@interface MeViewController ()
+
+@end
+
+@implementation MeViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.title = @"我";
+    self.view.backgroundColor = MMRandomColor;
+}
+
+
+
+@end

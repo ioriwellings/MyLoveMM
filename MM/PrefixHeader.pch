@@ -1,0 +1,56 @@
+//
+//  PrefixHeader.pch
+//  MM
+//
+//  Created by xiyang on 16/3/9.
+//  Copyright © 2016年 jinwen.huang. All rights reserved.
+//
+
+#ifndef ______PrefixHeader_pch
+#define ______PrefixHeader_pch
+
+#import <RongIMKit/RongIMKit.h>
+#import <RongIMLib/RongIMLib.h>
+
+#define RongAppKey @"pgyu6atqyltqu"
+
+/*************************************************************/
+// 方法的输出
+#define MMLogFunc JWLog(@"%s", __func__)
+
+// 颜色
+#define MMARGBColor(a, r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)/255.0]
+#define MMColor(r, g, b) MMARGBColor(255, (r), (g), (b))
+#define MMGrayColor(v) MMColor((v), (v), (v))
+#define MMCommonBgColor MMGrayColor(215)
+#define MMboldColor MMGrayColor(54)
+#define MMTintColor MMColor(42.0, 185.0, 40.0)
+
+// 随机颜色
+#define MMRandomColor MMColor(arc4random_uniform(255), arc4random_uniform(255), arc4random_uniform(255))
+
+// 弱引用
+#define MMWeakSelf __weak typeof(self) weakSelf = self
+
+// 将请求的数据写到桌面的plist文件上
+#define MMWriteToPlist(data, fileName) [data writeToFile:[NSString stringWithFormat:@"/Users/xiyang/Desktop/%@.plist", fileName] atomically:YES]
+
+// 屏幕宽高度
+#define MMHeight [UIScreen mainScreen].bounds.size.height
+
+#define MMWidth [UIScreen mainScreen].bounds.size.width
+
+// 标签按钮背景颜色
+#define MMTagBgColor JWColor(60, 120, 200);
+
+/**********************Controller******************************/
+#import "MMTabBarController.h"
+#import "ConversationViewController.h"
+#import "GroupsViewController.h"
+#import "ChatRoomViewController.h"
+#import "MeViewController.h"
+#import "MMNavigationController.h"
+
+
+#import "MMLoginRegisterTextField.h"
+#endif
