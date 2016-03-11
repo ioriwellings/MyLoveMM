@@ -8,9 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		194D78F78D8513846B02BECF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2B2F5F6701B5344F6412DE /* libPods.a */; };
+		AA1EB2291C92779D00970A53 /* MMAddFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1EB2271C92779D00970A53 /* MMAddFriendsViewController.m */; };
+		AA1EB22A1C92779D00970A53 /* MMAddFriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA1EB2281C92779D00970A53 /* MMAddFriendsViewController.xib */; };
+		AA1EB22E1C929A5000970A53 /* MMAddFriendTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1EB22D1C929A5000970A53 /* MMAddFriendTextField.m */; };
+		AA1EB2301C929EF700970A53 /* addFriend.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA1EB22F1C929EF700970A53 /* addFriend.plist */; };
+		AA1EB2341C929FCE00970A53 /* MMAddFriend.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1EB2331C929FCE00970A53 /* MMAddFriend.m */; };
+		AA1EB2381C929FE900970A53 /* MMAddFriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1EB2361C929FE900970A53 /* MMAddFriendCell.m */; };
+		AA1EB2391C929FE900970A53 /* MMAddFriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA1EB2371C929FE900970A53 /* MMAddFriendCell.xib */; };
+		AA564D0C1C92B806008B3F4E /* UIImage+JWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = AA564D091C92B806008B3F4E /* UIImage+JWExtension.m */; };
+		AA564D0D1C92B806008B3F4E /* UIImageView+JWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = AA564D0B1C92B806008B3F4E /* UIImageView+JWExtension.m */; };
 		AA8F87911C91091A003C93C0 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA8F87901C91091A003C93C0 /* Login.storyboard */; };
 		AA8F87941C910C32003C93C0 /* MMLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA8F87931C910C32003C93C0 /* MMLoginViewController.m */; };
-		AA8F87961C9113AF003C93C0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA8F87951C9113AF003C93C0 /* Images.xcassets */; };
 		AA8F87991C911464003C93C0 /* MMLoginRegisterTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = AA8F87981C911464003C93C0 /* MMLoginRegisterTextField.m */; };
 		AA99C0391C8FF8AE00C9A477 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AA99C0381C8FF8AE00C9A477 /* main.m */; };
 		AA99C03C1C8FF8AE00C9A477 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AA99C03B1C8FF8AE00C9A477 /* AppDelegate.m */; };
@@ -23,6 +31,11 @@
 		AA99C0951C9032B700C9A477 /* ChatRoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA99C0941C9032B700C9A477 /* ChatRoomViewController.m */; };
 		AA99C09D1C9033AD00C9A477 /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA99C09C1C9033AD00C9A477 /* MeViewController.m */; };
 		AA99C0A01C9034E800C9A477 /* MMNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA99C09F1C9034E800C9A477 /* MMNavigationController.m */; };
+		AACB7EA31C916E4D00E8A85A /* UIView+JWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = AACB7EA21C916E4D00E8A85A /* UIView+JWExtension.m */; };
+		AACB7EA71C917C6700E8A85A /* KxMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = AACB7EA61C917C6700E8A85A /* KxMenu.m */; };
+		AACB7EAA1C917D2B00E8A85A /* UIColor+RCColor.m in Sources */ = {isa = PBXBuildFile; fileRef = AACB7EA91C917D2B00E8A85A /* UIColor+RCColor.m */; };
+		AACB7EAD1C917D5100E8A85A /* UIImage+RCImage.m in Sources */ = {isa = PBXBuildFile; fileRef = AACB7EAC1C917D5100E8A85A /* UIImage+RCImage.m */; };
+		AACB7EAF1C9186FB00E8A85A /* libc++abi.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AACB7EAE1C9186FB00E8A85A /* libc++abi.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,10 +58,24 @@
 /* Begin PBXFileReference section */
 		1C850C95AF4F7F938F3ABCF4 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		394B8A5A3E38284EC3C72591 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		AA1EB2261C92779D00970A53 /* MMAddFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMAddFriendsViewController.h; sourceTree = "<group>"; };
+		AA1EB2271C92779D00970A53 /* MMAddFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMAddFriendsViewController.m; sourceTree = "<group>"; };
+		AA1EB2281C92779D00970A53 /* MMAddFriendsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMAddFriendsViewController.xib; sourceTree = "<group>"; };
+		AA1EB22C1C929A5000970A53 /* MMAddFriendTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMAddFriendTextField.h; sourceTree = "<group>"; };
+		AA1EB22D1C929A5000970A53 /* MMAddFriendTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMAddFriendTextField.m; sourceTree = "<group>"; };
+		AA1EB22F1C929EF700970A53 /* addFriend.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = addFriend.plist; sourceTree = "<group>"; };
+		AA1EB2321C929FCE00970A53 /* MMAddFriend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMAddFriend.h; sourceTree = "<group>"; };
+		AA1EB2331C929FCE00970A53 /* MMAddFriend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMAddFriend.m; sourceTree = "<group>"; };
+		AA1EB2351C929FE900970A53 /* MMAddFriendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMAddFriendCell.h; sourceTree = "<group>"; };
+		AA1EB2361C929FE900970A53 /* MMAddFriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMAddFriendCell.m; sourceTree = "<group>"; };
+		AA1EB2371C929FE900970A53 /* MMAddFriendCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMAddFriendCell.xib; sourceTree = "<group>"; };
+		AA564D081C92B806008B3F4E /* UIImage+JWExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+JWExtension.h"; sourceTree = "<group>"; };
+		AA564D091C92B806008B3F4E /* UIImage+JWExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+JWExtension.m"; sourceTree = "<group>"; };
+		AA564D0A1C92B806008B3F4E /* UIImageView+JWExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+JWExtension.h"; sourceTree = "<group>"; };
+		AA564D0B1C92B806008B3F4E /* UIImageView+JWExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+JWExtension.m"; sourceTree = "<group>"; };
 		AA8F87901C91091A003C93C0 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		AA8F87921C910C32003C93C0 /* MMLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMLoginViewController.h; sourceTree = "<group>"; };
 		AA8F87931C910C32003C93C0 /* MMLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMLoginViewController.m; sourceTree = "<group>"; };
-		AA8F87951C9113AF003C93C0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		AA8F87971C911464003C93C0 /* MMLoginRegisterTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMLoginRegisterTextField.h; sourceTree = "<group>"; };
 		AA8F87981C911464003C93C0 /* MMLoginRegisterTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMLoginRegisterTextField.m; sourceTree = "<group>"; };
 		AA99C0341C8FF8AE00C9A477 /* MM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MM.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,6 +103,15 @@
 		AA99C09C1C9033AD00C9A477 /* MeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeViewController.m; sourceTree = "<group>"; };
 		AA99C09E1C9034E800C9A477 /* MMNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMNavigationController.h; sourceTree = "<group>"; };
 		AA99C09F1C9034E800C9A477 /* MMNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMNavigationController.m; sourceTree = "<group>"; };
+		AACB7EA11C916E4D00E8A85A /* UIView+JWExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+JWExtension.h"; sourceTree = "<group>"; };
+		AACB7EA21C916E4D00E8A85A /* UIView+JWExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+JWExtension.m"; sourceTree = "<group>"; };
+		AACB7EA51C917C6700E8A85A /* KxMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KxMenu.h; sourceTree = "<group>"; };
+		AACB7EA61C917C6700E8A85A /* KxMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KxMenu.m; sourceTree = "<group>"; };
+		AACB7EA81C917D2B00E8A85A /* UIColor+RCColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+RCColor.h"; sourceTree = "<group>"; };
+		AACB7EA91C917D2B00E8A85A /* UIColor+RCColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+RCColor.m"; sourceTree = "<group>"; };
+		AACB7EAB1C917D5100E8A85A /* UIImage+RCImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RCImage.h"; sourceTree = "<group>"; };
+		AACB7EAC1C917D5100E8A85A /* UIImage+RCImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RCImage.m"; sourceTree = "<group>"; };
+		AACB7EAE1C9186FB00E8A85A /* libc++abi.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++abi.tbd"; path = "usr/lib/libc++abi.tbd"; sourceTree = SDKROOT; };
 		BA2B2F5F6701B5344F6412DE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -84,6 +120,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AACB7EAF1C9186FB00E8A85A /* libc++abi.tbd in Frameworks */,
 				194D78F78D8513846B02BECF /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -108,9 +145,31 @@
 		89924A75FE18301F80710EF6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AACB7EAE1C9186FB00E8A85A /* libc++abi.tbd */,
 				BA2B2F5F6701B5344F6412DE /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AA1EB22B1C929A2B00970A53 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AA1EB22C1C929A5000970A53 /* MMAddFriendTextField.h */,
+				AA1EB22D1C929A5000970A53 /* MMAddFriendTextField.m */,
+				AA1EB2351C929FE900970A53 /* MMAddFriendCell.h */,
+				AA1EB2361C929FE900970A53 /* MMAddFriendCell.m */,
+				AA1EB2371C929FE900970A53 /* MMAddFriendCell.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		AA1EB2311C929F1A00970A53 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AA1EB2321C929FCE00970A53 /* MMAddFriend.h */,
+				AA1EB2331C929FCE00970A53 /* MMAddFriend.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		AA8F878B1C91084A003C93C0 /* Login */ = {
@@ -184,9 +243,7 @@
 			children = (
 				AA99C0791C901A5600C9A477 /* Classes */,
 				AA99C0431C8FF8AE00C9A477 /* Assets.xcassets */,
-				AA99C0481C8FF8AE00C9A477 /* Info.plist */,
 				AA99C06E1C90028400C9A477 /* PrefixHeader.pch */,
-				AA8F87951C9113AF003C93C0 /* Images.xcassets */,
 				AA99C0371C8FF8AE00C9A477 /* Supporting Files */,
 			);
 			path = MM;
@@ -195,6 +252,8 @@
 		AA99C0371C8FF8AE00C9A477 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				AA1EB22F1C929EF700970A53 /* addFriend.plist */,
+				AA99C0481C8FF8AE00C9A477 /* Info.plist */,
 				AA99C0381C8FF8AE00C9A477 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -234,6 +293,8 @@
 		AA99C07A1C901A5E00C9A477 /* Conversation */ = {
 			isa = PBXGroup;
 			children = (
+				AA1EB2311C929F1A00970A53 /* Model */,
+				AA1EB22B1C929A2B00970A53 /* View */,
 				AA99C0891C90324400C9A477 /* Controller */,
 			);
 			name = Conversation;
@@ -266,6 +327,8 @@
 		AA99C0801C901B0100C9A477 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				AACB7EA41C917C5B00E8A85A /* View */,
+				AACB7EA01C916E3F00E8A85A /* Extension */,
 				AA99C0A11C903ECC00C9A477 /* Controller */,
 				AA99C03A1C8FF8AE00C9A477 /* AppDelegate.h */,
 				AA99C03B1C8FF8AE00C9A477 /* AppDelegate.m */,
@@ -278,6 +341,9 @@
 			children = (
 				AA99C08A1C90326300C9A477 /* ConversationViewController.h */,
 				AA99C08B1C90326300C9A477 /* ConversationViewController.m */,
+				AA1EB2261C92779D00970A53 /* MMAddFriendsViewController.h */,
+				AA1EB2271C92779D00970A53 /* MMAddFriendsViewController.m */,
+				AA1EB2281C92779D00970A53 /* MMAddFriendsViewController.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -318,6 +384,32 @@
 				AA99C09F1C9034E800C9A477 /* MMNavigationController.m */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		AACB7EA01C916E3F00E8A85A /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				AA564D081C92B806008B3F4E /* UIImage+JWExtension.h */,
+				AA564D091C92B806008B3F4E /* UIImage+JWExtension.m */,
+				AA564D0A1C92B806008B3F4E /* UIImageView+JWExtension.h */,
+				AA564D0B1C92B806008B3F4E /* UIImageView+JWExtension.m */,
+				AACB7EA11C916E4D00E8A85A /* UIView+JWExtension.h */,
+				AACB7EA21C916E4D00E8A85A /* UIView+JWExtension.m */,
+			);
+			name = Extension;
+			sourceTree = "<group>";
+		};
+		AACB7EA41C917C5B00E8A85A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AACB7EA51C917C6700E8A85A /* KxMenu.h */,
+				AACB7EA61C917C6700E8A85A /* KxMenu.m */,
+				AACB7EA81C917D2B00E8A85A /* UIColor+RCColor.h */,
+				AACB7EA91C917D2B00E8A85A /* UIColor+RCColor.m */,
+				AACB7EAB1C917D5100E8A85A /* UIImage+RCImage.h */,
+				AACB7EAC1C917D5100E8A85A /* UIImage+RCImage.m */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		C11C2729D9BAD3CF7CC87C7A /* Pods */ = {
@@ -435,9 +527,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA8F87961C9113AF003C93C0 /* Images.xcassets in Resources */,
+				AA1EB22A1C92779D00970A53 /* MMAddFriendsViewController.xib in Resources */,
 				AA8F87911C91091A003C93C0 /* Login.storyboard in Resources */,
+				AA1EB2301C929EF700970A53 /* addFriend.plist in Resources */,
 				AA99C0441C8FF8AE00C9A477 /* Assets.xcassets in Resources */,
+				AA1EB2391C929FE900970A53 /* MMAddFriendCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -511,15 +605,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA8F87991C911464003C93C0 /* MMLoginRegisterTextField.m in Sources */,
+				AACB7EA31C916E4D00E8A85A /* UIView+JWExtension.m in Sources */,
 				AA99C09D1C9033AD00C9A477 /* MeViewController.m in Sources */,
 				AA99C0A01C9034E800C9A477 /* MMNavigationController.m in Sources */,
 				AA99C0951C9032B700C9A477 /* ChatRoomViewController.m in Sources */,
+				AA1EB22E1C929A5000970A53 /* MMAddFriendTextField.m in Sources */,
 				AA99C03C1C8FF8AE00C9A477 /* AppDelegate.m in Sources */,
 				AA8F87941C910C32003C93C0 /* MMLoginViewController.m in Sources */,
+				AACB7EA71C917C6700E8A85A /* KxMenu.m in Sources */,
+				AACB7EAD1C917D5100E8A85A /* UIImage+RCImage.m in Sources */,
 				AA99C0881C90219400C9A477 /* MMTabBarController.m in Sources */,
+				AA1EB2381C929FE900970A53 /* MMAddFriendCell.m in Sources */,
 				AA99C0391C8FF8AE00C9A477 /* main.m in Sources */,
 				AA99C0901C90328700C9A477 /* GroupsViewController.m in Sources */,
+				AACB7EAA1C917D2B00E8A85A /* UIColor+RCColor.m in Sources */,
+				AA1EB2291C92779D00970A53 /* MMAddFriendsViewController.m in Sources */,
 				AA99C08C1C90326300C9A477 /* ConversationViewController.m in Sources */,
+				AA564D0D1C92B806008B3F4E /* UIImageView+JWExtension.m in Sources */,
+				AA564D0C1C92B806008B3F4E /* UIImage+JWExtension.m in Sources */,
+				AA1EB2341C929FCE00970A53 /* MMAddFriend.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

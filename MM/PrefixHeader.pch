@@ -14,9 +14,29 @@
 
 #define RongAppKey @"pgyu6atqyltqu"
 
+/**********************Controller******************************/
+#import "MMTabBarController.h"
+#import "ConversationViewController.h"
+#import "GroupsViewController.h"
+#import "ChatRoomViewController.h"
+#import "MeViewController.h"
+#import "MMNavigationController.h"
+#import "MMAddFriendsViewController.h"
+/**********************View******************************/
+#import "MMLoginRegisterTextField.h"
+#import "MMAddFriendCell.h"
+/**********************Model******************************/
+#import "MMAddFriend.h"
+/**********************第三方******************************/
+#import "UIView+JWExtension.h"
+#import "UIImageView+JWExtension.h"
+#import "UIImage+JWExtension.h"
+#import "KxMenu.h"
+#import <SVProgressHUD.h>
+
 /*************************************************************/
 // 方法的输出
-#define MMLogFunc JWLog(@"%s", __func__)
+#define MMLogFunc NSLog(@"%s", __func__)
 
 // 颜色
 #define MMARGBColor(a, r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)/255.0]
@@ -46,14 +66,4 @@
 // 约束
 #define MMConstantMargin 20;
 
-/**********************Controller******************************/
-#import "MMTabBarController.h"
-#import "ConversationViewController.h"
-#import "GroupsViewController.h"
-#import "ChatRoomViewController.h"
-#import "MeViewController.h"
-#import "MMNavigationController.h"
-
-
-#import "MMLoginRegisterTextField.h"
 #endif

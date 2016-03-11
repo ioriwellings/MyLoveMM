@@ -1,13 +1,18 @@
 PODS:
   - RongCloudIMKit (2.4.0)
+  - SDWebImage (3.7.5):
+    - SDWebImage/Core (= 3.7.5)
+  - SDWebImage/Core (3.7.5)
   - SVProgressHUD (1.1.3)
 
 DEPENDENCIES:
   - RongCloudIMKit (= 2.4.0)
+  - SDWebImage (~> 3.7)
   - SVProgressHUD
 
 SPEC CHECKSUMS:
   RongCloudIMKit: c2cb0013452b98b38267d395b6155665344db96e
+  SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
   SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
 
 COCOAPODS: 0.39.0
