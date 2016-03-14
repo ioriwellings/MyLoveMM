@@ -98,6 +98,7 @@
                 <constraint firstItem="ycu-za-Uv4" firstAttribute="top" secondItem="ui9-gM-oQG" secondAttribute="bottom" id="hyJ-c0-yl1"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <point key="canvasLocation" x="124.5" y="147.5"/>
         </view>
     </objects>
     <resources>

@@ -200,8 +200,8 @@
 			children = (
 				F6DB06151D6458086B2EC4609BFC65D9 /* Emoji.plist */,
 				0B0D077AA969D96617ACA73A781166DF /* en.lproj */,
-				2C795ED9F042957205C498FC3E188E1C /* RongCloud.bundle */,
 				DB57438676D1F01D8AAA94CB7DFE6FF1 /* zh-Hans.lproj */,
+				2C795ED9F042957205C498FC3E188E1C /* RongCloud.bundle */,
 			);
 			name = Resources;
 			sourceTree = "<group>";

@@ -76,7 +76,7 @@
     self.registerLineTwo.backgroundColor = MMboldColor;
 }
 
-#pragma mark - 切换注册和登录界面
+#pragma mark - 切换注册界面
 - (IBAction)registerAccountClict:(UIButton *)sender {
     
     self.leftSpace.constant = - MMWidth;
@@ -89,6 +89,7 @@
     self.title = @"注册MM";
 }
 
+#pragma mark - 切换登录界面
 - (IBAction)loginAccountClick:(UIButton *)sender {
     
     self.leftSpace.constant = - MMConstantMargin;
@@ -100,15 +101,103 @@
     self.title = @"登录MM";
 }
 
+#pragma mark - 找回密码
+- (IBAction)findBackYourPassword:(id)sender {
+    
+    [SVProgressHUD showInfoWithStatus:@"暂时没实现" maskType:SVProgressHUDMaskTypeBlack];
+    [UIView animateWithDuration:2.5 animations:^{
+        
+        [SVProgressHUD dismiss];
+    }];
+}
 
+#pragma mark - 获取默认用户
+/*
+ * 获取默认用户名、密码、TokenID
+ */
+- (BOOL)getDefaultUser {
+    
+    NSString *userName = [[NSUserDefaults standardUserDefaults] objectForKey:@"userName"]; // 获取沙盒中用户名
+    NSString *userPassword = [[NSUserDefaults standardUserDefaults] objectForKey:@"userPassword"]; // 获取沙盒中密码
+    NSString *tokenID = [[NSUserDefaults standardUserDefaults] objectForKey:@"tokenID"];
+    return userName && userPassword && tokenID;
+}
 
+- (BOOL)getDefaultTokenID {
+    
+    return [[NSUserDefaults standardUserDefaults] objectForKey:@"tokenID"];
+}
 
+- (NSString *)getDefaultUserName {
+    
+    return [[NSUserDefaults standardUserDefaults] objectForKey:@"userName"];
+}
 
+- (NSString *)getDefaultUserPassword {
+    
+    return [[NSUserDefaults standardUserDefaults] objectForKey:@"userPassword"];
+}
 
+- (NSString *)getDefaultUserTokenID {
+    
+    return [[NSUserDefaults standardUserDefaults] objectForKey:@"tokenID"];
+}
+
+#pragma mark - 登录
 - (IBAction)loginClick:(id)sender {
     
-    MMTabBarController *tab = [[MMTabBarController alloc] init];
-    self.view.window.rootViewController = tab;
+    // 检查当前网络状态
+    RCNetworkStatus status = [[RCIMClient sharedRCIMClient] getCurrentNetworkStatus];
+    if (status == RC_NotReachable) {
+        
+        [SVProgressHUD showErrorWithStatus:@"当前网络不可用" maskType:SVProgressHUDMaskTypeBlack];
+        return;
+    }
+    else { // 用户登录
+        
+        NSString *userName = self.txtLoginAccount.text;
+        NSString *userPassword = self.txtLoginPassword.text;
+        
+        // 获取沙盒中是否有保存用户信息
+        if ([self getDefaultTokenID]) { // 有
+            
+            NSLog(@"tokenID保存在沙盒");
+            NSString *tokenID = [self getDefaultUserTokenID];
+            [self loginWithUserName:userName withUserPassword:userPassword withTokenID:tokenID];
+        }
+        else { // 否
+            
+            NSLog(@"tokenID没有保存在沙盒");
+            // 这里通过后台接口获取用户的TokenID(暂时用融云)
+            NSString *tokenID = @"BPsq/lFeia60FVwN/BIV5qxiKdwUDwEVb3cAtaMvw1+rLZUyShKwpiY9AaqvOqDCclntoEQNOKiaIpb9glAb8g==";
+            [[NSUserDefaults standardUserDefaults] setObject:tokenID forKey:@"tokenID"]; // 缓存在沙盒
+            [self loginWithUserName:userName withUserPassword:userPassword withTokenID:tokenID];
+        }
+    }
+}
+
+- (void)loginWithUserName:(NSString *)userName withUserPassword:(NSString *)userPassword withTokenID:(NSString *)tokenID {
+    
+    [[RCIM sharedRCIM] connectWithToken:tokenID success:^(NSString *userId) {
+        
+        NSLog(@"登陆成功。当前登录的用户ID：%@", userId);
+        [self login];
+    } error:^(RCConnectErrorCode status) {
+        
+        NSLog(@"status = %zd", status);
+    } tokenIncorrect:^{
+        
+        NSLog(@"TokenID已过期，请重新获取");
+    }];
+}
+
+- (void)login {
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        MMTabBarController *tab = [[MMTabBarController alloc] init];
+        self.view.window.rootViewController = tab;
+    });
 }
 
 #pragma mark - 点击屏幕退出键盘

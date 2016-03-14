@@ -138,16 +138,32 @@
                                             <action selector="registerAccountClict:" destination="3AA-cx-6qQ" eventType="touchUpInside" id="5YU-ZJ-32N"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bdE-eo-jjb">
+                                        <rect key="frame" x="150" y="140" width="60" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="c6O-XI-S0j"/>
+                                            <constraint firstAttribute="width" constant="60" id="pQ4-Dj-AbE"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="13"/>
+                                        <state key="normal" title="找回密码">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="findBackYourPassword:" destination="3AA-cx-6qQ" eventType="touchUpInside" id="Mrk-m3-Ykf"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="F8s-PA-Lxg"/>
                                     <constraint firstItem="Ard-t8-WGX" firstAttribute="top" secondItem="TKZ-MR-d3B" secondAttribute="bottom" constant="20" id="Mik-KK-v7v"/>
+                                    <constraint firstItem="bdE-eo-jjb" firstAttribute="leading" secondItem="Ard-t8-WGX" secondAttribute="leading" id="Poj-6e-vqC"/>
                                     <constraint firstItem="Ard-t8-WGX" firstAttribute="trailing" secondItem="TKZ-MR-d3B" secondAttribute="trailing" id="RbO-dP-vOC"/>
                                     <constraint firstItem="TKZ-MR-d3B" firstAttribute="centerX" secondItem="5e9-3p-0u6" secondAttribute="centerX" id="dFv-xM-8fq"/>
                                     <constraint firstItem="2rG-tq-a52" firstAttribute="top" secondItem="Ard-t8-WGX" secondAttribute="bottom" constant="10" id="eFd-Qj-ueY"/>
                                     <constraint firstItem="TKZ-MR-d3B" firstAttribute="top" secondItem="5e9-3p-0u6" secondAttribute="top" id="oIw-cT-CRq"/>
                                     <constraint firstItem="2rG-tq-a52" firstAttribute="trailing" secondItem="Ard-t8-WGX" secondAttribute="trailing" id="r3k-yD-bmz"/>
+                                    <constraint firstItem="bdE-eo-jjb" firstAttribute="centerY" secondItem="2rG-tq-a52" secondAttribute="centerY" id="yBV-vZ-vO0"/>
                                     <constraint firstItem="Ard-t8-WGX" firstAttribute="leading" secondItem="TKZ-MR-d3B" secondAttribute="leading" id="zzd-Hv-UxQ"/>
                                 </constraints>
                             </view>

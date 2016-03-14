@@ -2,6 +2,7 @@
 //  AppDelegate.m
 //  MM
 //  https://github.com/zhengwenming
+//  http://www.jianshu.com/p/713dbbaef2f8
 //  Created by xiyang on 16/3/9.
 //  Copyright © 2016年 jinwen.huang. All rights reserved.
 //
@@ -18,7 +19,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
     // 初始化SDK
-    [[RCIM sharedRCIM] initWithAppKey:RongAppKey];
+    [[RCIM sharedRCIM] initWithAppKey:RONGCLOUD_IM_APPKEY];
+
+    
     return YES;
 }
 
