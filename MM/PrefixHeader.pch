@@ -17,7 +17,7 @@
 
 /**********************Controller******************************/
 #import "MMTabBarController.h"
-#import "ConversationViewController.h"
+#import "MMConversationListViewController.h"
 #import "GroupsViewController.h"
 #import "ChatRoomViewController.h"
 #import "MeViewController.h"

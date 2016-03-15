@@ -1,25 +1,25 @@
 //
-//  ConversationViewController.m
+//  MMConversationListViewController.m
 //  MM
 //
-//  Created by xiyang on 16/3/9.
+//  Created by xiyang on 16/3/15.
 //  Copyright © 2016年 jinwen.huang. All rights reserved.
 //
 
-#import "ConversationViewController.h"
+#import "MMConversationListViewController.h"
 
-@interface ConversationViewController ()
+@interface MMConversationListViewController ()
 
+/** 强引用右上角按钮 */
 @property (strong, nonatomic) UIButton *rightBarButton;
 @end
 
-@implementation ConversationViewController
+@implementation MMConversationListViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"会话";
     self.view.backgroundColor = MMRandomColor;
-    // rightBarButtonItem
     [self setupRightBarButtonItem];
 }
 
@@ -27,7 +27,7 @@
 - (void)setupRightBarButtonItem {
     
     UIButton *rightButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-    self.rightBarButton = rightButton; 
+    self.rightBarButton = rightButton;
     [rightButton setImage:[UIImage imageNamed:@"barbuttonicon_add"] forState:UIControlStateNormal];
     [rightButton addTarget:self action:@selector(rightButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *rightBarBtn = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
@@ -37,8 +37,8 @@
 
 - (void)rightButtonClick:(UIButton *)sender {
     
-        NSArray *menuItems = @[
-        
+    NSArray *menuItems = @[
+                           
                            [KxMenuItem menuItem:@"发起聊天" image:[UIImage imageNamed:@"chat_icon"] target:self action:@selector(pushChat:)],
                            [KxMenuItem menuItem:@"添加朋友" image:[UIImage imageNamed:@"addfriend_icon"] target:self action:@selector(pushAddFriend:)],
                            [KxMenuItem menuItem:@"通讯录" image:[UIImage imageNamed:@"contact_icon"] target:self action:@selector(pushAddressBook:)],
@@ -84,6 +84,5 @@
         [SVProgressHUD dismiss];
     }];
 }
-
 
 @end

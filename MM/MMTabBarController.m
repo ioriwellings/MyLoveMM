@@ -28,7 +28,7 @@
 - (void)setupAllChildVCs {
     
     // 会话
-    [self setupChildVC:[[ConversationViewController alloc] init] title:@"会话" image:[UIImage imageNamed:@"tabbar_mainframe"] selectImage:[UIImage imageNamed:@"tabbar_mainframeHL"]];
+    [self setupChildVC:[[MMConversationListViewController alloc] init] title:@"会话" image:[UIImage imageNamed:@"tabbar_mainframe"] selectImage:[UIImage imageNamed:@"tabbar_mainframeHL"]];
     // 群组
     [self setupChildVC:[[GroupsViewController alloc] init] title:@"群组" image:[UIImage imageNamed:@"tabbar_contacts"] selectImage:[UIImage imageNamed:@"tabbar_contactsHL"]];
     // 聊天室

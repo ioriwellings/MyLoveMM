@@ -26,11 +26,11 @@
 		AA99C0521C8FF8AF00C9A477 /* MMTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA99C0511C8FF8AF00C9A477 /* MMTests.m */; };
 		AA99C05D1C8FF8AF00C9A477 /* MMUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA99C05C1C8FF8AF00C9A477 /* MMUITests.m */; };
 		AA99C0881C90219400C9A477 /* MMTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA99C0871C90219400C9A477 /* MMTabBarController.m */; };
-		AA99C08C1C90326300C9A477 /* ConversationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA99C08B1C90326300C9A477 /* ConversationViewController.m */; };
 		AA99C0901C90328700C9A477 /* GroupsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA99C08F1C90328700C9A477 /* GroupsViewController.m */; };
 		AA99C0951C9032B700C9A477 /* ChatRoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA99C0941C9032B700C9A477 /* ChatRoomViewController.m */; };
 		AA99C09D1C9033AD00C9A477 /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA99C09C1C9033AD00C9A477 /* MeViewController.m */; };
 		AA99C0A01C9034E800C9A477 /* MMNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA99C09F1C9034E800C9A477 /* MMNavigationController.m */; };
+		AAC5D7E41C97A55000B69B24 /* MMConversationListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC5D7E31C97A55000B69B24 /* MMConversationListViewController.m */; };
 		AACB7EA31C916E4D00E8A85A /* UIView+JWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = AACB7EA21C916E4D00E8A85A /* UIView+JWExtension.m */; };
 		AACB7EA71C917C6700E8A85A /* KxMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = AACB7EA61C917C6700E8A85A /* KxMenu.m */; };
 		AACB7EAA1C917D2B00E8A85A /* UIColor+RCColor.m in Sources */ = {isa = PBXBuildFile; fileRef = AACB7EA91C917D2B00E8A85A /* UIColor+RCColor.m */; };
@@ -93,8 +93,6 @@
 		AA99C06E1C90028400C9A477 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		AA99C0861C90219400C9A477 /* MMTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTabBarController.h; sourceTree = "<group>"; };
 		AA99C0871C90219400C9A477 /* MMTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMTabBarController.m; sourceTree = "<group>"; };
-		AA99C08A1C90326300C9A477 /* ConversationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConversationViewController.h; sourceTree = "<group>"; };
-		AA99C08B1C90326300C9A477 /* ConversationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversationViewController.m; sourceTree = "<group>"; };
 		AA99C08E1C90328700C9A477 /* GroupsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupsViewController.h; sourceTree = "<group>"; };
 		AA99C08F1C90328700C9A477 /* GroupsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupsViewController.m; sourceTree = "<group>"; };
 		AA99C0931C9032B700C9A477 /* ChatRoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatRoomViewController.h; sourceTree = "<group>"; };
@@ -103,6 +101,8 @@
 		AA99C09C1C9033AD00C9A477 /* MeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeViewController.m; sourceTree = "<group>"; };
 		AA99C09E1C9034E800C9A477 /* MMNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMNavigationController.h; sourceTree = "<group>"; };
 		AA99C09F1C9034E800C9A477 /* MMNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMNavigationController.m; sourceTree = "<group>"; };
+		AAC5D7E21C97A55000B69B24 /* MMConversationListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMConversationListViewController.h; sourceTree = "<group>"; };
+		AAC5D7E31C97A55000B69B24 /* MMConversationListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMConversationListViewController.m; sourceTree = "<group>"; };
 		AACB7EA11C916E4D00E8A85A /* UIView+JWExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+JWExtension.h"; sourceTree = "<group>"; };
 		AACB7EA21C916E4D00E8A85A /* UIView+JWExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+JWExtension.m"; sourceTree = "<group>"; };
 		AACB7EA51C917C6700E8A85A /* KxMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KxMenu.h; sourceTree = "<group>"; };
@@ -339,8 +339,8 @@
 		AA99C0891C90324400C9A477 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				AA99C08A1C90326300C9A477 /* ConversationViewController.h */,
-				AA99C08B1C90326300C9A477 /* ConversationViewController.m */,
+				AAC5D7E21C97A55000B69B24 /* MMConversationListViewController.h */,
+				AAC5D7E31C97A55000B69B24 /* MMConversationListViewController.m */,
 				AA1EB2261C92779D00970A53 /* MMAddFriendsViewController.h */,
 				AA1EB2271C92779D00970A53 /* MMAddFriendsViewController.m */,
 				AA1EB2281C92779D00970A53 /* MMAddFriendsViewController.xib */,
@@ -608,6 +608,7 @@
 				AACB7EA31C916E4D00E8A85A /* UIView+JWExtension.m in Sources */,
 				AA99C09D1C9033AD00C9A477 /* MeViewController.m in Sources */,
 				AA99C0A01C9034E800C9A477 /* MMNavigationController.m in Sources */,
+				AAC5D7E41C97A55000B69B24 /* MMConversationListViewController.m in Sources */,
 				AA99C0951C9032B700C9A477 /* ChatRoomViewController.m in Sources */,
 				AA1EB22E1C929A5000970A53 /* MMAddFriendTextField.m in Sources */,
 				AA99C03C1C8FF8AE00C9A477 /* AppDelegate.m in Sources */,
@@ -620,7 +621,6 @@
 				AA99C0901C90328700C9A477 /* GroupsViewController.m in Sources */,
 				AACB7EAA1C917D2B00E8A85A /* UIColor+RCColor.m in Sources */,
 				AA1EB2291C92779D00970A53 /* MMAddFriendsViewController.m in Sources */,
-				AA99C08C1C90326300C9A477 /* ConversationViewController.m in Sources */,
 				AA564D0D1C92B806008B3F4E /* UIImageView+JWExtension.m in Sources */,
 				AA564D0C1C92B806008B3F4E /* UIImage+JWExtension.m in Sources */,
 				AA1EB2341C929FCE00970A53 /* MMAddFriend.m in Sources */,
