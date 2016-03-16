@@ -6,9 +6,9 @@
 //  Copyright © 2016年 jinwen.huang. All rights reserved.
 //
 
-#import "MMAddFriendsViewController.h"
+#import "MMAddPublicViewController.h"
 
-@interface MMAddFriendsViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface MMAddPublicViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -16,7 +16,7 @@
 
 @end
 
-@implementation MMAddFriendsViewController
+@implementation MMAddPublicViewController
 
 #pragma mark - lazy
 - (NSArray *)addFriends {
@@ -39,7 +39,7 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    self.title = @"添加好友";
+    self.title = @"添加公众号";
     [self setupTableView];
 }
 

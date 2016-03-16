@@ -10,4 +10,6 @@
 
 @interface MMConversationListViewController : RCConversationListViewController
 
+@property (assign, nonatomic) BOOL isClick;
+
 @end

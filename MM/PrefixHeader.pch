@@ -18,14 +18,17 @@
 /**********************Controller******************************/
 #import "MMTabBarController.h"
 #import "MMConversationListViewController.h"
+#import "MMChatViewController.h"
 #import "GroupsViewController.h"
 #import "ChatRoomViewController.h"
 #import "MeViewController.h"
 #import "MMNavigationController.h"
-#import "MMAddFriendsViewController.h"
-/**********************View******************************/
+#import "MMAddPublicViewController.h"
+#import "MMSearchFriendViewController.h"
+/**********************View&Cell******************************/
 #import "MMLoginRegisterTextField.h"
 #import "MMAddFriendCell.h"
+#import "MMFriendsCell.h"
 /**********************Model******************************/
 #import "MMAddFriend.h"
 /**********************第三方******************************/
@@ -34,7 +37,12 @@
 #import "UIImage+JWExtension.h"
 #import "KxMenu.h"
 #import <SVProgressHUD.h>
-
+#import "MJExtension/MJExtension.h"
+#import <AFNetworking.h>
+/*************************tools*******************************/
+#import "MMHttpTools.h"
+#import "MMAFHttpTool.h"
+#import "MMRequestBLL.h"
 /*************************************************************/
 // 方法的输出
 #define MMLogFunc NSLog(@"%s", __func__)

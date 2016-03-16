@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MMAddFriendsViewController : UIViewController
+@interface MMAddPublicViewController : UIViewController
 
 @end

@@ -10,6 +10,7 @@
 
 #define TokenID001 @"BPsq/lFeia60FVwN/BIV5qxiKdwUDwEVb3cAtaMvw1+rLZUyShKwpiY9AaqvOqDCclntoEQNOKiaIpb9glAb8g=="
 #define TokenID002 @"Hf7JPyBNv5pxbBB40q9r/3ZIXiHVgK3eO1/Yw5RoSXKNLF+D+3zVnwtALdoeTmWfPG2W6die6kRv/E8kvQ5QtA=="
+#define TokenID003 @"UBdN9IKOiDOGcLMsWd5tTnZIXiHVgK3eO1/Yw5RoSXKNLF+D+3zVn84k+XFaLXPvVhWUPXFYUjdJo5UUWZpTzQ=="
 
 @interface MMLoginViewController ()
 /** 登录账号 */
@@ -158,10 +159,10 @@
     }
     else { // 用户登录
         
-        NSString *userName = self.txtLoginAccount.text;
-        NSString *userPassword = self.txtLoginPassword.text;
+        NSString *userID = self.txtLoginAccount.text;
+        NSString *userName = self.txtLoginPassword.text;
         // 当前tokenID
-        NSString *tokenID = TokenID002;
+        NSString *tokenID = TokenID001;
         // 获取沙盒中是否有保存用户信息
         if ([self isExistTokenID]) { // 有
             
@@ -169,13 +170,13 @@
             if ([existTokenID isEqualToString:tokenID]) {
                 
                 NSLog(@"tokenID保存在沙盒，而且跟当前的一样");
-                [self loginWithUserName:userName withUserPassword:userPassword withTokenID:tokenID];
+                [self loginWithUserID:userID withUserName:userName withTokenID:tokenID];
             }
             else {
                 
                 NSLog(@"tokenID保存在沙盒，而且跟当前的不一样");
                 [[NSUserDefaults standardUserDefaults] setObject:tokenID forKey:@"tokenID"]; // 缓存在沙盒
-                [self loginWithUserName:userName withUserPassword:userPassword withTokenID:tokenID];
+                [self loginWithUserID:userID withUserName:userName withTokenID:tokenID];
             }
         }
         else { // 否
@@ -183,12 +184,12 @@
             NSLog(@"tokenID没有保存在沙盒");
             // 这里通过后台接口获取用户的TokenID(暂时用融云)
             [[NSUserDefaults standardUserDefaults] setObject:tokenID forKey:@"tokenID"]; // 缓存在沙盒
-            [self loginWithUserName:userName withUserPassword:userPassword withTokenID:tokenID];
+            [self loginWithUserID:userID withUserName:userName withTokenID:tokenID];
         }
     }
 }
 
-- (void)loginWithUserName:(NSString *)userName withUserPassword:(NSString *)userPassword withTokenID:(NSString *)tokenID {
+- (void)loginWithUserID:(NSString *)userID withUserName:(NSString *)userName withTokenID:(NSString *)tokenID {
     
     [[RCIM sharedRCIM] connectWithToken:tokenID success:^(NSString *userId) {
         
