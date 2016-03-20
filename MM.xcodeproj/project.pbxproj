@@ -35,6 +35,7 @@
 		AA99C0951C9032B700C9A477 /* ChatRoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA99C0941C9032B700C9A477 /* ChatRoomViewController.m */; };
 		AA99C09D1C9033AD00C9A477 /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA99C09C1C9033AD00C9A477 /* MeViewController.m */; };
 		AA99C0A01C9034E800C9A477 /* MMNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA99C09F1C9034E800C9A477 /* MMNavigationController.m */; };
+		AAA43E081C9E412600C5B677 /* RCAnimatedImagesView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA43E071C9E412600C5B677 /* RCAnimatedImagesView.m */; };
 		AAC5D7E41C97A55000B69B24 /* MMConversationListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC5D7E31C97A55000B69B24 /* MMConversationListViewController.m */; };
 		AAC5D7E81C97BA7A00B69B24 /* MJExtension in Resources */ = {isa = PBXBuildFile; fileRef = AAC5D7E71C97BA7A00B69B24 /* MJExtension */; };
 		AAC5D7EB1C97BD5900B69B24 /* MMChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC5D7EA1C97BD5900B69B24 /* MMChatViewController.m */; };
@@ -118,6 +119,8 @@
 		AA99C09C1C9033AD00C9A477 /* MeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeViewController.m; sourceTree = "<group>"; };
 		AA99C09E1C9034E800C9A477 /* MMNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMNavigationController.h; sourceTree = "<group>"; };
 		AA99C09F1C9034E800C9A477 /* MMNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMNavigationController.m; sourceTree = "<group>"; };
+		AAA43E061C9E412600C5B677 /* RCAnimatedImagesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAnimatedImagesView.h; sourceTree = "<group>"; };
+		AAA43E071C9E412600C5B677 /* RCAnimatedImagesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCAnimatedImagesView.m; sourceTree = "<group>"; };
 		AAC5D7E21C97A55000B69B24 /* MMConversationListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMConversationListViewController.h; sourceTree = "<group>"; };
 		AAC5D7E31C97A55000B69B24 /* MMConversationListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMConversationListViewController.m; sourceTree = "<group>"; };
 		AAC5D7E71C97BA7A00B69B24 /* MJExtension */ = {isa = PBXFileReference; lastKnownFileType = folder; path = MJExtension; sourceTree = "<group>"; };
@@ -202,6 +205,8 @@
 		AA7BFE5E1C993E74003BD0DC /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				AAA43E061C9E412600C5B677 /* RCAnimatedImagesView.h */,
+				AAA43E071C9E412600C5B677 /* RCAnimatedImagesView.m */,
 				AA7BFE621C99409B003BD0DC /* MMHttpTools.h */,
 				AA7BFE631C99409B003BD0DC /* MMHttpTools.m */,
 				AAE3F6EC1C9949AD003434DF /* MMRequestBLL.h */,
@@ -676,6 +681,7 @@
 				AA19DD321C98F24A00A038BB /* MMSearchFriendViewController.m in Sources */,
 				AA7BFE641C99409B003BD0DC /* MMHttpTools.m in Sources */,
 				AACB7EA71C917C6700E8A85A /* KxMenu.m in Sources */,
+				AAA43E081C9E412600C5B677 /* RCAnimatedImagesView.m in Sources */,
 				AACB7EAD1C917D5100E8A85A /* UIImage+RCImage.m in Sources */,
 				AA99C0881C90219400C9A477 /* MMTabBarController.m in Sources */,
 				AA1EB2381C929FE900970A53 /* MMAddFriendCell.m in Sources */,

@@ -12,7 +12,7 @@
 #define TokenID002 @"Hf7JPyBNv5pxbBB40q9r/3ZIXiHVgK3eO1/Yw5RoSXKNLF+D+3zVnwtALdoeTmWfPG2W6die6kRv/E8kvQ5QtA=="
 #define TokenID003 @"UBdN9IKOiDOGcLMsWd5tTnZIXiHVgK3eO1/Yw5RoSXKNLF+D+3zVn84k+XFaLXPvVhWUPXFYUjdJo5UUWZpTzQ=="
 
-@interface MMLoginViewController ()
+@interface MMLoginViewController () <RCAnimatedImagesViewDelegate>
 /** 登录账号 */
 @property (weak, nonatomic) IBOutlet MMLoginRegisterTextField *txtLoginAccount;
 /** 登录密码 */
@@ -31,7 +31,9 @@
 /** 左边约束 */
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftSpace;
 
-
+/** 添加动态图 */
+// @property (nonatomic, retain) RCAnimatedImagesView *animatedImagesView;
+@property (strong, nonatomic) IBOutlet RCAnimatedImagesView *animatedImagesView;
 
 @end
 
@@ -53,6 +55,40 @@
     [self.txtRegisterAccount addTarget:self action:@selector(accountTextfieldDidEndEditing) forControlEvents:UIControlEventEditingDidEnd];
     [self.txtRegisterPassword addTarget:self action:@selector(passwordTextFieldDidBeginEditing) forControlEvents:UIControlEventEditingDidBegin];
     [self.txtRegisterPassword addTarget:self action:@selector(passwordTextFieldDidEndEditing) forControlEvents:UIControlEventEditingDidEnd];
+    
+    // 添加动态图
+    self.animatedImagesView.delegate = self;
+}
+
+#pragma mark - <RCAnimatedImagesViewDelegate>
+- (NSUInteger)animatedImagesNumberOfImages:(RCAnimatedImagesView*)animatedImagesView
+{
+    return 2;
+}
+
+- (UIImage*)animatedImagesView:(RCAnimatedImagesView*)animatedImagesView imageAtIndex:(NSUInteger)index
+{
+    return [UIImage imageNamed:@"back_logo.jpg"];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+    [self.animatedImagesView startAnimating];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    
+    [self.animatedImagesView stopAnimating];
+}
+
+- (void)viewDidUnload
+{
+    [self setAnimatedImagesView:nil];
+    
+    [super viewDidUnload];
 }
 
 #pragma mark - 改变TextField下划线颜色方法

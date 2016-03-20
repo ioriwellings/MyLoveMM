@@ -33,6 +33,7 @@
         NSString *code = [NSString stringWithFormat:@"%@", response[@"code"]];
         if (friendList) {
             
+            NSLog(@"code = %@", response);
             if ([code isEqualToString:@"200"]) { // 请求成功
                 
                 NSArray *dataArray = response[@"result"];

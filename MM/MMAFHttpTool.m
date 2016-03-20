@@ -34,7 +34,7 @@
             [manage GET:url parameters:params success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
                 
                 if (success) {
-                    NSLog(@"responseObject = %@", responseObject);
+    
                     success(responseObject);
                 }
             } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {

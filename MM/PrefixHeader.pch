@@ -43,6 +43,7 @@
 #import "MMHttpTools.h"
 #import "MMAFHttpTool.h"
 #import "MMRequestBLL.h"
+#import "RCAnimatedImagesView.h"
 /*************************************************************/
 // 方法的输出
 #define MMLogFunc NSLog(@"%s", __func__)
