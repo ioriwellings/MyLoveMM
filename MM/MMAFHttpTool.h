@@ -30,7 +30,13 @@ typedef NS_ENUM(NSInteger, RequestMethodType){
                   success:(void (^)(id response))success
                   failure:(void (^)(NSError *err))failure;
 
+/** 获取用户信息 */
++ (void)getUserWithUserId:(NSString *)userId success:(void (^)(id response))success failure:(void (^)(NSError* error))failure;
+
 /** 按昵称搜索好友 */
 + (void)searchFriendListByName:(NSString *)name success:(void (^)(id response))success failure:(void (^)(NSError *error))failure;
+
+/** 根据Email登录 */
++ (void)loginWithEmail:(NSString *)email withPassword:(NSString *)password env:(NSString *)env success:(void (^)(id response))success failure:(void (^)(NSError *error))failure;
 
 @end

@@ -12,8 +12,19 @@
 #import <RongIMKit/RongIMKit.h>
 #import <RongIMLib/RongIMLib.h>
 
-#define RONGCLOUD_IM_APPKEY @"pgyu6atqyltqu"
-#define RONGCLOUD_IM_AppSecret @"G9bIt9fteb6Ci"
+#define MMAPP_IM_APPKEY @"pgyu6atqyltqu"
+#define MMAPP_IM_AppSecret @"G9bIt9fteb6Ci"
+
+//#define RONGCLOUD_IM_APPKEY @"e0x9wycfx7flq" //offline key
+#define RONGCLOUD_IM_APPKEY @"z3v5yqkbv8v30" // online key
+
+#define UMENG_APPKEY @"563755cbe0f55a5cb300139c"
+
+#ifndef __OPTIMIZE__
+#define NSLog(...) NSLog(__VA_ARGS__)
+#else
+#define NSLog(...) {}
+#endif
 
 /**********************Controller******************************/
 #import "MMTabBarController.h"
@@ -31,19 +42,25 @@
 #import "MMFriendsCell.h"
 /**********************Model******************************/
 #import "MMAddFriend.h"
+#import "MMLoginInfo.h"
+#import "MMGroupInfo.h"
+#import "MMUserInfo.h"
 /**********************第三方******************************/
 #import "UIView+JWExtension.h"
 #import "UIImageView+JWExtension.h"
 #import "UIImage+JWExtension.h"
+#import "MJExtension/MJExtension.h"
+#import "NSString+Extension.h"
 #import "KxMenu.h"
 #import <SVProgressHUD.h>
-#import "MJExtension/MJExtension.h"
 #import <AFNetworking.h>
 /*************************tools*******************************/
 #import "MMHttpTools.h"
 #import "MMAFHttpTool.h"
 #import "MMRequestBLL.h"
 #import "RCAnimatedImagesView.h"
+#import "MMTextFieldValidate.h"
+#import "MMDataBaseManager.h"
 /*************************************************************/
 // 方法的输出
 #define MMLogFunc NSLog(@"%s", __func__)

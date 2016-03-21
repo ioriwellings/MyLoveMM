@@ -14,15 +14,16 @@
 
 /** 所有好友 */
 @property (strong, nonatomic) NSMutableArray *allFriends;
+
 /** 所有群组 */
 @property (strong, nonatomic) NSMutableArray *allGroups;
+
 /** MMHttpTools单例 */
 + (MMHttpTools *)shareInstance;
 
-
-
-
-
+/** 获取用户个人信息 */
+- (void)getUserInfoWithUserID:(NSString *)userID
+                   completion:(void (^)(RCUserInfo *user))completion;
 
 /** 按昵称搜索好友 */
 - (void)searchFriendListByName:(NSString *)name

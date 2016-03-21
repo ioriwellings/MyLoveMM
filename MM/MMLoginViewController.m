@@ -7,10 +7,13 @@
 //
 
 #import "MMLoginViewController.h"
+#import "JSONModel/JSONModelLib.h"
 
 #define TokenID001 @"BPsq/lFeia60FVwN/BIV5qxiKdwUDwEVb3cAtaMvw1+rLZUyShKwpiY9AaqvOqDCclntoEQNOKiaIpb9glAb8g=="
 #define TokenID002 @"Hf7JPyBNv5pxbBB40q9r/3ZIXiHVgK3eO1/Yw5RoSXKNLF+D+3zVnwtALdoeTmWfPG2W6die6kRv/E8kvQ5QtA=="
 #define TokenID003 @"UBdN9IKOiDOGcLMsWd5tTnZIXiHVgK3eO1/Yw5RoSXKNLF+D+3zVn84k+XFaLXPvVhWUPXFYUjdJo5UUWZpTzQ=="
+
+#define Env @"1"
 
 @interface MMLoginViewController () <RCAnimatedImagesViewDelegate>
 /** 登录账号 */
@@ -34,6 +37,9 @@
 /** 添加动态图 */
 // @property (nonatomic, retain) RCAnimatedImagesView *animatedImagesView;
 @property (strong, nonatomic) IBOutlet RCAnimatedImagesView *animatedImagesView;
+
+/** 是否为测试 */
+@property (nonatomic) BOOL mmDebug;
 
 @end
 
@@ -68,7 +74,7 @@
 
 - (UIImage*)animatedImagesView:(RCAnimatedImagesView*)animatedImagesView imageAtIndex:(NSUInteger)index
 {
-    return [UIImage imageNamed:@"back_logo.jpg"];
+    return [UIImage imageNamed:@"aisi_bg.jpg"];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -157,10 +163,10 @@
  */
 - (BOOL)getDefaultUser {
     
-    NSString *userName = [[NSUserDefaults standardUserDefaults] objectForKey:@"userName"]; // 获取沙盒中用户名
-    NSString *userPassword = [[NSUserDefaults standardUserDefaults] objectForKey:@"userPassword"]; // 获取沙盒中密码
+    NSString *email = [[NSUserDefaults standardUserDefaults] objectForKey:@"email"]; // 获取沙盒中用户名
+    NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:@"password"]; // 获取沙盒中密码
     NSString *tokenID = [[NSUserDefaults standardUserDefaults] objectForKey:@"tokenID"];
-    return userName && userPassword && tokenID;
+    return email && password && tokenID;
 }
 
 - (BOOL)isExistTokenID {
@@ -168,14 +174,14 @@
     return [[NSUserDefaults standardUserDefaults] objectForKey:@"tokenID"];
 }
 
-- (NSString *)getDefaultUserName {
+- (NSString *)getDefaultEmail {
     
-    return [[NSUserDefaults standardUserDefaults] objectForKey:@"userName"];
+    return [[NSUserDefaults standardUserDefaults] objectForKey:@"email"];
 }
 
-- (NSString *)getDefaultUserPassword {
+- (NSString *)getDefaultPassword {
     
-    return [[NSUserDefaults standardUserDefaults] objectForKey:@"userPassword"];
+    return [[NSUserDefaults standardUserDefaults] objectForKey:@"password"];
 }
 
 - (NSString *)getDefaultUserTokenID {
@@ -195,8 +201,150 @@
     }
     else { // 用户登录
         
-        NSString *userID = self.txtLoginAccount.text;
-        NSString *userName = self.txtLoginPassword.text;
+        NSString *email = self.txtLoginAccount.text;
+        NSString *password = self.txtLoginPassword.text;
+        [self loginWithEmail:email withPassword:password];
+    }
+}
+
+- (void)loginWithEmail:(NSString *)email withPassword:(NSString *)password {
+    
+    if ([self validateEmail:email password:password]) {
+        
+        [SVProgressHUD showWithStatus:@"登录中..." maskType:SVProgressHUDMaskTypeBlack];
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"UserCookies"];
+        [MMAFHttpTool loginWithEmail:email withPassword:password env:Env success:^(id response) {
+            
+            if ([response[@"code"] intValue] == 200) {
+                
+                NSString *token = response[@"result"][@"token"];
+                [self loginRongCloudWithEmail:email withPassword:password withToken:token];
+            }
+            else {
+                
+                [SVProgressHUD dismiss];
+                int errorCode = [response[@"code"] intValue];
+                NSLog(@"NSError is %d",errorCode);
+                if (errorCode == 500) {
+                    
+                    [SVProgressHUD showErrorWithStatus:@"APP服务器错误" maskType:SVProgressHUDMaskTypeBlack];
+                }
+                else {
+                    
+                    [SVProgressHUD showErrorWithStatus:@"用户名或密码错误" maskType:SVProgressHUDMaskTypeBlack];
+                }
+            }
+        } failure:^(NSError *error) {
+            
+            [SVProgressHUD dismiss];
+            NSLog(@"NSError is %ld",(long)error.code);
+            if (error.code == 3840) {
+                
+                [SVProgressHUD showErrorWithStatus:@"用户名或密码错误" maskType:SVProgressHUDMaskTypeBlack];
+            }
+            else {
+                [SVProgressHUD showErrorWithStatus:@"DemoServer错误" maskType:SVProgressHUDMaskTypeBlack];
+            }
+        }];
+    }
+    else {
+        
+        [SVProgressHUD showInfoWithStatus:@"请检查用户名和密码" maskType:SVProgressHUDMaskTypeBlack];
+    }
+}
+
+#pragma mark - 登录融云服务器
+/**
+ *  登录融云服务器
+ *
+ *  @param userName 用户名
+ *  @param token    token
+ *  @param password 密码
+ */
+- (void)loginRongCloudWithEmail:(NSString *)email withPassword:(NSString *)password withToken:(NSString *)token {
+    
+    // 登录融云服务器
+    [[RCIM sharedRCIM] connectWithToken:token success:^(NSString *userId) {
+        
+        NSLog([NSString stringWithFormat:@"token is %@  userId is %@",token,userId],nil);
+        // 成功登录融云服务器
+        [self loginSuccessWithEmail:email withPassword:password withToken:token withUserId:userId];
+        
+    } error:^(RCConnectErrorCode status) {
+        
+        [SVProgressHUD dismiss];
+        NSLog(@"Token无效,RCConnectErrorCode is %ld",(long)status);
+    } tokenIncorrect:^{
+        [SVProgressHUD dismiss];
+        NSLog(@"TokenID已过期，请重新获取");
+    }];
+}
+
+#pragma mark - 成功登录服务器
+- (void)loginSuccessWithEmail:(NSString *)email withPassword:(NSString *)password withToken:(NSString *)token withUserId:(NSString *)userId {
+    
+    // 保存默认用户的基本信息到沙盒中
+    [[NSUserDefaults standardUserDefaults] setObject:email forKey:@"email"];
+    [[NSUserDefaults standardUserDefaults] setObject:password forKey:@"password"];
+    [[NSUserDefaults standardUserDefaults] setObject:token forKey:@"token"];
+    [[NSUserDefaults standardUserDefaults] setObject:userId forKey:@"userID"];
+    [[NSUserDefaults standardUserDefaults] synchronize]; // 命令直接同步到文件里，来避免数据的丢失
+    // 设置当前用户信息
+    RCUserInfo *currentUserInfo = [[RCUserInfo alloc] initWithUserId:userId name:email portrait:nil];
+    [RCIMClient sharedRCIMClient].currentUserInfo = currentUserInfo;
+    // 保存登录用户信息
+    [MMHTTPTOOLS getUserInfoWithUserID:userId completion:^(RCUserInfo *user) {
+        
+        [[RCIM sharedRCIM] refreshUserInfoCache:user withUserId:userId];
+        [[NSUserDefaults standardUserDefaults] setObject:user.portraitUri forKey:@"portraitUri"];
+        [[NSUserDefaults standardUserDefaults] setObject:user.name forKey:@"username"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+    }];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        MMTabBarController *tab = [[MMTabBarController alloc] init];
+        self.view.window.rootViewController = tab;
+    });
+}
+
+
+#pragma mark - 验证用户信息格式
+- (BOOL)validateEmail:(NSString *)email password:(NSString *)password {
+    
+    NSString *alertMessage = nil;
+    if (email.length == 0) {
+        alertMessage = @"用户名不能为空";
+    }
+    else if (password.length == 0) {
+        alertMessage = @"密码不能为空";
+    }
+    
+    if (alertMessage) {
+        
+        [SVProgressHUD showInfoWithStatus:alertMessage maskType:SVProgressHUDMaskTypeBlack];
+        return NO;
+    }
+    return [MMTextFieldValidate validateEmail:email]
+        && [MMTextFieldValidate validatePassword:password];
+}
+
+#pragma mark - 另外一种登录方式
+- (void)extraLogin {
+
+    // 检查当前网络状态
+    RCNetworkStatus status = [[RCIMClient sharedRCIMClient] getCurrentNetworkStatus];
+    if (status == RC_NotReachable) {
+        
+        [SVProgressHUD showErrorWithStatus:@"当前网络不可用" maskType:SVProgressHUDMaskTypeBlack];
+        return;
+    }
+    else { // 用户登录
+        
+        NSString *username = self.txtLoginAccount.text;
+        NSString *password = self.txtLoginPassword.text;
+        
         // 当前tokenID
         NSString *tokenID = TokenID001;
         // 获取沙盒中是否有保存用户信息
@@ -206,13 +354,13 @@
             if ([existTokenID isEqualToString:tokenID]) {
                 
                 NSLog(@"tokenID保存在沙盒，而且跟当前的一样");
-                [self loginWithUserID:userID withUserName:userName withTokenID:tokenID];
+                [self loginWithUserID:username withUserName:password withTokenID:tokenID];
             }
             else {
                 
                 NSLog(@"tokenID保存在沙盒，而且跟当前的不一样");
                 [[NSUserDefaults standardUserDefaults] setObject:tokenID forKey:@"tokenID"]; // 缓存在沙盒
-                [self loginWithUserID:userID withUserName:userName withTokenID:tokenID];
+                [self loginWithUserID:username withUserName:password withTokenID:tokenID];
             }
         }
         else { // 否
@@ -220,7 +368,7 @@
             NSLog(@"tokenID没有保存在沙盒");
             // 这里通过后台接口获取用户的TokenID(暂时用融云)
             [[NSUserDefaults standardUserDefaults] setObject:tokenID forKey:@"tokenID"]; // 缓存在沙盒
-            [self loginWithUserID:userID withUserName:userName withTokenID:tokenID];
+            [self loginWithUserID:username withUserName:password withTokenID:tokenID];
         }
     }
 }

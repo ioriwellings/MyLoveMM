@@ -77,4 +77,31 @@
                             success:success
                             failure:failure];
 }
+
+#pragma mark - 用Email进行登录
++ (void)loginWithEmail:(NSString *)email withPassword:(NSString *)password env:(NSString *)env success:(void (^)(id))success failure:(void (^)(NSError *))failure {
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    [params setObject:email forKey:@"email"];
+    [params setObject:password forKey:@"password"];
+    [params setObject:env forKey:@"env"];
+    [MMAFHttpTool requestWihtMethod:RequestMethodTypePost
+                                url:@"email_login_token"
+                             params:params
+                            success:success
+                            failure:failure];
+}
+
+#pragma mark - 获取用户信息
++ (void)getUserWithUserId:(NSString *)userId success:(void (^)(id))success failure:(void (^)(NSError *))failure {
+    
+    [MMAFHttpTool requestWihtMethod:RequestMethodTypeGet
+                                url:@"profile"
+                             params:@{@"id" : userId}
+                            success:success
+                            failure:failure];
+}
+
+
+
 @end
