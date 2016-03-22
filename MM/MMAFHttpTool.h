@@ -30,13 +30,49 @@ typedef NS_ENUM(NSInteger, RequestMethodType){
                   success:(void (^)(id response))success
                   failure:(void (^)(NSError *err))failure;
 
-/** 获取用户信息 */
+/** 
+ * 获取用户信息 
+ */
 + (void)getUserWithUserId:(NSString *)userId success:(void (^)(id response))success failure:(void (^)(NSError* error))failure;
 
-/** 按昵称搜索好友 */
+/**
+ * 获取我的群组信息
+ */
++ (void)getMyGroupsSuccess:(void (^)(id response))success failure:(void (^)(NSError *error))failure;
+
+/** 
+ * 获取好友列表
+ */
++ (void)getFriendListFromServerSuccess:(void (^)(id response))success failure:(void (^)(NSError *error))failure;
+
+/**
+ * 根据ID获取群组信息
+ */
++ (void)getGroupWithGroupID:(NSString *)groupID success:(void (^)(id response))success failure:(void (^)(NSError *error))failure;
+
+/** 
+ * 获取好友信息
+ */
++ (void)getFriendsSuccess:(void (^)(id response))success failure:(void (^)(NSError *error))failure;
+
+/**
+ * 获取所有群组信息
+ */
++ (void)getAllGroupsSuccess:(void (^)(id response))success failure:(void (^)(NSError *erro))failure;
+
+/**
+ * 注册新用户
+ */
++ (void)registerWithEmail:(NSString *)email withMobile:(NSString *)mobile withUsername:(NSString *)username withPassword:(NSString *)password success:(void (^)(id response))success failure:(void (^)(NSError* err))failure;
+
+/** 
+ * 按昵称搜索好友 
+ */
 + (void)searchFriendListByName:(NSString *)name success:(void (^)(id response))success failure:(void (^)(NSError *error))failure;
 
-/** 根据Email登录 */
+/** 
+ * 根据Email登录 
+ */
 + (void)loginWithEmail:(NSString *)email withPassword:(NSString *)password env:(NSString *)env success:(void (^)(id response))success failure:(void (^)(NSError *error))failure;
 
 @end

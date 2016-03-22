@@ -40,6 +40,7 @@
 #import "MMLoginRegisterTextField.h"
 #import "MMAddFriendCell.h"
 #import "MMFriendsCell.h"
+#import "MMChatListCell.h"
 /**********************Model******************************/
 #import "MMAddFriend.h"
 #import "MMLoginInfo.h"
@@ -61,6 +62,7 @@
 #import "RCAnimatedImagesView.h"
 #import "MMTextFieldValidate.h"
 #import "MMDataBaseManager.h"
+#import "MMIMDataSource.h"
 /*************************************************************/
 // 方法的输出
 #define MMLogFunc NSLog(@"%s", __func__)

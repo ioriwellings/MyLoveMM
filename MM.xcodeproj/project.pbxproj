@@ -21,6 +21,8 @@
 		AA1EB2391C929FE900970A53 /* MMAddFriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA1EB2371C929FE900970A53 /* MMAddFriendCell.xib */; };
 		AA564D0C1C92B806008B3F4E /* UIImage+JWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = AA564D091C92B806008B3F4E /* UIImage+JWExtension.m */; };
 		AA564D0D1C92B806008B3F4E /* UIImageView+JWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = AA564D0B1C92B806008B3F4E /* UIImageView+JWExtension.m */; };
+		AA5D38661CA15FC3006C6B04 /* MMChatListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA5D38641CA15FC3006C6B04 /* MMChatListCell.m */; };
+		AA5D38671CA15FC3006C6B04 /* MMChatListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA5D38651CA15FC3006C6B04 /* MMChatListCell.xib */; };
 		AA5E8BA91C9F9EB600EC4199 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = AA5E8BA81C9F9EB600EC4199 /* NSString+Extension.m */; };
 		AA5E8BAC1C9FDE7000EC4199 /* MMLoginInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = AA5E8BAB1C9FDE7000EC4199 /* MMLoginInfo.m */; };
 		AA5E8BB01C9FE4D000EC4199 /* MMModelConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = AA5E8BAF1C9FE4D000EC4199 /* MMModelConfig.m */; };
@@ -34,6 +36,7 @@
 		AA5E8BDA1CA0077500EC4199 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = AA5E8BD11CA0077500EC4199 /* FMDatabasePool.m */; };
 		AA5E8BDB1CA0077500EC4199 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = AA5E8BD31CA0077500EC4199 /* FMDatabaseQueue.m */; };
 		AA5E8BDC1CA0077500EC4199 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = AA5E8BD61CA0077500EC4199 /* FMResultSet.m */; };
+		AA5E8BDF1CA0D7C500EC4199 /* MMIMDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = AA5E8BDE1CA0D7C500EC4199 /* MMIMDataSource.m */; };
 		AA7BFE641C99409B003BD0DC /* MMHttpTools.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7BFE631C99409B003BD0DC /* MMHttpTools.m */; };
 		AA8F87911C91091A003C93C0 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA8F87901C91091A003C93C0 /* Login.storyboard */; };
 		AA8F87941C910C32003C93C0 /* MMLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA8F87931C910C32003C93C0 /* MMLoginViewController.m */; };
@@ -102,6 +105,9 @@
 		AA564D091C92B806008B3F4E /* UIImage+JWExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+JWExtension.m"; sourceTree = "<group>"; };
 		AA564D0A1C92B806008B3F4E /* UIImageView+JWExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+JWExtension.h"; sourceTree = "<group>"; };
 		AA564D0B1C92B806008B3F4E /* UIImageView+JWExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+JWExtension.m"; sourceTree = "<group>"; };
+		AA5D38631CA15FC3006C6B04 /* MMChatListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMChatListCell.h; sourceTree = "<group>"; };
+		AA5D38641CA15FC3006C6B04 /* MMChatListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMChatListCell.m; sourceTree = "<group>"; };
+		AA5D38651CA15FC3006C6B04 /* MMChatListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMChatListCell.xib; sourceTree = "<group>"; };
 		AA5E8BA71C9F9EB600EC4199 /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
 		AA5E8BA81C9F9EB600EC4199 /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
 		AA5E8BAA1C9FDE7000EC4199 /* MMLoginInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMLoginInfo.h; sourceTree = "<group>"; };
@@ -128,6 +134,8 @@
 		AA5E8BD41CA0077500EC4199 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
 		AA5E8BD51CA0077500EC4199 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
 		AA5E8BD61CA0077500EC4199 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		AA5E8BDD1CA0D7C500EC4199 /* MMIMDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMIMDataSource.h; sourceTree = "<group>"; };
+		AA5E8BDE1CA0D7C500EC4199 /* MMIMDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMIMDataSource.m; sourceTree = "<group>"; };
 		AA7BFE621C99409B003BD0DC /* MMHttpTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMHttpTools.h; sourceTree = "<group>"; };
 		AA7BFE631C99409B003BD0DC /* MMHttpTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMHttpTools.m; sourceTree = "<group>"; };
 		AA8F87901C91091A003C93C0 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
@@ -229,6 +237,9 @@
 				AA19DD391C99354D00A038BB /* MMFriendsCell.h */,
 				AA19DD3A1C99354D00A038BB /* MMFriendsCell.m */,
 				AA19DD3B1C99354D00A038BB /* MMFriendsCell.xib */,
+				AA5D38631CA15FC3006C6B04 /* MMChatListCell.h */,
+				AA5D38641CA15FC3006C6B04 /* MMChatListCell.m */,
+				AA5D38651CA15FC3006C6B04 /* MMChatListCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -256,6 +267,8 @@
 			children = (
 				AA5E8BBE1CA0043500EC4199 /* MMDataBaseManager.h */,
 				AA5E8BBF1CA0043500EC4199 /* MMDataBaseManager.m */,
+				AA5E8BDD1CA0D7C500EC4199 /* MMIMDataSource.h */,
+				AA5E8BDE1CA0D7C500EC4199 /* MMIMDataSource.m */,
 			);
 			name = DataBase;
 			sourceTree = "<group>";
@@ -285,12 +298,12 @@
 			children = (
 				AAA43E061C9E412600C5B677 /* RCAnimatedImagesView.h */,
 				AAA43E071C9E412600C5B677 /* RCAnimatedImagesView.m */,
+				AAE3F6F11C998C38003434DF /* MMAFHttpTool.h */,
+				AAE3F6F21C998C38003434DF /* MMAFHttpTool.m */,
 				AA7BFE621C99409B003BD0DC /* MMHttpTools.h */,
 				AA7BFE631C99409B003BD0DC /* MMHttpTools.m */,
 				AAE3F6EC1C9949AD003434DF /* MMRequestBLL.h */,
 				AAE3F6ED1C9949AD003434DF /* MMRequestBLL.m */,
-				AAE3F6F11C998C38003434DF /* MMAFHttpTool.h */,
-				AAE3F6F21C998C38003434DF /* MMAFHttpTool.m */,
 				AAD8E3C11C9F943900E67C00 /* MMTextFieldValidate.h */,
 				AAD8E3C21C9F943900E67C00 /* MMTextFieldValidate.m */,
 			);
@@ -684,6 +697,7 @@
 				AA19DD3D1C99354D00A038BB /* MMFriendsCell.xib in Resources */,
 				AA99C0441C8FF8AE00C9A477 /* Assets.xcassets in Resources */,
 				AA1EB2391C929FE900970A53 /* MMAddFriendCell.xib in Resources */,
+				AA5D38671CA15FC3006C6B04 /* MMChatListCell.xib in Resources */,
 				AA19DD331C98F24A00A038BB /* MMSearchFriendViewController.xib in Resources */,
 				AA5E8BB41C9FE9D500EC4199 /* MJExtension in Resources */,
 			);
@@ -791,8 +805,10 @@
 				AACB7EAA1C917D2B00E8A85A /* UIColor+RCColor.m in Sources */,
 				AA5E8BD71CA0077500EC4199 /* DBHelper.m in Sources */,
 				AA5E8BC01CA0043500EC4199 /* MMDataBaseManager.m in Sources */,
+				AA5D38661CA15FC3006C6B04 /* MMChatListCell.m in Sources */,
 				AA19DD3C1C99354D00A038BB /* MMFriendsCell.m in Sources */,
 				AA1EB2291C92779D00970A53 /* MMAddFriendsViewController.m in Sources */,
+				AA5E8BDF1CA0D7C500EC4199 /* MMIMDataSource.m in Sources */,
 				AA564D0D1C92B806008B3F4E /* UIImageView+JWExtension.m in Sources */,
 				AA564D0C1C92B806008B3F4E /* UIImage+JWExtension.m in Sources */,
 				AAE3F6EE1C9949AD003434DF /* MMRequestBLL.m in Sources */,

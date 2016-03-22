@@ -189,6 +189,7 @@
     return [[NSUserDefaults standardUserDefaults] objectForKey:@"tokenID"];
 }
 
+/*****************************************登录********************************************/
 #pragma mark - 登录
 - (IBAction)loginClick:(id)sender {
     
@@ -266,6 +267,7 @@
     // 登录融云服务器
     [[RCIM sharedRCIM] connectWithToken:token success:^(NSString *userId) {
         
+        [SVProgressHUD dismiss];
         NSLog([NSString stringWithFormat:@"token is %@  userId is %@",token,userId],nil);
         // 成功登录融云服务器
         [self loginSuccessWithEmail:email withPassword:password withToken:token withUserId:userId];
@@ -302,13 +304,21 @@
         
     }];
     
+    // 同步群组
+    [MMDataSource syncGroups];
+    [MMDataSource syncFriendList:^(NSMutableArray *friends) {}];
+//    BOOL notFirstTimeLogin = [[NSUserDefaults standardUserDefaults] boolForKey:@"notFirstTimeLogin"];
+//    if (!notFirstTimeLogin) {
+//        [MMDataSource cacheAllData:^{
+//            
+//        }];
+//    }
     dispatch_async(dispatch_get_main_queue(), ^{
         
         MMTabBarController *tab = [[MMTabBarController alloc] init];
         self.view.window.rootViewController = tab;
     });
 }
-
 
 #pragma mark - 验证用户信息格式
 - (BOOL)validateEmail:(NSString *)email password:(NSString *)password {
@@ -329,6 +339,7 @@
     return [MMTextFieldValidate validateEmail:email]
         && [MMTextFieldValidate validatePassword:password];
 }
+/**************************************另外一种登录***********************************************/
 
 #pragma mark - 另外一种登录方式
 - (void)extraLogin {
@@ -396,6 +407,53 @@
         self.view.window.rootViewController = tab;
     });
 }
+/*****************************************注册********************************************/
+- (IBAction)registerUserInfoClick:(id)sender {
+    
+    // 检查当前网络状态
+    RCNetworkStatus status = [[RCIMClient sharedRCIMClient] getCurrentNetworkStatus];
+    if (status == RC_NotReachable) {
+        
+        [SVProgressHUD showErrorWithStatus:@"当前网络不可用" maskType:SVProgressHUDMaskTypeBlack];
+        return;
+    }
+    else { // 用户登录
+        
+        NSString *email = self.txtRegisterAccount.text;
+        NSString *password = self.txtRegisterPassword.text;
+        if ([self validateEmail:email password:password]) {
+            
+            [MMAFHttpTool registerWithEmail:email withMobile:@"" withUsername:email withPassword:password success:^(id response) {
+                
+                int code = [response[@"code"] intValue];
+                if (code == 200) {
+                    
+                    [SVProgressHUD showSuccessWithStatus:@"注册成功" maskType:SVProgressHUDMaskTypeBlack];
+                }
+                else if (code == 101) {
+                    
+                    [SVProgressHUD showInfoWithStatus:@"账号已经被注册" maskType:SVProgressHUDMaskTypeBlack];
+                }
+                else {
+                    
+                    [SVProgressHUD showErrorWithStatus:@"注册失败" maskType:SVProgressHUDMaskTypeBlack];
+                }
+            } failure:^(NSError *err) {
+                
+                [SVProgressHUD showErrorWithStatus:@"注册失败" maskType:SVProgressHUDMaskTypeBlack];
+            }];
+        }
+        else {
+            
+            [SVProgressHUD showInfoWithStatus:@"请检查用户名和密码" maskType:SVProgressHUDMaskTypeBlack];
+        }
+    }
+}
+
+
+
+
+/*****************************************注册********************************************/
 
 #pragma mark - 点击屏幕退出键盘
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {

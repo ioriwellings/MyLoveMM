@@ -12,26 +12,61 @@
 
 @interface MMHttpTools : NSObject
 
-/** 所有好友 */
+/** 
+ * 所有好友 
+ */
 @property (strong, nonatomic) NSMutableArray *allFriends;
 
-/** 所有群组 */
+/** 
+ * 所有群组 
+ */
 @property (strong, nonatomic) NSMutableArray *allGroups;
 
-/** MMHttpTools单例 */
+/** 
+ * MMHttpTools单例 
+ */
 + (MMHttpTools *)shareInstance;
 
-/** 获取用户个人信息 */
+/** 
+ * 获取用户个人信息 
+ */
 - (void)getUserInfoWithUserID:(NSString *)userID
                    completion:(void (^)(RCUserInfo *user))completion;
 
-/** 按昵称搜索好友 */
+/**
+ * 获取我的群组
+ */
+- (void)getMyGroupsWithBlock:(void (^)(NSMutableArray *result))block;
+
+/** 
+ * 获取好友列表
+ */
+- (void)getFriends:(void (^)(NSMutableArray *result))friendList;
+
+/** 
+ * 根据id获取单个群组
+ */
+- (void)getGroupWithGroupID:(NSString *)groupID successCompletion:(void (^)(RCGroup *group))completion;
+
+/**
+ * 获取群组列表
+ */
+- (void)getAllGroupsWithCompletion:(void (^)(NSMutableArray *result))completion;
+
+
+/** 
+ * 按昵称搜索好友 
+ */
 - (void)searchFriendListByName:(NSString *)name
                       complete:(void (^)(NSMutableArray *result))friendList;
-/** 按邮箱搜索好友 */
+/** 
+ * 按邮箱搜索好友 
+ */
 - (void)searchFriendListByEmail:(NSString *)email
                        complete:(void (^)(NSMutableArray *result))friendList;
 
-/** sha1数据校验 */
+/** 
+ * sha1数据校验 
+ */
 - (NSString *)sha1:(NSString *)input;
 @end

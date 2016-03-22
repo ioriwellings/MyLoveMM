@@ -13,7 +13,7 @@
 
 @implementation MMAFHttpTool
 
-+ (void)requestWihtMethod:(RequestMethodType)methodType url:(NSString *)url params:(NSDictionary *)params success:(void (^)(id))success failure:(void (^)(NSError *))failure {
++ (void)requestWihtMethod:(RequestMethodType)methodType url:(NSString *)url params:(NSDictionary *)params success:(void (^)(id response))success failure:(void (^)(NSError *error))failure {
     
     NSURL *baseURL = [NSURL URLWithString:FAKE_SERVER];
     // 获得请求管理者
@@ -68,8 +68,85 @@
     
 }
 
+#pragma mark - 获取用户信息
++ (void)getUserWithUserId:(NSString *)userId success:(void (^)(id response))success failure:(void (^)(NSError *error))failure {
+    
+    [MMAFHttpTool requestWihtMethod:RequestMethodTypeGet
+                                url:@"profile"
+                             params:@{@"id" : userId}
+                            success:success
+                            failure:failure];
+}
+
+#pragma mark - 获取用户群组信息
++ (void)getMyGroupsSuccess:(void (^)(id response))success failure:(void (^)(NSError *error))failure {
+    
+    [MMAFHttpTool requestWihtMethod:RequestMethodTypeGet
+                                url:@"get_my_group"
+                             params:nil
+                            success:success
+                            failure:failure];
+}
+
+#pragma mark - 获取好友列表
++ (void)getFriendListFromServerSuccess:(void (^)(id response))success failure:(void (^)(NSError *error))failure {
+    
+    //获取除自己之外的好友信息
+    [MMAFHttpTool requestWihtMethod:RequestMethodTypeGet
+                                url:@"get_friend"
+                             params:nil
+                            success:success
+                            failure:failure];
+}
+
+#pragma mark - 根据ID获取群组信息
++ (void)getGroupWithGroupID:(NSString *)groupID success:(void (^)(id response))success failure:(void (^)(NSError *error))failure {
+    
+    [MMAFHttpTool requestWihtMethod:RequestMethodTypeGet
+                                url:@"get_group"
+                             params:@{@"id" : groupID}
+                            success:success
+                            failure:failure];
+}
+
+#pragma mark - 获取好友信息
++ (void)getFriendsSuccess:(void (^)(id response))success failure:(void (^)(NSError *error))failure {
+    
+    // 获取包含自己在内的全部注册用户数据
+    [MMAFHttpTool requestWihtMethod:RequestMethodTypeGet
+                                url:@"friends"
+                             params:nil
+                            success:success
+                            failure:failure];
+}
+
+#pragma mark - 获取所有群组信息
++ (void)getAllGroupsSuccess:(void (^)(id response))success failure:(void (^)(NSError *error))failure {
+    
+    [MMAFHttpTool requestWihtMethod:RequestMethodTypeGet
+                                url:@"get_all_group"
+                             params:nil
+                            success:success
+                            failure:failure];
+}
+
+#pragma mark - 注册新用户
++ (void)registerWithEmail:(NSString *)email withMobile:(NSString *)mobile withUsername:(NSString *)username withPassword:(NSString *)password success:(void (^)(id))success failure:(void (^)(NSError *))failure {
+    
+    NSDictionary *params = @{@"email" : email,
+                             @"mobile" : mobile,
+                             @"username" : username,
+                             @"password" : password};
+    [MMAFHttpTool requestWihtMethod:RequestMethodTypePost
+                                url:@"reg"
+                             params:params
+                            success:success
+                            failure:failure];
+}
+
+
 #pragma mark - 根据昵称搜索好友
-+ (void)searchFriendListByName:(NSString *)name success:(void (^)(id))success failure:(void (^)(NSError *))failure {
++ (void)searchFriendListByName:(NSString *)name success:(void (^)(id response))success failure:(void (^)(NSError *error))failure {
     
     [MMAFHttpTool requestWihtMethod:RequestMethodTypeGet
                                 url:@"seach_name"
@@ -79,7 +156,7 @@
 }
 
 #pragma mark - 用Email进行登录
-+ (void)loginWithEmail:(NSString *)email withPassword:(NSString *)password env:(NSString *)env success:(void (^)(id))success failure:(void (^)(NSError *))failure {
++ (void)loginWithEmail:(NSString *)email withPassword:(NSString *)password env:(NSString *)env success:(void (^)(id response))success failure:(void (^)(NSError *error))failure {
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     [params setObject:email forKey:@"email"];
@@ -92,15 +169,7 @@
                             failure:failure];
 }
 
-#pragma mark - 获取用户信息
-+ (void)getUserWithUserId:(NSString *)userId success:(void (^)(id))success failure:(void (^)(NSError *))failure {
-    
-    [MMAFHttpTool requestWihtMethod:RequestMethodTypeGet
-                                url:@"profile"
-                             params:@{@"id" : userId}
-                            success:success
-                            failure:failure];
-}
+
 
 
 

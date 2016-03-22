@@ -7,11 +7,17 @@
 //
 
 #import "MMConversationListViewController.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface MMConversationListViewController ()
 
 /** 强引用右上角按钮 */
 @property (strong, nonatomic) UIButton *rightBarButton;
+
+@property (nonatomic,strong) RCConversationModel *tempModel;
+
+- (void) updateBadgeValueForTabBarItem;
+
 @end
 
 @implementation MMConversationListViewController
@@ -26,6 +32,9 @@
         [self setDisplayConversationTypes:@[@(ConversationType_PRIVATE), @(ConversationType_GROUP), @(ConversationType_DISCUSSION), @(ConversationType_APPSERVICE), @(ConversationType_SYSTEM), @(ConversationType_PUBLICSERVICE)]];
         // 聚合会话类型
         [self setCollectionConversationType:@[@(ConversationType_GROUP), @(ConversationType_DISCUSSION)]];
+        // 设置图片不被渲染
+        self.tabBarItem.image = [[UIImage imageNamed:@"icon_chat"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        self.tabBarItem.selectedImage = [[UIImage imageNamed:@"icon_chat_hover"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     }
     return self;
 }
@@ -36,6 +45,10 @@
     [super viewDidLoad];
     self.title = @"会话";
     self.view.backgroundColor = MMRandomColor;
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    // 设置tableview样式
+    self.conversationListTableView.separatorColor = [UIColor colorWithRed:233.0/255 green:233.0/255 blue:233.0/255 alpha:1.0];
+    self.conversationListTableView.tableFooterView = [UIView new];
 }
 
 #pragma mark - viewWillAppear
@@ -100,18 +113,141 @@
     }
 }
 
-#pragma mark - 即将显示cell的回调(修改cell的数据)
-- (void)willDisplayConversationTableCell:(RCConversationBaseCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+/*********************conversationListDataSource*********************/
+#pragma mark - 插入自定义会话Model
+- (NSMutableArray *)willReloadTableData:(NSMutableArray *)dataSource {
     
-    RCConversationModel *model = self.conversationListDataSource[indexPath.row]; // 数据源数据
-    if (model.conversationType == ConversationType_PRIVATE) {
+    for (int i = 0; i < dataSource.count; i++) {
         
-        RCConversationCell *conversationCell = (RCConversationCell *)cell;
-        conversationCell.conversationTitle.textColor = MMboldColor;
-        conversationCell.conversationTitle.font = [UIFont systemFontOfSize:15];
+        RCConversationModel *model = dataSource[i];
+        // 筛选请求添加好友的系统消息，用于生成自定义会话类型的cell
+        if (model.conversationType == ConversationType_SYSTEM && [model.lastestMessage isMemberOfClass:[RCContactNotificationMessage class]]) {
+            
+            model.conversationModelType = RC_CONVERSATION_MODEL_TYPE_CUSTOMIZATION;
+        }
     }
+    return dataSource;
 }
 
+#pragma mark - 左滑删除
+- (void)rcConversationListTableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    // 可以从数据库删除数据
+    RCConversationModel *model = self.conversationListDataSource[indexPath.row];
+    [[RCIMClient sharedRCIMClient] removeConversation:ConversationType_SYSTEM targetId:model.targetId];
+    [self.conversationListDataSource removeObjectAtIndex:indexPath.row];
+    [self.conversationListTableView reloadData];
+}
+
+#pragma mark - cell的高度
+- (CGFloat)rcConversationListTableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    return 67.0f;
+}
+
+#pragma mark - 自定义cell
+- (RCConversationBaseCell *)rcConversationListTableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    RCConversationModel *model = self.conversationListDataSource[indexPath.row];
+    __block NSString *userName = nil;
+    __block NSString *portraitUri = nil;
+    __weak MMConversationListViewController *weakSelf = self;
+    
+    // 此处需要添加根据userid来获取用户信息的逻辑，extend字段不存在于DB中，当数据来自db时没有extend字段内容，只有userid
+    if (nil == model.extend) {
+        // Not finished yet, To Be Continue...
+        if (model.conversationType == ConversationType_SYSTEM && [model.lastestMessage isMemberOfClass:[RCContactNotificationMessage class]]) {
+            
+            RCContactNotificationMessage *_contactNotificationMsg = (RCContactNotificationMessage *)model.lastestMessage;
+            if (_contactNotificationMsg.sourceUserId == nil) {
+                
+                MMChatListCell *cell = [[MMChatListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@""];
+                cell.lblDetail.text = @"好友请求";
+                [cell.ivAva sd_setImageWithURL:[NSURL URLWithString:portraitUri] placeholderImage:[UIImage imageNamed:@"system_notice"]];
+                return cell;
+            }
+            NSDictionary *_cache_userInfo = [[NSUserDefaults standardUserDefaults] objectForKey:_contactNotificationMsg.sourceUserId];
+            if (_cache_userInfo) {
+                
+                userName = _cache_userInfo[@"username"];
+                portraitUri = _cache_userInfo[@"portraitUri"];
+            }
+            else {
+                
+                NSDictionary *emptyDict = @{};
+                [[NSUserDefaults standardUserDefaults]setObject:emptyDict forKey:_contactNotificationMsg.sourceUserId];
+                [[NSUserDefaults standardUserDefaults]synchronize];
+                [MMHTTPTOOLS getUserInfoWithUserID:_contactNotificationMsg.sourceUserId completion:^(RCUserInfo *user) {
+                    
+                    if (user == nil) {
+                        return;
+                    }
+                    MMUserInfo *rcduserinfo_ = [[MMUserInfo alloc] init];
+                    rcduserinfo_.name = user.name;
+                    rcduserinfo_.userId = user.userId;
+                    rcduserinfo_.portraitUri = user.portraitUri;
+                    
+                    model.extend = rcduserinfo_;
+                
+                    NSDictionary *userinfoDic = @{@"username": rcduserinfo_.name,
+                                                  @"portraitUri":rcduserinfo_.portraitUri
+                                                  };
+                    [[NSUserDefaults standardUserDefaults]setObject:userinfoDic forKey:_contactNotificationMsg.sourceUserId];
+                    [[NSUserDefaults standardUserDefaults]synchronize];
+                    
+                    [weakSelf.conversationListTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+                }];
+            }
+        }
+    }
+    else {
+        MMUserInfo *userInfo = (MMUserInfo *)model.extend;
+        userName = userInfo.name;
+        portraitUri = userInfo.portraitUri;
+    }
+    MMChatListCell *cell = [[MMChatListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@""];
+    cell.lblDetail.text = [NSString stringWithFormat:@"来自%@的好友请求",userName];
+    [cell.ivAva sd_setImageWithURL:[NSURL URLWithString:portraitUri] placeholderImage:[UIImage imageNamed:@"system_notice"]];
+    cell.labelTime.text = [self ConvertMessageTime:model.sentTime / 1000];
+    cell.model = model;
+    return cell;
+}
+
+#pragma mark - 时间戳转换
+- (NSString *)ConvertMessageTime:(long long)secs {
+    NSString *timeText = nil;
+    
+    NSDate *messageDate = [NSDate dateWithTimeIntervalSince1970:secs];
+    
+    //    DebugLog(@"messageDate==>%@",messageDate);
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+    
+    NSString *strMsgDay = [formatter stringFromDate:messageDate];
+    
+    NSDate *now = [NSDate date];
+    NSString *strToday = [formatter stringFromDate:now];
+    NSDate *yesterday = [[NSDate alloc] initWithTimeIntervalSinceNow:-(24 * 60 * 60)];
+    NSString *strYesterday = [formatter stringFromDate:yesterday];
+    
+    NSString *_yesterday = nil;
+    if ([strMsgDay isEqualToString:strToday]) {
+        [formatter setDateFormat:@"HH':'mm"];
+    } else if ([strMsgDay isEqualToString:strYesterday]) {
+        _yesterday = NSLocalizedStringFromTable(@"Yesterday", @"RongCloudKit", nil);
+        //[formatter setDateFormat:@"HH:mm"];
+    }
+    
+    if (nil != _yesterday) {
+        timeText = _yesterday; //[_yesterday stringByAppendingFormat:@" %@", timeText];
+    } else {
+        timeText = [formatter stringFromDate:messageDate];
+    }
+    
+    return timeText;
+}
+
+/*********************刷新消息**************************/
 #pragma mark - 设置不断刷新讨论组消息
 - (void)receiveNeedRefreshNotification:(NSNotification *)status {
     
@@ -158,7 +294,7 @@
         }
     });
 }
-
+/******************************************************/
 #pragma mark - 自定义rightBarButtonItem
 - (void)setupRightBarButtonItem {
     

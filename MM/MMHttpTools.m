@@ -9,6 +9,12 @@
 #import "MMHttpTools.h"
 #import<CommonCrypto/CommonDigest.h>
 
+@interface MMAFHttpTool()
+
+@property (nonatomic,strong) NSMutableArray *allFriends;
+@property (nonatomic,strong) NSMutableArray *allGroups;
+
+@end
 @implementation MMHttpTools
 
 + (MMHttpTools *)shareInstance {
@@ -92,11 +98,192 @@
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 
-                NSLog(@"MMDataBaseManager RCUserInfo = %@, %@, %@", userInfo.userId, userInfo.name, userInfo.portraitUri);
                 completion(userInfo);
             });
         }
     }
+}
+
+#pragma mark - 获取我的群组
+- (void)getMyGroupsWithBlock:(void (^)(NSMutableArray *))block {
+    
+    [MMAFHttpTool getMyGroupsSuccess:^(id response) {
+        
+        NSArray *allGroups = response[@"result"];
+        NSMutableArray *tempArr = [NSMutableArray array];
+        if (allGroups) {
+            
+            for (NSDictionary *dict in allGroups) {
+                
+                MMGroupInfo *group = [[MMGroupInfo alloc] init];
+                group.groupId = [dict objectForKey:@"id"];
+                group.groupName = [dict objectForKey:@"name"];
+                NSString *portrait = [dict objectForKey:@"portrait"];
+                group.portraitUri = portrait.length == 0 ? @"" : portrait;
+                group.creatorId = [dict objectForKey:@"create_user_id"];
+                NSString *introduce = [dict objectForKey:@"introduce"];
+                group.introduce = introduce.length == 0 ? @"" : introduce;
+                NSString *number = [dict objectForKey:@"number"];
+                group.number = number.length == 0 ? @"" : number;
+                NSString *maxNumber = [dict objectForKey:@"max_number"];
+                group.maxNumber = maxNumber.length == 0 ? @"" : maxNumber;
+                [tempArr addObject:group];
+                group.isJoin = YES;
+                [[MMDataBaseManager shareInstance] insertGroupToDB:group];
+            }
+            if (block) {
+                block(tempArr);
+            }
+        }
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
+#pragma mark - 获取好友列表
+- (void)getFriends:(void (^)(NSMutableArray *))friendList {
+    
+    NSMutableArray *list = [NSMutableArray array];
+    [MMAFHttpTool getFriendListFromServerSuccess:^(id response) {
+        
+        NSString *code = [NSString stringWithFormat:@"%@",response[@"code"]];
+        if (friendList) {
+            
+            if ([code isEqualToString:@"200"]) {
+                
+                [_allFriends removeAllObjects];
+                NSArray *regDataArray = response[@"result"];
+                [[MMDataBaseManager shareInstance] clearFriendsData];
+                for(int i = 0;i < regDataArray.count;i++){
+                    NSDictionary *dic = [regDataArray objectAtIndex:i];
+                    if([[dic objectForKey:@"status"] intValue] != 1)
+                        continue;
+                    
+                    MMUserInfo *userInfo = [[MMUserInfo alloc] init];
+                    NSNumber *idNum = [dic objectForKey:@"id"];
+                    userInfo.userId = [NSString stringWithFormat:@"%d",idNum.intValue];
+                    userInfo.portraitUri = [dic objectForKey:@"portrait"];
+                    userInfo.name = [dic objectForKey:@"username"];
+                    userInfo.email = [dic objectForKey:@"email"];
+                    userInfo.status = [dic objectForKey:@"status"];
+                    [list addObject:userInfo];
+                    [_allFriends addObject:userInfo];
+                    MMUserInfo *user = [[MMUserInfo alloc] init];
+                    user.userId = [NSString stringWithFormat:@"%d",idNum.intValue];
+                    user.portraitUri = [dic objectForKey:@"portrait"];
+                    user.name = [dic objectForKey:@"username"];
+                    [[MMDataBaseManager shareInstance] insertUserToDB:user];
+                    [[MMDataBaseManager shareInstance] insertFriendToDB:user];
+                }
+                dispatch_async(dispatch_get_main_queue(), ^{
+                   
+                    friendList(list);
+                });
+            }
+            else {
+                friendList(list);
+            }
+        }
+    } failure:^(NSError *error) {
+        
+        if (friendList) {
+            NSMutableArray *cacheList=[[NSMutableArray alloc]initWithArray:[[MMDataBaseManager shareInstance] getAllFriends]];
+            friendList(cacheList);
+        }
+    }];
+}
+
+#pragma mark - 根据id获取单个群组
+- (void)getGroupWithGroupID:(NSString *)groupID successCompletion:(void (^)(RCGroup *group))completion {
+    
+    RCGroup *groupInfo = [[MMDataBaseManager shareInstance] getGroupByGroupId:groupID];
+    if (groupInfo == nil) {
+        
+        [MMAFHttpTool getGroupWithGroupID:groupID success:^(id response) {
+            
+            NSString *code = [NSString stringWithFormat:@"%@",response[@"code"]];
+            NSDictionary *result = response[@"result"];
+            if (result && [code isEqualToString:@"200"]) {
+                MMGroupInfo *group = [[MMGroupInfo alloc] init];
+                group.groupId = [result objectForKey:@"id"];
+                group.groupName = [result objectForKey:@"name"];
+                NSString *portrait = [result objectForKey:@"portrait"];
+                group.portraitUri = portrait.length == 0 ? @"" : portrait;
+                group.creatorId = [result objectForKey:@"create_user_id"];
+                NSString *introduce = [result objectForKey:@"introduce"];
+                group.introduce = introduce.length == 0 ? @"" : introduce;
+                group.number = [result objectForKey:@"number"];
+                group.maxNumber = [result objectForKey:@"max_number"];
+                group.creatorTime = [result objectForKey:@"creat_datetime"];
+                [[MMDataBaseManager shareInstance] insertGroupToDB:group];
+                if ([group.groupId isEqualToString:groupID] && completion) {
+                    completion(group);
+                }
+            }
+
+        } failure:^(NSError *error) {
+            
+        }];
+    }
+    else {
+        
+        if (completion) {
+            completion(groupInfo);
+        }
+    }
+}
+
+#pragma mark - 获取群组列表
+- (void)getAllGroupsWithCompletion:(void (^)(NSMutableArray *result))completion {
+    
+    [MMAFHttpTool getAllGroupsSuccess:^(id response) {
+        
+        NSMutableArray *tempArr = [NSMutableArray array];
+        NSArray *allGroups = response[@"result"];
+        if (allGroups) {
+            
+            [[MMDataBaseManager shareInstance] clearGroupsData];
+            for (NSDictionary *dict in allGroups) {
+                MMGroupInfo *group = [[MMGroupInfo alloc] init];
+                group.groupId = [dict objectForKey:@"id"];
+                group.groupName = [dict objectForKey:@"name"];
+                NSString *portrait = [dict objectForKey:@"portrait"];
+                group.portraitUri = portrait.length == 0 ? @"" : portrait;
+                group.creatorId = [dict objectForKey:@"create_user_id"];
+                NSString *introduce = [dict objectForKey:@"introduce"];
+                group.introduce = introduce.length == 0 ? @"" : introduce;
+                group.number = [dict objectForKey:@"number"];
+                group.maxNumber = [dict objectForKey:@"max_number"];
+                group.creatorTime = [dict objectForKey:@"creat_datetime"];
+                [[MMDataBaseManager shareInstance] insertGroupToDB:group];
+                [tempArr addObject:group];
+            }
+            
+            //获取加入状态
+            [self getMyGroupsWithBlock:^(NSMutableArray *result) {
+                for (MMGroupInfo *group in result) {
+                    for (MMGroupInfo *groupInfo in tempArr) {
+                        if ([group.groupId isEqualToString:groupInfo.groupId]) {
+                            groupInfo.isJoin = YES;
+                            [[MMDataBaseManager shareInstance] insertGroupToDB:groupInfo];
+                        }
+                        
+                    }
+                }
+                if (completion) {
+                    [_allGroups removeAllObjects];
+                    [_allGroups addObjectsFromArray:tempArr];
+                    
+                    completion(tempArr);
+                }
+                
+            }];
+        }
+    } failure:^(NSError *erro) {
+        
+        NSMutableArray *cacheGroups = [[NSMutableArray alloc]initWithArray:[[MMDataBaseManager shareInstance] getAllGroup]];
+        completion(cacheGroups);
+    }];
 }
 
 #pragma mark - 根据用户名查找好友
