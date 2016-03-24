@@ -30,17 +30,22 @@
 #import "MMTabBarController.h"
 #import "MMConversationListViewController.h"
 #import "MMChatViewController.h"
-#import "GroupsViewController.h"
-#import "ChatRoomViewController.h"
+#import "MMGroupsTableViewController.h"
+#import "MMAddressBookTableViewController.h"
 #import "MeViewController.h"
 #import "MMNavigationController.h"
 #import "MMAddPublicViewController.h"
 #import "MMSearchFriendViewController.h"
+#import "MMAddFriendViewController.h"
+#import "MMAgreeAddFriendTableViewController.h"
+#import "MMDidJoinGroupViewController.h"
 /**********************View&Cell******************************/
 #import "MMLoginRegisterTextField.h"
 #import "MMAddFriendCell.h"
-#import "MMFriendsCell.h"
+#import "MMFriendCell.h"
 #import "MMChatListCell.h"
+#import "MMAgreeFriendCell.h"
+#import "MMGroupCell.h"
 /**********************Model******************************/
 #import "MMAddFriend.h"
 #import "MMLoginInfo.h"
@@ -55,6 +60,7 @@
 #import "KxMenu.h"
 #import <SVProgressHUD.h>
 #import <AFNetworking.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 /*************************tools*******************************/
 #import "MMHttpTools.h"
 #import "MMAFHttpTool.h"

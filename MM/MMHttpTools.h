@@ -33,26 +33,10 @@
 - (void)getUserInfoWithUserID:(NSString *)userID
                    completion:(void (^)(RCUserInfo *user))completion;
 
-/**
- * 获取我的群组
- */
-- (void)getMyGroupsWithBlock:(void (^)(NSMutableArray *result))block;
-
 /** 
  * 获取好友列表
  */
 - (void)getFriends:(void (^)(NSMutableArray *result))friendList;
-
-/** 
- * 根据id获取单个群组
- */
-- (void)getGroupWithGroupID:(NSString *)groupID successCompletion:(void (^)(RCGroup *group))completion;
-
-/**
- * 获取群组列表
- */
-- (void)getAllGroupsWithCompletion:(void (^)(NSMutableArray *result))completion;
-
 
 /** 
  * 按昵称搜索好友 
@@ -65,8 +49,49 @@
 - (void)searchFriendListByEmail:(NSString *)email
                        complete:(void (^)(NSMutableArray *result))friendList;
 
+/**
+ * 请求加好友
+ */
+- (void)requestAddFriend:(NSString *)userID complete:(void (^)(BOOL result))result;
+
 /** 
  * sha1数据校验 
  */
 - (NSString *)sha1:(NSString *)input;
+
+/**
+ * 根据id获取单个群组
+ */
+- (void)getGroupWithGroupID:(NSString *)groupID successCompletion:(void (^)(RCGroup *group))completion;
+
+/**
+ * 获取群组列表
+ */
+- (void)getAllGroupsWithCompletion:(void (^)(NSMutableArray *result))completion;
+
+/**
+ * 获取我的群组
+ */
+- (void)getMyGroupsWithBlock:(void (^)(NSMutableArray *result))block;
+
+/**
+ * 加入群组
+ */
+- (void)joinGroupWithGroupID:(int) groupID
+    withGroupName:(NSString *)groupName
+         complete:(void (^)(BOOL result))joinResult;
+
+/**
+ * 退出群组
+ */
+- (void)quitGroupWithGroupID:(int) groupID
+         complete:(void (^)(BOOL result))quitResult;
+
+/**
+ * 更新群组信息
+ */
+- (void)updateGroupById:(int) groupID
+         withGroupName:(NSString*)groupName
+          andintroduce:(NSString*)introduce
+              complete:(void (^)(BOOL result))result;
 @end

@@ -17,6 +17,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // 设置tabbar背景颜色
+    [self setupTabbarBackgroundColor];
+    
     // 全局设置UITabBarItem文字属性
     [self setupTabBarItem];
     
@@ -24,15 +27,34 @@
     [self setupAllChildVCs];
 }
 
+#pragma mark - 设置tabbar背景颜色
+- (void)setupTabbarBackgroundColor {
+    
+    // 第一种方法
+    // [[UITabBar appearance] setBackgroundColor:[UIColor whiteColor]];
+    // [UITabBar appearance].translucent = NO; // 取消tabBar的透明效果
+    
+    // 第二种方法: 在tabBar上添加一个有颜色的View
+    UIView *tabbarView = [[UIView alloc] init];
+    tabbarView.backgroundColor = [UIColor whiteColor];
+    tabbarView.frame = self.tabBar.bounds;
+    [[UITabBar appearance] insertSubview:tabbarView atIndex:0];
+    
+    // 第三种方法
+    // [[UITabBar appearance] setBackgroundImage:[UIImage imageNamed:@""]];
+    // [UITabBar appearance].translucent = NO; // 取消tabBar的透明效果
+}
+
+
 #pragma mark - 添加所有的子控制器
 - (void)setupAllChildVCs {
     
     // 会话
     [self setupChildVC:[[MMConversationListViewController alloc] init] title:@"会话" image:[UIImage imageNamed:@"tabbar_mainframe"] selectImage:[UIImage imageNamed:@"tabbar_mainframeHL"]];
+    // 好友
+    [self setupChildVC:[[MMAddressBookTableViewController alloc] init] title:@"通讯录" image:[UIImage imageNamed:@"tabbar_contacts"] selectImage:[UIImage imageNamed:@"tabbar_contactsHL"]];
     // 群组
-    [self setupChildVC:[[GroupsViewController alloc] init] title:@"群组" image:[UIImage imageNamed:@"tabbar_contacts"] selectImage:[UIImage imageNamed:@"tabbar_contactsHL"]];
-    // 聊天室
-    [self setupChildVC:[[ChatRoomViewController alloc] init] title:@"聊天室" image:[UIImage imageNamed:@"tabbar_discover"] selectImage:[UIImage imageNamed:@"tabbar_discoverHL"]];
+    [self setupChildVC:[[MMGroupsTableViewController alloc] init] title:@"群组" image:[UIImage imageNamed:@"tabbar_discover"] selectImage:[UIImage imageNamed:@"tabbar_discoverHL"]];
     // 我
     [self setupChildVC:[[MeViewController alloc] init] title:@"我" image:[UIImage imageNamed:@"tabbar_me"] selectImage:[UIImage imageNamed:@"tabbar_meHL"]];
 }

@@ -7,11 +7,10 @@
 //
 
 #import "MMSearchFriendViewController.h"
-#import <SDWebImage/UIImageView+WebCache.h>
 
 #define topConstant 20
 
-@interface MMSearchFriendViewController () <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchControllerDelegate, UISearchDisplayDelegate>
+@interface MMSearchFriendViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UISearchControllerDelegate>
 
 /** 搜索所有好友 */
 @property (strong, nonatomic) NSMutableArray *friends;
@@ -22,7 +21,6 @@
 
 @implementation MMSearchFriendViewController
 
-static NSString *const registerCellID = @"friends";
 #pragma mark - lazy
 - (NSMutableArray *)friends {
     
@@ -33,11 +31,16 @@ static NSString *const registerCellID = @"friends";
     return _friends;
 }
 
+static NSString *const friendCell = @"MMFriendCell";
 #pragma mark - viewDidLoad
 - (void)viewDidLoad {
     
     [super viewDidLoad];
     self.title = @"查找好友";
+    // 注册
+    [self.searchDisplayController.searchResultsTableView registerNib:[UINib nibWithNibName:NSStringFromClass([MMFriendCell class]) bundle:nil] forCellReuseIdentifier:friendCell];
+    // 去掉分割线
+    self.searchDisplayController.searchResultsTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 #pragma mark - <UITableViewDelegate>
@@ -54,29 +57,27 @@ static NSString *const registerCellID = @"friends";
     
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         
-        return 80.f;
+        return 60.f;
     }
     return 0.f;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    MMFriendsCell *cell = [tableView dequeueReusableCellWithIdentifier:registerCellID];
-    
+    MMFriendCell *cell = [tableView dequeueReusableCellWithIdentifier:friendCell];
     if (tableView == self.searchDisplayController.searchResultsTableView) {
-        
-        if (!cell) {
-            
-            cell = [[MMFriendsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:registerCellID];
-        }
-        RCUserInfo *user = self.friends[indexPath.row];
-        if (user) {
-            
-            cell.lblName.text = user.name;
-            [cell.imgIcon sd_setImageWithURL:[NSURL URLWithString:user.portraitUri] placeholderImage:[UIImage imageNamed:@"icon_person"]];
-        }
+    
+        cell.user = self.friends[indexPath.row];
     }
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    RCUserInfo *userInfo = self.friends[indexPath.row]; // 选中好友数据
+    // 添加好友
+    MMAddFriendViewController *addFriend = [[MMAddFriendViewController alloc] initWithNibName:@"MMAddFriendViewController" bundle:nil withUserInfo:userInfo];
+    [self.navigationController pushViewController:addFriend animated:YES];
 }
 
 #pragma mark - <UISearchBarDelegate>
@@ -90,7 +91,6 @@ static NSString *const registerCellID = @"friends";
         
         [MMHTTPTOOLS searchFriendListByName:searchText complete:^(NSMutableArray *result) {
             
-            NSLog(@"%@", result);
             if (result) {
                 
                 [self.friends addObjectsFromArray:result];

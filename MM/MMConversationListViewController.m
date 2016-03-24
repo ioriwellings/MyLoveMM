@@ -29,12 +29,10 @@
     self = [super init];
     if (self) {
         //设置要显示的会话类型
-        [self setDisplayConversationTypes:@[@(ConversationType_PRIVATE), @(ConversationType_GROUP), @(ConversationType_DISCUSSION), @(ConversationType_APPSERVICE), @(ConversationType_SYSTEM), @(ConversationType_PUBLICSERVICE)]];
-        // 聚合会话类型
-        [self setCollectionConversationType:@[@(ConversationType_GROUP), @(ConversationType_DISCUSSION)]];
-        // 设置图片不被渲染
-        self.tabBarItem.image = [[UIImage imageNamed:@"icon_chat"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-        self.tabBarItem.selectedImage = [[UIImage imageNamed:@"icon_chat_hover"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        [self setDisplayConversationTypes:@[@(ConversationType_PRIVATE),@(ConversationType_DISCUSSION), @(ConversationType_APPSERVICE), @(ConversationType_PUBLICSERVICE),@(ConversationType_GROUP),@(ConversationType_SYSTEM)]];
+        
+        //聚合会话类型
+        [self setCollectionConversationType:@[@(ConversationType_GROUP),@(ConversationType_DISCUSSION)]];
     }
     return self;
 }
@@ -74,7 +72,7 @@
             MMChatViewController *chatVC = [[MMChatViewController alloc] init];
             chatVC.conversationType = model.conversationType;
             chatVC.targetId = model.targetId;
-            chatVC.userName = model.conversationTitle;
+            // chatVC.userName = model.conversationTitle;
             chatVC.title = model.conversationTitle;
             chatVC.conversation = model;
             chatVC.unReadMessage = model.unreadMessageCount;
@@ -86,7 +84,7 @@
             MMChatViewController *chatVC = [[MMChatViewController alloc] init];
             chatVC.conversationType = model.conversationType;
             chatVC.targetId = model.targetId;
-            chatVC.userName = model.conversationTitle;
+            // chatVC.userName = model.conversationTitle;
             chatVC.title = model.conversationTitle;
             chatVC.conversation = model;
             chatVC.unReadMessage = model.unreadMessageCount;
@@ -94,7 +92,6 @@
             chatVC.enableUnreadMessageIcon = YES;
             if (model.conversationModelType == ConversationType_SYSTEM) {
                 
-                chatVC.userName = @"系统消息";
                 chatVC.title = @"系统消息";
             }
             [self.navigationController pushViewController:chatVC animated:YES];
@@ -109,6 +106,17 @@
             [chatList setCollectionConversationType:nil];
             chatList.isEnteredToCollectionViewController = YES;
             [self.navigationController pushViewController:chatList animated:YES];
+        }
+        // 自定义会话类型
+        if (conversationModelType == RC_CONVERSATION_MODEL_TYPE_CUSTOMIZATION) {
+            
+            RCConversationModel *model = self.conversationListDataSource[indexPath.row];
+            MMAgreeAddFriendTableViewController *agreeAddFriend = [[MMAgreeAddFriendTableViewController alloc] initWithNibName:@"MMAgreeAddFriendTableViewController" bundle:nil withConversationModel:model];
+            agreeAddFriend.conversationType = model.conversationType;
+            agreeAddFriend.targetId = model.targetId;
+            agreeAddFriend.userName = model.conversationTitle;
+            agreeAddFriend.title = model.conversationTitle;
+            [self.navigationController pushViewController:agreeAddFriend animated:YES];
         }
     }
 }
@@ -149,15 +157,16 @@
 - (RCConversationBaseCell *)rcConversationListTableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     RCConversationModel *model = self.conversationListDataSource[indexPath.row];
-    __block NSString *userName = nil;
-    __block NSString *portraitUri = nil;
-    __weak MMConversationListViewController *weakSelf = self;
     
-    // 此处需要添加根据userid来获取用户信息的逻辑，extend字段不存在于DB中，当数据来自db时没有extend字段内容，只有userid
+    __block NSString *userName    = nil;
+    __block NSString *portraitUri = nil;
+    
+    __weak MMConversationListViewController *weakSelf = self;
+    //此处需要添加根据userid来获取用户信息的逻辑，extend字段不存在于DB中，当数据来自db时没有extend字段内容，只有userid
     if (nil == model.extend) {
         // Not finished yet, To Be Continue...
-        if (model.conversationType == ConversationType_SYSTEM && [model.lastestMessage isMemberOfClass:[RCContactNotificationMessage class]]) {
-            
+        if(model.conversationType == ConversationType_SYSTEM && [model.lastestMessage isMemberOfClass:[RCContactNotificationMessage class]])
+        {
             RCContactNotificationMessage *_contactNotificationMsg = (RCContactNotificationMessage *)model.lastestMessage;
             if (_contactNotificationMsg.sourceUserId == nil) {
                 
@@ -165,48 +174,48 @@
                 cell.lblDetail.text = @"好友请求";
                 [cell.ivAva sd_setImageWithURL:[NSURL URLWithString:portraitUri] placeholderImage:[UIImage imageNamed:@"system_notice"]];
                 return cell;
-            }
-            NSDictionary *_cache_userInfo = [[NSUserDefaults standardUserDefaults] objectForKey:_contactNotificationMsg.sourceUserId];
-            if (_cache_userInfo) {
                 
-                userName = _cache_userInfo[@"username"];
-                portraitUri = _cache_userInfo[@"portraitUri"];
             }
-            else {
-                
-                NSDictionary *emptyDict = @{};
-                [[NSUserDefaults standardUserDefaults]setObject:emptyDict forKey:_contactNotificationMsg.sourceUserId];
+            NSDictionary *_cache_userinfo = [[NSUserDefaults standardUserDefaults]objectForKey:_contactNotificationMsg.sourceUserId];
+            if (_cache_userinfo) {
+                userName = _cache_userinfo[@"username"];
+                portraitUri = _cache_userinfo[@"portraitUri"];
+            } else {
+                NSDictionary *emptyDic = @{};
+                [[NSUserDefaults standardUserDefaults]setObject:emptyDic forKey:_contactNotificationMsg.sourceUserId];
                 [[NSUserDefaults standardUserDefaults]synchronize];
-                [MMHTTPTOOLS getUserInfoWithUserID:_contactNotificationMsg.sourceUserId completion:^(RCUserInfo *user) {
-                    
-                    if (user == nil) {
-                        return;
-                    }
-                    MMUserInfo *rcduserinfo_ = [[MMUserInfo alloc] init];
-                    rcduserinfo_.name = user.name;
-                    rcduserinfo_.userId = user.userId;
-                    rcduserinfo_.portraitUri = user.portraitUri;
-                    
-                    model.extend = rcduserinfo_;
-                
-                    NSDictionary *userinfoDic = @{@"username": rcduserinfo_.name,
-                                                  @"portraitUri":rcduserinfo_.portraitUri
-                                                  };
-                    [[NSUserDefaults standardUserDefaults]setObject:userinfoDic forKey:_contactNotificationMsg.sourceUserId];
-                    [[NSUserDefaults standardUserDefaults]synchronize];
-                    
-                    [weakSelf.conversationListTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-                }];
+                [MMHTTPTOOLS getUserInfoWithUserID:_contactNotificationMsg.sourceUserId
+                                      completion:^(RCUserInfo *user) {
+                                          if (user == nil) {
+                                              return;
+                                          }
+                                          MMUserInfo *rcduserinfo_ = [[MMUserInfo alloc] init];
+                                          rcduserinfo_.name = user.name;
+                                          rcduserinfo_.userId = user.userId;
+                                          rcduserinfo_.portraitUri = user.portraitUri;
+                                          
+                                          model.extend = rcduserinfo_;
+                                          
+                                          //local cache for userInfo
+                                          NSDictionary *userinfoDic = @{@"username": rcduserinfo_.name,
+                                                                        @"portraitUri":rcduserinfo_.portraitUri
+                                                                        };
+                                          [[NSUserDefaults standardUserDefaults]setObject:userinfoDic forKey:_contactNotificationMsg.sourceUserId];
+                                          [[NSUserDefaults standardUserDefaults]synchronize];
+                                          
+                                          [weakSelf.conversationListTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+                                      }];
             }
         }
+        
+    }else{
+        MMUserInfo *user = (MMUserInfo *)model.extend;
+        userName    = user.name;
+        portraitUri = user.portraitUri;
     }
-    else {
-        MMUserInfo *userInfo = (MMUserInfo *)model.extend;
-        userName = userInfo.name;
-        portraitUri = userInfo.portraitUri;
-    }
+    
     MMChatListCell *cell = [[MMChatListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@""];
-    cell.lblDetail.text = [NSString stringWithFormat:@"来自%@的好友请求",userName];
+    cell.lblDetail.text =[NSString stringWithFormat:@"来自%@的好友请求",userName];
     [cell.ivAva sd_setImageWithURL:[NSURL URLWithString:portraitUri] placeholderImage:[UIImage imageNamed:@"system_notice"]];
     cell.labelTime.text = [self ConvertMessageTime:model.sentTime / 1000];
     cell.model = model;
@@ -266,6 +275,7 @@
 }
 //由于demo使用了tabbarcontroller，当切换到其它tab时，不能更改tabbarcontroller的标题。
 - (void)viewWillDisappear:(BOOL)animated {
+    
     [super viewWillDisappear:animated];
     self.showConnectingStatusOnNavigatorBar = NO;
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"kRCNeedReloadDiscussionListNotification" object:nil];
@@ -294,6 +304,7 @@
         }
     });
 }
+
 /******************************************************/
 #pragma mark - 自定义rightBarButtonItem
 - (void)setupRightBarButtonItem {

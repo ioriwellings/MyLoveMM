@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -41,16 +40,8 @@
                             <constraint firstAttribute="height" constant="1" id="dHo-Lp-OZd"/>
                         </constraints>
                     </view>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btn_right" translatesAutoresizingMaskIntoConstraints="NO" id="t36-3U-eaw">
-                        <rect key="frame" x="287" y="22" width="15" height="20"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="15" id="0uz-s5-MvX"/>
-                            <constraint firstAttribute="height" constant="20" id="SN8-qq-tLk"/>
-                        </constraints>
-                    </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailingMargin" secondItem="t36-3U-eaw" secondAttribute="trailing" constant="10" id="3aX-1D-ua6"/>
                     <constraint firstItem="P5Z-nz-p63" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="6Mw-5C-gmk"/>
                     <constraint firstItem="P5Z-nz-p63" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="7QK-VC-ARA"/>
                     <constraint firstAttribute="bottom" secondItem="bby-sf-jGC" secondAttribute="bottom" id="Mq3-1f-b0P"/>
@@ -59,7 +50,6 @@
                     <constraint firstAttribute="trailing" secondItem="bby-sf-jGC" secondAttribute="trailing" id="npX-VO-yU5"/>
                     <constraint firstItem="c4W-PW-cYm" firstAttribute="bottom" secondItem="P5Z-nz-p63" secondAttribute="bottom" id="oal-LY-rdN"/>
                     <constraint firstItem="bby-sf-jGC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="qJO-PZ-zQZ"/>
-                    <constraint firstItem="t36-3U-eaw" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="xnZ-sY-pIv"/>
                     <constraint firstItem="Uss-Nh-ieu" firstAttribute="leading" secondItem="P5Z-nz-p63" secondAttribute="trailing" constant="10" id="zAi-Oi-M2T"/>
                 </constraints>
             </tableViewCellContentView>
@@ -71,7 +61,4 @@
             <point key="canvasLocation" x="64" y="198"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="btn_right" width="15" height="21"/>
-    </resources>
 </document>

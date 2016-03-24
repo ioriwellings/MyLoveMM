@@ -140,7 +140,7 @@ static NSString * const blackTableName = @"BLACKTABLE";
 #pragma mark - 从表中获取用户信息
 - (MMUserInfo *)getUserByUserId:(NSString *)userId {
     
-    __block RCUserInfo *model = nil;
+    __block MMUserInfo *model = nil;
     FMDatabaseQueue *queue = [DBHelper getDatabaseQueue];
     if (queue == nil) {
         return nil;
@@ -150,7 +150,7 @@ static NSString * const blackTableName = @"BLACKTABLE";
         FMResultSet *resultSet = [db executeQuery:@"SELECT * FROM USERTABLE where userid = ?",userId];
         while ([resultSet next]) {
             
-            model = [[RCUserInfo alloc] init];
+            model = [[MMUserInfo alloc] init];
             model.userId = [resultSet stringForColumn:@"userid"];
             model.name = [resultSet stringForColumn:@"name"];
             model.portraitUri = [resultSet stringForColumn:@"portraitUri"];

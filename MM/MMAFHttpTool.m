@@ -78,16 +78,6 @@
                             failure:failure];
 }
 
-#pragma mark - 获取用户群组信息
-+ (void)getMyGroupsSuccess:(void (^)(id response))success failure:(void (^)(NSError *error))failure {
-    
-    [MMAFHttpTool requestWihtMethod:RequestMethodTypeGet
-                                url:@"get_my_group"
-                             params:nil
-                            success:success
-                            failure:failure];
-}
-
 #pragma mark - 获取好友列表
 + (void)getFriendListFromServerSuccess:(void (^)(id response))success failure:(void (^)(NSError *error))failure {
     
@@ -120,16 +110,6 @@
                             failure:failure];
 }
 
-#pragma mark - 获取所有群组信息
-+ (void)getAllGroupsSuccess:(void (^)(id response))success failure:(void (^)(NSError *error))failure {
-    
-    [MMAFHttpTool requestWihtMethod:RequestMethodTypeGet
-                                url:@"get_all_group"
-                             params:nil
-                            success:success
-                            failure:failure];
-}
-
 #pragma mark - 注册新用户
 + (void)registerWithEmail:(NSString *)email withMobile:(NSString *)mobile withUsername:(NSString *)username withPassword:(NSString *)password success:(void (^)(id))success failure:(void (^)(NSError *))failure {
     
@@ -155,6 +135,16 @@
                             failure:failure];
 }
 
+#pragma mark - 根据email搜索好友
++ (void)searchFriendListByEmail:(NSString *)email success:(void (^)(id))success failure:(void (^)(NSError *))failure {
+    
+    [MMAFHttpTool requestWihtMethod:RequestMethodTypeGet
+                                url:@"seach_email"
+                             params:@{@"email":email}
+                            success:success
+                            failure:failure];
+}
+
 #pragma mark - 用Email进行登录
 + (void)loginWithEmail:(NSString *)email withPassword:(NSString *)password env:(NSString *)env success:(void (^)(id response))success failure:(void (^)(NSError *error))failure {
     
@@ -169,8 +159,109 @@
                             failure:failure];
 }
 
+#pragma mark - 请求加好友
++ (void)requestAddFriend:(NSString *)userID success:(void (^)(id response))success failure:(void (^)(NSError *error))failure {
+    
+    [MMAFHttpTool requestWihtMethod:RequestMethodTypePost
+                                url:@"request_friend"
+                             params:@{@"id":userID, @"message": NSLocalizedStringFromTable(@"Request_Friends_extra", @"RongCloudKit", nil)}
+                            success:success
+                            failure:failure];
+}
+
+#pragma mark - 处理请求加好友
++ (void)requestAgreeToAddFriendWithUserID:(NSString *)userID withIsAccess:(BOOL)isAccess success:(void (^)(id))success failure:(void (^)(NSError *))failure {
+    
+    NSString *isAcept = isAccess ? @"1" : @"0";
+    [MMAFHttpTool requestWihtMethod:RequestMethodTypePost
+                                url:@"process_request_friend"
+                             params:@{@"id":userID,@"is_access":isAcept}
+                            success:success
+                            failure:failure];
+}
+
+#pragma mark - 获取所有群组信息
++ (void)getAllGroupsSuccess:(void (^)(id response))success failure:(void (^)(NSError *error))failure {
+    
+    [MMAFHttpTool requestWihtMethod:RequestMethodTypeGet
+                                url:@"get_all_group"
+                             params:nil
+                            success:success
+                            failure:failure];
+}
+
+#pragma mark - 获取用户群组信息
++ (void)getMyGroupsSuccess:(void (^)(id response))success failure:(void (^)(NSError *error))failure {
+    
+    [MMAFHttpTool requestWihtMethod:RequestMethodTypeGet
+                                url:@"get_my_group"
+                             params:nil
+                            success:success
+                            failure:failure];
+}
+
+// get group by id
++ (void)getGroupByID:(NSString *) groupID
+             success:(void (^)(id response))success
+             failure:(void (^)(NSError* err))failure
+{
+    [MMAFHttpTool requestWihtMethod:RequestMethodTypeGet
+                              url:@"get_group"
+                           params:@{@"id":groupID}
+                          success:success
+                          failure:failure];
+    
+}
+
+// create group
++ (void)createGroupWithName:(NSString *) name
+                    success:(void (^)(id response))success
+                    failure:(void (^)(NSError* err))failure
+{
+    [MMAFHttpTool requestWihtMethod:RequestMethodTypePost
+                              url:@"create_group"
+                           params:@{@"name":name}
+                          success:success
+                          failure:failure];
+}
+
+//join group
++ (void)joinGroupByID:(int) groupID
+              success:(void (^)(id response))success
+              failure:(void (^)(NSError* err))failure
+{
+    [MMAFHttpTool requestWihtMethod:RequestMethodTypeGet
+                              url:@"join_group"
+                           params:@{@"id":[NSNumber numberWithInt:groupID]}
+                          success:success
+                          failure:failure];
+}
+
+// quit group
++ (void)quitGroupByID:(int) groupID
+              success:(void (^)(id response))success
+              failure:(void (^)(NSError* err))failure
+{
+    [MMAFHttpTool requestWihtMethod:RequestMethodTypeGet
+                              url:@"quit_group"
+                           params:@{@"id":[NSNumber numberWithInt:groupID]}
+                          success:success
+                          failure:failure];
+}
 
 
++ (void)updateGroupByID:(int)groupID
+         withGroupName:(NSString *)groupName
+     andGroupIntroduce:(NSString *)introduce
+               success:(void (^)(id))success
+               failure:(void (^)(NSError *))failure
+{
+    [MMAFHttpTool requestWihtMethod:RequestMethodTypePost
+                              url:@"update_group"
+                           params:@{@"id":[NSNumber numberWithInt:groupID],@"name":groupName,@"introduce":introduce}
+                          success:success
+                          failure:failure];
+}
 
 
 @end

@@ -104,42 +104,6 @@
     }
 }
 
-#pragma mark - 获取我的群组
-- (void)getMyGroupsWithBlock:(void (^)(NSMutableArray *))block {
-    
-    [MMAFHttpTool getMyGroupsSuccess:^(id response) {
-        
-        NSArray *allGroups = response[@"result"];
-        NSMutableArray *tempArr = [NSMutableArray array];
-        if (allGroups) {
-            
-            for (NSDictionary *dict in allGroups) {
-                
-                MMGroupInfo *group = [[MMGroupInfo alloc] init];
-                group.groupId = [dict objectForKey:@"id"];
-                group.groupName = [dict objectForKey:@"name"];
-                NSString *portrait = [dict objectForKey:@"portrait"];
-                group.portraitUri = portrait.length == 0 ? @"" : portrait;
-                group.creatorId = [dict objectForKey:@"create_user_id"];
-                NSString *introduce = [dict objectForKey:@"introduce"];
-                group.introduce = introduce.length == 0 ? @"" : introduce;
-                NSString *number = [dict objectForKey:@"number"];
-                group.number = number.length == 0 ? @"" : number;
-                NSString *maxNumber = [dict objectForKey:@"max_number"];
-                group.maxNumber = maxNumber.length == 0 ? @"" : maxNumber;
-                [tempArr addObject:group];
-                group.isJoin = YES;
-                [[MMDataBaseManager shareInstance] insertGroupToDB:group];
-            }
-            if (block) {
-                block(tempArr);
-            }
-        }
-    } failure:^(NSError *error) {
-        
-    }];
-}
-
 #pragma mark - 获取好友列表
 - (void)getFriends:(void (^)(NSMutableArray *))friendList {
     
@@ -193,6 +157,148 @@
     }];
 }
 
+#pragma mark - 根据用户名查找好友
+- (void)searchFriendListByName:(NSString *)name complete:(void (^)(NSMutableArray *))friendList {
+    
+    NSMutableArray *list = [NSMutableArray array];
+    [MMAFHttpTool searchFriendListByName:name success:^(id response) {
+        
+        NSString *code = [NSString stringWithFormat:@"%@", response[@"code"]];
+        if (friendList) {
+            
+            if ([code isEqualToString:@"200"]) { // 请求成功
+                
+                NSArray *dataArray = response[@"result"];
+                for (int i = 0; i < dataArray.count; i++) {
+                    
+                    NSDictionary *dict = [dataArray objectAtIndex:i];
+                    RCUserInfo *userInfo = [RCUserInfo new];
+                    NSNumber *idNum = [dict objectForKey:@"id"];
+                    userInfo.userId = [NSString stringWithFormat:@"%d", idNum.intValue];
+                    userInfo.name = [dict objectForKey:@"username"];
+                    userInfo.portraitUri = [dict objectForKey:@"portrait"];
+                    [list addObject:userInfo];
+                }
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    friendList(list);
+                });
+            }
+        }
+    } failure:^(NSError *error) {
+        if (friendList) {
+            friendList(list);
+        }
+    }];
+}
+
+#pragma mark - 根据Email查找好友
+- (void)searchFriendListByEmail:(NSString *)email complete:(void (^)(NSMutableArray *))friendList {
+    
+    NSMutableArray *list = [NSMutableArray array];
+    [MMAFHttpTool searchFriendListByEmail:email success:^(id response) {
+        
+        NSString *code = [NSString stringWithFormat:@"%@", response[@"code"]];
+        if (friendList) {
+            
+            if ([code isEqualToString:@"200"]) {
+                
+                id result = response[@"result"];
+                if([result respondsToSelector:@selector(intValue)]) return ;
+                if([result respondsToSelector:@selector(objectForKey:)])
+                {
+                    MMUserInfo *userInfo = [MMUserInfo new];
+                    NSNumber *idNum = [result objectForKey:@"id"];
+                    userInfo.userId = [NSString stringWithFormat:@"%d",idNum.intValue];
+                    userInfo.portraitUri = [result objectForKey:@"portrait"];
+                    userInfo.name = [result objectForKey:@"username"];
+                    [list addObject:userInfo];
+                    
+                }
+                else
+                {
+                    NSArray * regDataArray = response[@"result"];
+                    
+                    for(int i = 0;i < regDataArray.count;i++){
+                        
+                        NSDictionary *dic = [regDataArray objectAtIndex:i];
+                        MMUserInfo *userInfo = [MMUserInfo new];
+                        NSNumber *idNum = [dic objectForKey:@"id"];
+                        userInfo.userId = [NSString stringWithFormat:@"%d",idNum.intValue];
+                        userInfo.portraitUri = [dic objectForKey:@"portrait"];
+                        userInfo.name = [dic objectForKey:@"username"];
+                        [list addObject:userInfo];
+                    }
+                    
+                }
+                dispatch_async(dispatch_get_main_queue(), ^(void) {
+                    friendList(list);
+                });
+            }
+            else {
+                friendList(list);
+            }
+        }
+    } failure:^(NSError *error) {
+        
+        if (friendList) {
+            friendList(list);
+        }
+    }];
+    
+}
+
+#pragma mark - 请求加好友
+- (void)requestAddFriend:(NSString *)userID complete:(void (^)(BOOL))result {
+    
+    [MMAFHttpTool requestAddFriend:userID success:^(id response) {
+        
+        NSString *code = [NSString stringWithFormat:@"%@", response[@"code"]];
+        NSLog(@"%@", response);
+        if (result) {
+            
+            if ([code isEqualToString:@"200"]) {
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                   
+                    result(YES);
+                });
+            }
+            else {
+                
+                result(NO);
+            }
+        }
+        
+    } failure:^(NSError *error) {
+        if (result) {
+            
+            result(NO);
+        }
+    }];
+}
+
+
+#pragma mark - sha1数据校验
+- (NSString *) sha1:(NSString *)input {
+    
+    //const char *cstr = [input cStringUsingEncoding:NSUTF8StringEncoding];
+    //NSData *data = [NSData dataWithBytes:cstr length:input.length];
+    
+    NSData *data = [input dataUsingEncoding:NSUTF8StringEncoding];
+    
+    uint8_t digest[CC_SHA1_DIGEST_LENGTH];
+    
+    CC_SHA1(data.bytes, (unsigned int)data.length, digest);
+    
+    NSMutableString *output = [NSMutableString stringWithCapacity:CC_SHA1_DIGEST_LENGTH * 2];
+    
+    for(int i=0; i<CC_SHA1_DIGEST_LENGTH; i++) {
+        [output appendFormat:@"%02x", digest[i]];
+    }
+    
+    return output;
+}
+
 #pragma mark - 根据id获取单个群组
 - (void)getGroupWithGroupID:(NSString *)groupID successCompletion:(void (^)(RCGroup *group))completion {
     
@@ -207,11 +313,15 @@
                 MMGroupInfo *group = [[MMGroupInfo alloc] init];
                 group.groupId = [result objectForKey:@"id"];
                 group.groupName = [result objectForKey:@"name"];
-                NSString *portrait = [result objectForKey:@"portrait"];
-                group.portraitUri = portrait.length == 0 ? @"" : portrait;
+                group.portraitUri = [result objectForKey:@"portrait"];
+                if (group.portraitUri) {
+                    group.portraitUri = @"";
+                }
                 group.creatorId = [result objectForKey:@"create_user_id"];
-                NSString *introduce = [result objectForKey:@"introduce"];
-                group.introduce = introduce.length == 0 ? @"" : introduce;
+                group.introduce = [result objectForKey:@"introduce"];
+                if (group.introduce) {
+                    group.introduce = @"";
+                }
                 group.number = [result objectForKey:@"number"];
                 group.maxNumber = [result objectForKey:@"max_number"];
                 group.creatorTime = [result objectForKey:@"creat_datetime"];
@@ -220,7 +330,7 @@
                     completion(group);
                 }
             }
-
+            
         } failure:^(NSError *error) {
             
         }];
@@ -247,11 +357,15 @@
                 MMGroupInfo *group = [[MMGroupInfo alloc] init];
                 group.groupId = [dict objectForKey:@"id"];
                 group.groupName = [dict objectForKey:@"name"];
-                NSString *portrait = [dict objectForKey:@"portrait"];
-                group.portraitUri = portrait.length == 0 ? @"" : portrait;
+                group.portraitUri = [dict objectForKey:@"portrait"];
+                if (group.portraitUri) {
+                    group.portraitUri = @"";
+                }
                 group.creatorId = [dict objectForKey:@"create_user_id"];
-                NSString *introduce = [dict objectForKey:@"introduce"];
-                group.introduce = introduce.length == 0 ? @"" : introduce;
+                group.introduce = [dict objectForKey:@"introduce"];
+                if (group.introduce) {
+                    group.introduce = @"";
+                }
                 group.number = [dict objectForKey:@"number"];
                 group.maxNumber = [dict objectForKey:@"max_number"];
                 group.creatorTime = [dict objectForKey:@"creat_datetime"];
@@ -286,67 +400,155 @@
     }];
 }
 
-#pragma mark - 根据用户名查找好友
-- (void)searchFriendListByName:(NSString *)name complete:(void (^)(NSMutableArray *))friendList {
+#pragma mark - 获取我的群组
+- (void)getMyGroupsWithBlock:(void (^)(NSMutableArray *))block {
     
-    NSMutableArray *list = [NSMutableArray array];
-    [MMAFHttpTool searchFriendListByName:name success:^(id response) {
+    [MMAFHttpTool getMyGroupsSuccess:^(id response) {
         
-        NSString *code = [NSString stringWithFormat:@"%@", response[@"code"]];
-        if (friendList) {
+        NSArray *allGroups = response[@"result"];
+        NSMutableArray *tempArr = [NSMutableArray array];
+        if (allGroups) {
             
-            NSLog(@"code = %@", response);
-            if ([code isEqualToString:@"200"]) { // 请求成功
+            for (NSDictionary *dict in allGroups) {
                 
-                NSArray *dataArray = response[@"result"];
-                for (int i = 0; i < dataArray.count; i++) {
-                    
-                    NSDictionary *dict = [dataArray objectAtIndex:i];
-                    RCUserInfo *userInfo = [RCUserInfo new];
-                    NSNumber *idNum = [dict objectForKey:@"id"];
-                    userInfo.userId = [NSString stringWithFormat:@"%d", idNum.intValue];
-                    userInfo.name = [dict objectForKey:@"username"];
-                    userInfo.portraitUri = [dict objectForKey:@"portrait"];
-                    [list addObject:userInfo];
+                MMGroupInfo *group = [[MMGroupInfo alloc] init];
+                group.groupId = [dict objectForKey:@"id"];
+                group.groupName = [dict objectForKey:@"name"];
+                group.portraitUri = [dict objectForKey:@"portrait"];
+                if (group.portraitUri) {
+                    group.portraitUri = @"";
                 }
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    friendList(list);
-                });
+                group.creatorId = [dict objectForKey:@"create_user_id"];
+                group.introduce = [dict objectForKey:@"introduce"];
+                if (group.introduce) {
+                    group.introduce = @"";
+                }
+                group.number = [dict objectForKey:@"number"];
+                if (group.number) {
+                    group.number = @"";
+                }
+                group.maxNumber = [dict objectForKey:@"max_number"];
+                if (group.maxNumber) {
+                    group.maxNumber = @"";
+                }
+                [tempArr addObject:group];
+                group.isJoin = YES;
+                [[MMDataBaseManager shareInstance] insertGroupToDB:group];
+            }
+            if (block) {
+                block(tempArr);
             }
         }
     } failure:^(NSError *error) {
-        if (friendList) {
-            friendList(list);
+        
+    }];
+}
+
+#pragma mark - 加入群组
+- (void)joinGroupWithGroupID:(int)groupID withGroupName:(NSString *)groupName complete:(void (^)(BOOL))joinResult {
+    
+    [MMAFHttpTool joinGroupByID:groupID success:^(id response) {
+        
+        NSString *code = [NSString stringWithFormat:@"%@",response[@"code"]];
+        if (joinResult) {
+            
+            if ([code isEqualToString:@"200"]) {
+                
+                [[RCIMClient sharedRCIMClient] joinGroup:[NSString stringWithFormat:@"%d", groupID] groupName:groupName success:^{
+                    
+                    for (MMGroupInfo *groupInfo in _allGroups) {
+                        
+                        if ([groupInfo.groupId isEqualToString:[NSString stringWithFormat:@"%d",groupID]]) {
+                            
+                            groupInfo.isJoin = YES;
+                            [[MMDataBaseManager shareInstance] insertGroupToDB:groupInfo];
+                        }
+                    }
+                    dispatch_async(dispatch_get_main_queue(), ^(void) {
+                        joinResult(YES);
+                    });
+                } error:^(RCErrorCode status) {
+                    joinResult(NO);
+                }];
+            }
+            else {
+                joinResult(NO);
+            }
+        }
+        
+    } failure:^(NSError *error) {
+        joinResult(NO);
+    }];
+}
+
+#pragma mark - 退出群组
+- (void)quitGroupWithGroupID:(int)groupID complete:(void (^)(BOOL))quitResult {
+    
+    [MMAFHttpTool quitGroupByID:groupID success:^(id response) {
+        
+        NSString *code = [NSString stringWithFormat:@"%@", response[@"code"]];
+        if (quitResult) {
+            
+            if ([code isEqualToString:@"200"]) {
+                
+                [[RCIMClient sharedRCIMClient] quitGroup:[NSString stringWithFormat:@"%d", groupID] success:^{
+                    
+                    quitResult(YES);
+                    for (MMGroupInfo *group in _allGroups) {
+                        if ([group.groupId isEqualToString:[NSString stringWithFormat:@"%d",groupID]]) {
+                            
+                            group.isJoin = NO;
+                            [[MMDataBaseManager shareInstance] insertGroupToDB:group];
+                        }
+                    }
+                } error:^(RCErrorCode status) {
+                    quitResult(NO);
+                }];
+            }
+            else {
+                quitResult(NO);
+            }
+        }
+    } failure:^(NSError *error) {
+        if (quitResult) {
+            quitResult(NO);
         }
     }];
 }
 
-#pragma mark - 根据Email查找好友
-- (void)searchFriendListByEmail:(NSString *)email complete:(void (^)(NSMutableArray *))friendList {
+#pragma mark - 更新群组
+- (void)updateGroupById:(int)groupID withGroupName:(NSString *)groupName andintroduce:(NSString *)introduce complete:(void (^)(BOOL))result {
     
-    
-}
+    __block typeof(id) weakGroupId = [NSString stringWithFormat:@"%d", groupID];
+    [MMAFHttpTool updateGroupByID:groupID withGroupName:groupName andGroupIntroduce:introduce success:^(id response) {
+        NSString *code = [NSString stringWithFormat:@"%@",response[@"code"]];
+        
+        if (result) {
+            if ([code isEqualToString:@"200"]) {
+                
+                for (MMGroupInfo *group in _allGroups) {
+                    
+                    if ([group.groupId isEqualToString:weakGroupId]) {
+                        group.groupName = groupName;
+                        group.introduce = introduce;
+                    }
+                    
+                }
+                dispatch_async(dispatch_get_main_queue(), ^(void) {
+                    result(YES);
+                });
+                
+            }else{
+                result(NO);
+            }
+            
+        }
+    } failure:^(id response) {
+        if (result) {
+            result(NO);
+        }
+    }];
 
-
-#pragma mark - sha1数据校验
-- (NSString *) sha1:(NSString *)input {
-    
-    //const char *cstr = [input cStringUsingEncoding:NSUTF8StringEncoding];
-    //NSData *data = [NSData dataWithBytes:cstr length:input.length];
-    
-    NSData *data = [input dataUsingEncoding:NSUTF8StringEncoding];
-    
-    uint8_t digest[CC_SHA1_DIGEST_LENGTH];
-    
-    CC_SHA1(data.bytes, (unsigned int)data.length, digest);
-    
-    NSMutableString *output = [NSMutableString stringWithCapacity:CC_SHA1_DIGEST_LENGTH * 2];
-    
-    for(int i=0; i<CC_SHA1_DIGEST_LENGTH; i++) {
-        [output appendFormat:@"%02x", digest[i]];
-    }
-    
-    return output;
 }
 
 @end

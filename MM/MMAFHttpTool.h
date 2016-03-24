@@ -35,11 +35,6 @@ typedef NS_ENUM(NSInteger, RequestMethodType){
  */
 + (void)getUserWithUserId:(NSString *)userId success:(void (^)(id response))success failure:(void (^)(NSError* error))failure;
 
-/**
- * 获取我的群组信息
- */
-+ (void)getMyGroupsSuccess:(void (^)(id response))success failure:(void (^)(NSError *error))failure;
-
 /** 
  * 获取好友列表
  */
@@ -56,11 +51,6 @@ typedef NS_ENUM(NSInteger, RequestMethodType){
 + (void)getFriendsSuccess:(void (^)(id response))success failure:(void (^)(NSError *error))failure;
 
 /**
- * 获取所有群组信息
- */
-+ (void)getAllGroupsSuccess:(void (^)(id response))success failure:(void (^)(NSError *erro))failure;
-
-/**
  * 注册新用户
  */
 + (void)registerWithEmail:(NSString *)email withMobile:(NSString *)mobile withUsername:(NSString *)username withPassword:(NSString *)password success:(void (^)(id response))success failure:(void (^)(NSError* err))failure;
@@ -70,9 +60,62 @@ typedef NS_ENUM(NSInteger, RequestMethodType){
  */
 + (void)searchFriendListByName:(NSString *)name success:(void (^)(id response))success failure:(void (^)(NSError *error))failure;
 
+/**
+ * 按Email搜索好友
+ */
++ (void)searchFriendListByEmail:(NSString *)email success:(void (^)(id response))success failure:(void (^)(NSError *error))failure;
+
 /** 
  * 根据Email登录 
  */
 + (void)loginWithEmail:(NSString *)email withPassword:(NSString *)password env:(NSString *)env success:(void (^)(id response))success failure:(void (^)(NSError *error))failure;
 
+/**
+ * 请求加好友
+ */
++ (void)requestAddFriend:(NSString *)userID success:(void (^)(id response))success failure:(void (^)(NSError *error))failure;
+
+/**
+ * 处理请求加好友
+ */
++ (void)requestAgreeToAddFriendWithUserID:(NSString *)userID withIsAccess:(BOOL)isAccess success:(void (^)(id response))success
+                                  failure:(void (^)(NSError* err))failure;
+
+#pragma mark - 群组
+/**
+ * 获取所有群组信息
+ */
++ (void)getAllGroupsSuccess:(void (^)(id response))success
+                    failure:(void (^)(NSError* error))failure;
+
+/**
+ * 获取我的群组信息
+ */
++ (void)getMyGroupsSuccess:(void (^)(id response))success
+                   failure:(void (^)(NSError* error))failure;
+
+// get group by id
++ (void)getGroupByID:(NSString *) groupID
+             success:(void (^)(id response))success
+             failure:(void (^)(NSError* error))failure;
+
+// create group
++ (void)createGroupWithName:(NSString *) name
+                    success:(void (^)(id response))success
+                    failure:(void (^)(NSError* error))failure;
+
+// join group
++ (void)joinGroupByID:(int) groupID
+              success:(void (^)(id response))success
+              failure:(void (^)(NSError* error))failure;
+
+// quit group
++ (void)quitGroupByID:(int) groupID
+              success:(void (^)(id response))success
+              failure:(void (^)(NSError* error))failure;
+
+// update group
++ (void)updateGroupByID:(int) groupID withGroupName:(NSString*) groupName andGroupIntroduce:(NSString*) introduce
+                success:(void (^)(id response))success
+                failure:(void (^)(NSError* error))failure;
 @end

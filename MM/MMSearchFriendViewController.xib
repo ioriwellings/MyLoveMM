@@ -22,6 +22,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="t1F-46-hSs"/>
                     </constraints>
+                    <color key="barTintColor" red="0.56730571549999997" green="0.82383326479999996" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <textInputTraits key="textInputTraits"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="6hH-Ku-41z"/>
@@ -36,7 +37,7 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-            <point key="canvasLocation" x="264.5" y="205.5"/>
+            <point key="canvasLocation" x="112.5" y="62.5"/>
         </view>
         <searchDisplayController id="paO-rM-Ljw">
             <connections>
