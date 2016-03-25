@@ -21,7 +21,13 @@
 @property (weak, nonatomic) IBOutlet UISwitch *swConversationTop;
 @property (weak, nonatomic) IBOutlet UIButton *btClearMessage;
 
+@property (weak, nonatomic) IBOutlet UIView *HiddenView;
 
+@property (weak, nonatomic) IBOutlet UIButton *beginToChat;
+
+@property (weak, nonatomic) IBOutlet UIButton *deleteAndQuit;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *chatToConstrait;
 @end
 
 @implementation MMDidJoinGroupViewController
@@ -47,9 +53,20 @@
     
     self.imgGroupPortait.layer.masksToBounds = YES;
     self.imgGroupPortait.layer.cornerRadius = 5.0f;
-    self.imgGroupPortait.image = [[UIImage imageNamed:@"chatroom_icon_2"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     self.lblGroupName.text = _groupInfo.groupName;
     self.lblNumberInGroup.text = [NSString stringWithFormat:@"%@/%@", _groupInfo.number.length == 0 ? @"1000" : _groupInfo.number, _groupInfo.maxNumber.length == 0 ? @"1000" : _groupInfo.maxNumber];
+    if (_groupInfo.isJoin) {
+        
+        self.imgGroupPortait.image = [[UIImage imageNamed:@"chatroom_icon_2"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    }
+    else {
+        
+        self.imgGroupPortait.image = [[UIImage imageNamed:@"chatroom_icon_3"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        self.HiddenView.hidden = YES;
+        [self.beginToChat setTitle:@"加入群组" forState:UIControlStateNormal];
+        self.deleteAndQuit.hidden = YES;
+        self.chatToConstrait.constant = 40;
+    }
     // 会话置顶
     [self.swConversationTop setOn:NO];
     RCConversation *conversation = [[RCIMClient sharedRCIMClient] getConversation:ConversationType_GROUP
@@ -75,16 +92,27 @@
      }];
 }
 
-#pragma mark - 聊天
+#pragma mark - 进入聊天
 - (IBAction)beginToChat:(id)sender {
     
-    NSUInteger count = self.navigationController.viewControllers.count;
-    if (count > 1) {
-        UIViewController *preVC = self.navigationController.viewControllers[count - 2];
-        if ([preVC isKindOfClass:[RCConversationViewController class]]) {
-            
-            [self.navigationController popViewControllerAnimated:YES];
-            return;
+    if (_groupInfo.isJoin) {
+        
+        NSUInteger count = self.navigationController.viewControllers.count;
+        if (count > 1) {
+            UIViewController *preVC = self.navigationController.viewControllers[count - 2];
+            if ([preVC isKindOfClass:[RCConversationViewController class]]) {
+                
+                [self.navigationController popViewControllerAnimated:YES];
+                return;
+            } else {
+                
+                MMChatViewController *temp = [[MMChatViewController alloc] init];
+                temp.targetId = _groupInfo.groupId;
+                temp.conversationType = ConversationType_GROUP;
+                temp.userName = _groupInfo.groupName;
+                temp.title = _groupInfo.groupName;
+                [self.navigationController pushViewController:temp animated:YES];
+            }
         } else {
             
             MMChatViewController *temp = [[MMChatViewController alloc] init];
@@ -94,17 +122,45 @@
             temp.title = _groupInfo.groupName;
             [self.navigationController pushViewController:temp animated:YES];
         }
-    } else {
+    }
+    else {
         
-        MMChatViewController *temp = [[MMChatViewController alloc] init];
-        temp.targetId = _groupInfo.groupId;
-        temp.conversationType = ConversationType_GROUP;
-        temp.userName = _groupInfo.groupName;
-        temp.title = _groupInfo.groupName;
-        [self.navigationController pushViewController:temp animated:YES];
+        // 加入群组
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"确定加入群组?" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *actionComfirm = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+            int groupId = [_groupInfo.groupId intValue];
+            NSString *groupName = self.lblGroupName.text;
+            [MMHTTPTOOLS joinGroupWithGroupID:groupId withGroupName:groupName complete:^(BOOL result) {
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    
+                    if (result) {
+                        
+                        _groupInfo.isJoin = YES;
+                        [MMDataSource syncGroups];
+                        self.imgGroupPortait.image = [[UIImage imageNamed:@"chatroom_icon_2"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+                        self.HiddenView.hidden = NO;
+                        [self.beginToChat setTitle:@"发起会话" forState:UIControlStateNormal];
+                        self.deleteAndQuit.hidden = NO;
+                        self.chatToConstrait.constant = 140;
+                        [SVProgressHUD showSuccessWithStatus:@"成功加入群组" maskType:SVProgressHUDMaskTypeBlack];
+                    }
+                    else {
+                        
+                        [SVProgressHUD showErrorWithStatus:@"加入失败\n群组人数已满" maskType:SVProgressHUDMaskTypeBlack];
+                    }
+                });
+            }];
+        }];
+        UIAlertAction *actionCancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+        [alert addAction:actionComfirm];
+        [alert addAction:actionCancel];
+        [self presentViewController:alert animated:YES completion:nil];
     }
 }
 
+#pragma mark - 退出群组
 - (IBAction)deleteAndQuitGroup:(id)sender {
     
     UIActionSheet *actionSheet =
@@ -116,6 +172,19 @@
     [actionSheet showInView:self.view];
 }
 
+#pragma mark - 消息免提
+- (IBAction)setIsMessageDistruble:(id)sender {
+    
+    UISwitch *isDistruble = (UISwitch *)sender;
+    [[RCIMClient sharedRCIMClient] setConversationNotificationStatus:ConversationType_GROUP targetId:_groupInfo.groupId isBlocked:~!!isDistruble.isOn success:^(RCConversationNotificationStatus nStatus) {
+        
+        NSLog(@"消息免提");
+    } error:^(RCErrorCode status) {
+        NSLog(@"status = %zd", status);
+    }];
+}
+
+#pragma mark - 会话置顶
 - (IBAction)setConversationTop:(id)sender {
     
     UISwitch *isTop = (UISwitch *)sender;
@@ -129,6 +198,7 @@
     }
 }
 
+#pragma mark - 清除聊天记录
 - (IBAction)clearChatMessage:(id)sender {
     
     UIActionSheet *actionSheet =
@@ -140,8 +210,6 @@
     actionSheet.tag = 100;
     [actionSheet showInView:self.view];
 }
-
-
 
 #pragma mark -UIActionSheetDelegate
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
@@ -169,10 +237,15 @@
                         
                         _groupInfo.isJoin = NO;
                         [MMDataSource syncGroups];
-                        [SVProgressHUD showSuccessWithStatus:@"退出成功" maskType:SVProgressHUDMaskTypeBlack];
+                        self.imgGroupPortait.image = [[UIImage imageNamed:@"chatroom_icon_3"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+                        self.HiddenView.hidden = YES;
+                        [self.beginToChat setTitle:@"加入群组" forState:UIControlStateNormal];
+                        self.deleteAndQuit.hidden = YES;
+                        self.chatToConstrait.constant = 40;
                         if (self.updateGroupInfoBlock) {
                             self.updateGroupInfoBlock();
                         }
+                        [SVProgressHUD showSuccessWithStatus:@"退出成功" maskType:SVProgressHUDMaskTypeBlack];
                     } else {
                         
                         [SVProgressHUD showErrorWithStatus:@"退出失败" maskType:SVProgressHUDMaskTypeBlack];

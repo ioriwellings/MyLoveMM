@@ -33,11 +33,4 @@ typedef void (^clearMessageCompletion)(BOOL isSuccess);
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil withGroupInfo:(MMGroupInfo *)groupInfo;
 
 
-
-
-
-
-
-
-
 @end

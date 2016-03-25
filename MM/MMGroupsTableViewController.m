@@ -77,26 +77,19 @@ static NSString *const cellID = @"MMGroupCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     MMGroupInfo *groupInfo = self.groups[indexPath.row];
-    if (groupInfo.isJoin) {
+    MMDidJoinGroupViewController *didJoin = [[MMDidJoinGroupViewController alloc] initWithNibName:NSStringFromClass([MMDidJoinGroupViewController class]) bundle:nil withGroupInfo:groupInfo];
+    // 刷新列表数据
+    didJoin.updateGroupInfoBlock = ^() {
         
-        MMDidJoinGroupViewController *didJoin = [[MMDidJoinGroupViewController alloc] initWithNibName:NSStringFromClass([MMDidJoinGroupViewController class]) bundle:nil withGroupInfo:groupInfo];
-        // 刷新列表数据
-        didJoin.updateGroupInfoBlock = ^() {
-            
-            __weak MMGroupsTableViewController *weakSelf = self;
-            [MMHTTPTOOLS getAllGroupsWithCompletion:^(NSMutableArray *result) {
-                _groups = result;
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [weakSelf.tableView reloadData];
-                });
-            }];
-        };
-        [self.navigationController pushViewController:didJoin animated:YES];
-    }
-    else {
-        
-        
-    }
+        __weak MMGroupsTableViewController *weakSelf = self;
+        [MMHTTPTOOLS getAllGroupsWithCompletion:^(NSMutableArray *result) {
+            _groups = result;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [weakSelf.tableView reloadData];
+            });
+        }];
+    };
+    [self.navigationController pushViewController:didJoin animated:YES];
 }
 
 - (void)joinGroupCallback:(BOOL)result withGroupId:(NSString *)groupId {

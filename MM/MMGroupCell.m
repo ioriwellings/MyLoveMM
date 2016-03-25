@@ -13,9 +13,9 @@
 - (void)awakeFromNib {
 
     self.imvGroupPort.layer.masksToBounds = YES;
-    self.imvGroupPort.layer.cornerRadius = 2.f;
+    self.imvGroupPort.layer.cornerRadius = 8.f;
     self.btJoin.layer.masksToBounds = YES;
-    self.btJoin.layer.cornerRadius = 2.f;
+    self.btJoin.layer.cornerRadius = 6.f;
 }
 
 - (void)setIsJoin:(BOOL)isJoin {
