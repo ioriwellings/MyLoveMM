@@ -8,11 +8,29 @@
 
 #import "MMAddressBookTableViewController.h"
 
+// #import <ctype.h>
+
 @interface MMAddressBookTableViewController ()
+
+//#字符索引对应的user object
+@property (nonatomic,strong) NSMutableArray *tempOtherArr;
+@property (strong, nonatomic) NSMutableArray *friends;
 
 @end
 
 @implementation MMAddressBookTableViewController
+
+static NSString *const registerID = @"MMFriendBookCell";
+
+#pragma mark - lazy
+- (NSMutableArray *)friends {
+    
+    if (!_friends) {
+        
+        _friends = [NSMutableArray array];
+    }
+    return _friends;
+}
 
 - (void)viewDidLoad {
     
@@ -20,93 +38,77 @@
     self.title = @"通讯录";
     self.view.backgroundColor = MMRandomColor;
     self.edgesForExtendedLayout = UIRectEdgeNone;
+    // 注册
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([MMFriendBookCell class]) bundle:nil] forCellReuseIdentifier:registerID];
+    // 去掉分割线
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+    // 获取用户所有好友
+    [self getAllFriendsData];
+}
+
+- (void)getAllFriendsData {
+    
+    _keys = @[@"A",@"B",@"C",@"D",@"E",@"F",@"G",@"H",@"I",@"J",@"K",@"L",@"M",@"N",@"O",@"P",@"Q",@"R",@"S",@"T",@"U",@"V",@"W",@"X",@"Y",@"Z",@"#"];
+    
+    _allFriends = [NSMutableDictionary dictionary];
+    _allKeys = [NSMutableArray array];
+    self.friends = [NSMutableArray arrayWithArray:[[MMDataBaseManager shareInstance] getAllFriends]];
+    __weak MMAddressBookTableViewController *weakSelf = self;
+    if (self.friends == nil || self.friends.count < 1) {
+        
+        [MMDataSource syncFriendList:^(NSMutableArray *friends) {
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                // 刷新列表数据
+                [weakSelf.tableView reloadData];
+            });
+        }];
+    }
+    else {
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            // 刷新列表数据
+            [weakSelf.tableView reloadData];
+        });
+    }
 }
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-
-    return 0;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return 0;
+    return self.friends.count;
 }
 
-/*
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    return 70.f;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
-    // Configure the cell...
-    
+    MMFriendBookCell *cell = [tableView dequeueReusableCellWithIdentifier:registerID];
+    cell.userInfo = self.friends[indexPath.row];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Table view delegate
-
-// In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here, for example:
-    // Create the next view controller.
-    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:<#@"Nib name"#> bundle:nil];
     
-    // Pass the selected object to the new view controller.
-    
-    // Push the view controller.
-    [self.navigationController pushViewController:detailViewController animated:YES];
+    MMUserInfo *userInfo = self.friends[indexPath.row];
+    MMChatViewController *chat = [[MMChatViewController alloc] init];
+    chat.targetId = userInfo.userId;
+    chat.conversationType = ConversationType_PRIVATE;
+    chat.userName = userInfo.name;
+    chat.title = userInfo.name;
+    [self.navigationController pushViewController:chat animated:YES];
 }
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

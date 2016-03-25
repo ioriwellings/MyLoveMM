@@ -64,6 +64,8 @@
 		AACB7EAF1C9186FB00E8A85A /* libc++abi.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AACB7EAE1C9186FB00E8A85A /* libc++abi.tbd */; };
 		AACD93D21CA22916002ACFC5 /* MMFriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AACD93D01CA22916002ACFC5 /* MMFriendCell.m */; };
 		AACD93D31CA22916002ACFC5 /* MMFriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AACD93D11CA22916002ACFC5 /* MMFriendCell.xib */; };
+		AAD623BD1CA5215B001BD9F6 /* MMFriendBookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD623BB1CA5215B001BD9F6 /* MMFriendBookCell.m */; };
+		AAD623BE1CA5215B001BD9F6 /* MMFriendBookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAD623BC1CA5215B001BD9F6 /* MMFriendBookCell.xib */; };
 		AAD8E3C31C9F943900E67C00 /* MMTextFieldValidate.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD8E3C21C9F943900E67C00 /* MMTextFieldValidate.m */; };
 		AADC621B1CA2A68B0093D3F7 /* MMAgreeAddFriendTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AADC62191CA2A68B0093D3F7 /* MMAgreeAddFriendTableViewController.m */; };
 		AADC621C1CA2A68B0093D3F7 /* MMAgreeAddFriendTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AADC621A1CA2A68B0093D3F7 /* MMAgreeAddFriendTableViewController.xib */; };
@@ -199,6 +201,9 @@
 		AACD93CF1CA22916002ACFC5 /* MMFriendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMFriendCell.h; sourceTree = "<group>"; };
 		AACD93D01CA22916002ACFC5 /* MMFriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMFriendCell.m; sourceTree = "<group>"; };
 		AACD93D11CA22916002ACFC5 /* MMFriendCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMFriendCell.xib; sourceTree = "<group>"; };
+		AAD623BA1CA5215B001BD9F6 /* MMFriendBookCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMFriendBookCell.h; sourceTree = "<group>"; };
+		AAD623BB1CA5215B001BD9F6 /* MMFriendBookCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMFriendBookCell.m; sourceTree = "<group>"; };
+		AAD623BC1CA5215B001BD9F6 /* MMFriendBookCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMFriendBookCell.xib; sourceTree = "<group>"; };
 		AAD8E3C11C9F943900E67C00 /* MMTextFieldValidate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTextFieldValidate.h; sourceTree = "<group>"; };
 		AAD8E3C21C9F943900E67C00 /* MMTextFieldValidate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMTextFieldValidate.m; sourceTree = "<group>"; };
 		AADC62181CA2A68B0093D3F7 /* MMAgreeAddFriendTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMAgreeAddFriendTableViewController.h; sourceTree = "<group>"; };
@@ -603,6 +608,9 @@
 		AACAA8831CA51DD3004C14D5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				AAD623BA1CA5215B001BD9F6 /* MMFriendBookCell.h */,
+				AAD623BB1CA5215B001BD9F6 /* MMFriendBookCell.m */,
+				AAD623BC1CA5215B001BD9F6 /* MMFriendBookCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -752,6 +760,7 @@
 			files = (
 				AA1EB22A1C92779D00970A53 /* MMAddPublicViewController.xib in Resources */,
 				AACD93D31CA22916002ACFC5 /* MMFriendCell.xib in Resources */,
+				AAD623BE1CA5215B001BD9F6 /* MMFriendBookCell.xib in Resources */,
 				AA8F87911C91091A003C93C0 /* Login.storyboard in Resources */,
 				AA1EB2301C929EF700970A53 /* addFriend.plist in Resources */,
 				AAF06B841CA22FCD0097FCF1 /* MMAddFriendViewController.xib in Resources */,
@@ -863,6 +872,7 @@
 				AACB7EA71C917C6700E8A85A /* KxMenu.m in Sources */,
 				AA5E8BC31CA0055700EC4199 /* MMGroupInfo.m in Sources */,
 				AA5E8BC61CA0061F00EC4199 /* MMUserInfo.m in Sources */,
+				AAD623BD1CA5215B001BD9F6 /* MMFriendBookCell.m in Sources */,
 				AAF06B831CA22FCD0097FCF1 /* MMAddFriendViewController.m in Sources */,
 				AA5E8BDA1CA0077500EC4199 /* FMDatabasePool.m in Sources */,
 				AAA43E081C9E412600C5B677 /* RCAnimatedImagesView.m in Sources */,

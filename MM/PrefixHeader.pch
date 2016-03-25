@@ -46,6 +46,7 @@
 #import "MMChatListCell.h"
 #import "MMAgreeFriendCell.h"
 #import "MMGroupCell.h"
+#import "MMFriendBookCell.h"
 /**********************Model******************************/
 #import "MMAddFriend.h"
 #import "MMLoginInfo.h"
