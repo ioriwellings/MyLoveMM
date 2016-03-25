@@ -309,12 +309,12 @@
 #pragma mark - 自定义rightBarButtonItem
 - (void)setupRightBarButtonItem {
     
-    UIButton *rightButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+    UIButton *rightButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 70, 45)];
     self.rightBarButton = rightButton;
+    rightButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, -50);
     [rightButton setImage:[UIImage imageNamed:@"barbuttonicon_add"] forState:UIControlStateNormal];
     [rightButton addTarget:self action:@selector(rightButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *rightBarBtn = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
-    [rightBarBtn setTintColor:[UIColor whiteColor]];
     self.navigationItem.rightBarButtonItem = rightBarBtn;
 }
 

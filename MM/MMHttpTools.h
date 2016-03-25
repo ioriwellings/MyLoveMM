@@ -82,6 +82,11 @@
          complete:(void (^)(BOOL result))joinResult;
 
 /**
+ * 创建群组
+ */
+- (void)createGroupWithGroupName:(NSString *)groupName complete:(void (^)(BOOL result))createResult;
+
+/**
  * 退出群组
  */
 - (void)quitGroupWithGroupID:(int) groupID

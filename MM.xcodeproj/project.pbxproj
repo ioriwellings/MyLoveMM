@@ -480,6 +480,7 @@
 		AA99C07B1C901A7400C9A477 /* AdressBook */ = {
 			isa = PBXGroup;
 			children = (
+				AACAA8831CA51DD3004C14D5 /* View */,
 				AA99C0911C90329100C9A477 /* Controller */,
 			);
 			name = AdressBook;
@@ -597,6 +598,13 @@
 				AA5E8BB31C9FE9D500EC4199 /* MJExtension */,
 			);
 			name = Lib;
+			sourceTree = "<group>";
+		};
+		AACAA8831CA51DD3004C14D5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		AACB7EA01C916E3F00E8A85A /* Extension */ = {

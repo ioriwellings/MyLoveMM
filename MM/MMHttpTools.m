@@ -481,6 +481,28 @@
     }];
 }
 
+#pragma mark - 创建群组
+- (void)createGroupWithGroupName:(NSString *)groupName complete:(void (^)(BOOL))createResult {
+    
+    [MMAFHttpTool createGroupWithName:groupName success:^(id response) {
+        
+        NSString *code = [NSString stringWithFormat:@"%@", response[@"code"]];
+        if (createResult) {
+            
+            if ([code isEqualToString:@"200"]) {
+                
+                createResult(YES);
+            }
+            else {
+                
+                createResult(NO);
+            }
+        }
+    } failure:^(NSError *error) {
+        createResult(NO);
+    }];
+}
+
 #pragma mark - 退出群组
 - (void)quitGroupWithGroupID:(int)groupID complete:(void (^)(BOOL))quitResult {
     
