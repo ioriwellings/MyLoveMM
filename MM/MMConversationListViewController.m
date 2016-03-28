@@ -41,7 +41,7 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    self.title = @"会话";
+    self.navigationItem.title = @"会话";
     self.view.backgroundColor = MMRandomColor;
     self.edgesForExtendedLayout = UIRectEdgeNone;
     // 设置tableview样式

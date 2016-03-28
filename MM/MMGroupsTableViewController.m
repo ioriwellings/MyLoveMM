@@ -33,7 +33,7 @@ static NSString *const cellID = @"MMGroupCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.title = @"群组";
+    self.navigationItem.title = @"群组";
     self.view.backgroundColor = MMRandomColor;
     // 注册
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([MMGroupCell class]) bundle:nil] forCellReuseIdentifier:cellID];

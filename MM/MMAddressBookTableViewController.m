@@ -35,7 +35,7 @@ static NSString *const registerID = @"MMFriendBookCell";
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    self.title = @"通讯录";
+    self.navigationItem.title = @"通讯录";
     self.view.backgroundColor = MMRandomColor;
     self.edgesForExtendedLayout = UIRectEdgeNone;
     // 注册

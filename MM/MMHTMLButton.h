@@ -1,5 +1,5 @@
 //
-//  MeViewController.h
+//  MMHTMLButton.h
 //  MM
 //
 //  Created by xiyang on 16/3/28.
@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MeViewController : UIViewController
+@class MMHTML;
+@interface MMHTMLButton : UIButton
+/**
+ * 模型数据
+ */
+@property (strong, nonatomic) MMHTML *html;
 
 @end

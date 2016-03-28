@@ -44,7 +44,6 @@
 		AA99C0521C8FF8AF00C9A477 /* MMTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA99C0511C8FF8AF00C9A477 /* MMTests.m */; };
 		AA99C05D1C8FF8AF00C9A477 /* MMUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA99C05C1C8FF8AF00C9A477 /* MMUITests.m */; };
 		AA99C0881C90219400C9A477 /* MMTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA99C0871C90219400C9A477 /* MMTabBarController.m */; };
-		AA99C09D1C9033AD00C9A477 /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA99C09C1C9033AD00C9A477 /* MeViewController.m */; };
 		AA99C0A01C9034E800C9A477 /* MMNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA99C09F1C9034E800C9A477 /* MMNavigationController.m */; };
 		AAA43E081C9E412600C5B677 /* RCAnimatedImagesView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA43E071C9E412600C5B677 /* RCAnimatedImagesView.m */; };
 		AAC25E2D1CA38AA3008EFF21 /* MMAddressBookTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC25E2B1CA38AA3008EFF21 /* MMAddressBookTableViewController.m */; };
@@ -71,6 +70,17 @@
 		AADC621C1CA2A68B0093D3F7 /* MMAgreeAddFriendTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AADC621A1CA2A68B0093D3F7 /* MMAgreeAddFriendTableViewController.xib */; };
 		AADC62201CA2B2730093D3F7 /* MMAgreeFriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AADC621E1CA2B2730093D3F7 /* MMAgreeFriendCell.m */; };
 		AADC62211CA2B2730093D3F7 /* MMAgreeFriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AADC621F1CA2B2730093D3F7 /* MMAgreeFriendCell.xib */; };
+		AADE53461CA8E28700E6C9CF /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AADE53441CA8E28700E6C9CF /* MeViewController.m */; };
+		AADE53471CA8E28700E6C9CF /* MeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AADE53451CA8E28700E6C9CF /* MeViewController.xib */; };
+		AADE53521CA912EC00E6C9CF /* MMHTML5Footer.m in Sources */ = {isa = PBXBuildFile; fileRef = AADE53511CA912EC00E6C9CF /* MMHTML5Footer.m */; };
+		AADE53551CA913F500E6C9CF /* MMHTMLCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AADE53541CA913F500E6C9CF /* MMHTMLCell.m */; };
+		AADE535C1CA91C5900E6C9CF /* MMHTML5Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = AADE535A1CA91C5900E6C9CF /* MMHTML5Controller.m */; };
+		AADE535D1CA91C5900E6C9CF /* MMHTML5Controller.xib in Resources */ = {isa = PBXBuildFile; fileRef = AADE535B1CA91C5900E6C9CF /* MMHTML5Controller.xib */; };
+		AADE53601CA927D300E6C9CF /* MMHTMLButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AADE535F1CA927D300E6C9CF /* MMHTMLButton.m */; };
+		AADE53641CA928C800E6C9CF /* MMHTML.m in Sources */ = {isa = PBXBuildFile; fileRef = AADE53631CA928C800E6C9CF /* MMHTML.m */; };
+		AADE53661CA9377E00E6C9CF /* html5.plist in Resources */ = {isa = PBXBuildFile; fileRef = AADE53651CA9377E00E6C9CF /* html5.plist */; };
+		AADE536A1CA9496600E6C9CF /* MMWebViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AADE53681CA9496600E6C9CF /* MMWebViewViewController.m */; };
+		AADE536B1CA9496600E6C9CF /* MMWebViewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AADE53691CA9496600E6C9CF /* MMWebViewViewController.xib */; };
 		AAE3F6EE1C9949AD003434DF /* MMRequestBLL.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE3F6ED1C9949AD003434DF /* MMRequestBLL.m */; };
 		AAE3F6F31C998C38003434DF /* MMAFHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE3F6F21C998C38003434DF /* MMAFHttpTool.m */; };
 		AAF06B831CA22FCD0097FCF1 /* MMAddFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF06B811CA22FCD0097FCF1 /* MMAddFriendViewController.m */; };
@@ -167,8 +177,6 @@
 		AA99C06E1C90028400C9A477 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		AA99C0861C90219400C9A477 /* MMTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTabBarController.h; sourceTree = "<group>"; };
 		AA99C0871C90219400C9A477 /* MMTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMTabBarController.m; sourceTree = "<group>"; };
-		AA99C09B1C9033AD00C9A477 /* MeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeViewController.h; sourceTree = "<group>"; };
-		AA99C09C1C9033AD00C9A477 /* MeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeViewController.m; sourceTree = "<group>"; };
 		AA99C09E1C9034E800C9A477 /* MMNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMNavigationController.h; sourceTree = "<group>"; };
 		AA99C09F1C9034E800C9A477 /* MMNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMNavigationController.m; sourceTree = "<group>"; };
 		AAA43E061C9E412600C5B677 /* RCAnimatedImagesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAnimatedImagesView.h; sourceTree = "<group>"; };
@@ -212,6 +220,24 @@
 		AADC621D1CA2B2730093D3F7 /* MMAgreeFriendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMAgreeFriendCell.h; sourceTree = "<group>"; };
 		AADC621E1CA2B2730093D3F7 /* MMAgreeFriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMAgreeFriendCell.m; sourceTree = "<group>"; };
 		AADC621F1CA2B2730093D3F7 /* MMAgreeFriendCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMAgreeFriendCell.xib; sourceTree = "<group>"; };
+		AADE53431CA8E28700E6C9CF /* MeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeViewController.h; sourceTree = "<group>"; };
+		AADE53441CA8E28700E6C9CF /* MeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeViewController.m; sourceTree = "<group>"; };
+		AADE53451CA8E28700E6C9CF /* MeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeViewController.xib; sourceTree = "<group>"; };
+		AADE53501CA912EC00E6C9CF /* MMHTML5Footer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMHTML5Footer.h; sourceTree = "<group>"; };
+		AADE53511CA912EC00E6C9CF /* MMHTML5Footer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMHTML5Footer.m; sourceTree = "<group>"; };
+		AADE53531CA913F500E6C9CF /* MMHTMLCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMHTMLCell.h; sourceTree = "<group>"; };
+		AADE53541CA913F500E6C9CF /* MMHTMLCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMHTMLCell.m; sourceTree = "<group>"; };
+		AADE53591CA91C5900E6C9CF /* MMHTML5Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMHTML5Controller.h; sourceTree = "<group>"; };
+		AADE535A1CA91C5900E6C9CF /* MMHTML5Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMHTML5Controller.m; sourceTree = "<group>"; };
+		AADE535B1CA91C5900E6C9CF /* MMHTML5Controller.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMHTML5Controller.xib; sourceTree = "<group>"; };
+		AADE535E1CA927D300E6C9CF /* MMHTMLButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMHTMLButton.h; sourceTree = "<group>"; };
+		AADE535F1CA927D300E6C9CF /* MMHTMLButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMHTMLButton.m; sourceTree = "<group>"; };
+		AADE53621CA928C800E6C9CF /* MMHTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMHTML.h; sourceTree = "<group>"; };
+		AADE53631CA928C800E6C9CF /* MMHTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMHTML.m; sourceTree = "<group>"; };
+		AADE53651CA9377E00E6C9CF /* html5.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = html5.plist; sourceTree = "<group>"; };
+		AADE53671CA9496600E6C9CF /* MMWebViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMWebViewViewController.h; sourceTree = "<group>"; };
+		AADE53681CA9496600E6C9CF /* MMWebViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMWebViewViewController.m; sourceTree = "<group>"; };
+		AADE53691CA9496600E6C9CF /* MMWebViewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMWebViewViewController.xib; sourceTree = "<group>"; };
 		AAE3F6EC1C9949AD003434DF /* MMRequestBLL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMRequestBLL.h; sourceTree = "<group>"; };
 		AAE3F6ED1C9949AD003434DF /* MMRequestBLL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMRequestBLL.m; sourceTree = "<group>"; };
 		AAE3F6F11C998C38003434DF /* MMAFHttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMAFHttpTool.h; sourceTree = "<group>"; };
@@ -430,6 +456,7 @@
 		AA99C0371C8FF8AE00C9A477 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				AADE53651CA9377E00E6C9CF /* html5.plist */,
 				AA1EB22F1C929EF700970A53 /* addFriend.plist */,
 				AA99C0481C8FF8AE00C9A477 /* Info.plist */,
 				AA99C0381C8FF8AE00C9A477 /* main.m */,
@@ -465,6 +492,7 @@
 				AA99C07C1C901A8100C9A477 /* Groups */,
 				AA99C07B1C901A7400C9A477 /* AdressBook */,
 				AA99C07F1C901AC400C9A477 /* Me */,
+				AADE53481CA90B4100E6C9CF /* HTML5 */,
 				AA8F878B1C91084A003C93C0 /* Login */,
 				AA99C0801C901B0100C9A477 /* Other */,
 				AAC5D7E61C97B9F800B69B24 /* Lib */,
@@ -570,8 +598,9 @@
 		AA99C09A1C90339C00C9A477 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				AA99C09B1C9033AD00C9A477 /* MeViewController.h */,
-				AA99C09C1C9033AD00C9A477 /* MeViewController.m */,
+				AADE53431CA8E28700E6C9CF /* MeViewController.h */,
+				AADE53441CA8E28700E6C9CF /* MeViewController.m */,
+				AADE53451CA8E28700E6C9CF /* MeViewController.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -641,6 +670,51 @@
 				AACB7EAC1C917D5100E8A85A /* UIImage+RCImage.m */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		AADE53481CA90B4100E6C9CF /* HTML5 */ = {
+			isa = PBXGroup;
+			children = (
+				AADE53611CA928A800E6C9CF /* Model */,
+				AADE534F1CA9124000E6C9CF /* View */,
+				AADE534E1CA90FB700E6C9CF /* Controller */,
+			);
+			name = HTML5;
+			sourceTree = "<group>";
+		};
+		AADE534E1CA90FB700E6C9CF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				AADE53591CA91C5900E6C9CF /* MMHTML5Controller.h */,
+				AADE535A1CA91C5900E6C9CF /* MMHTML5Controller.m */,
+				AADE535B1CA91C5900E6C9CF /* MMHTML5Controller.xib */,
+				AADE53671CA9496600E6C9CF /* MMWebViewViewController.h */,
+				AADE53681CA9496600E6C9CF /* MMWebViewViewController.m */,
+				AADE53691CA9496600E6C9CF /* MMWebViewViewController.xib */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		AADE534F1CA9124000E6C9CF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AADE53501CA912EC00E6C9CF /* MMHTML5Footer.h */,
+				AADE53511CA912EC00E6C9CF /* MMHTML5Footer.m */,
+				AADE53531CA913F500E6C9CF /* MMHTMLCell.h */,
+				AADE53541CA913F500E6C9CF /* MMHTMLCell.m */,
+				AADE535E1CA927D300E6C9CF /* MMHTMLButton.h */,
+				AADE535F1CA927D300E6C9CF /* MMHTMLButton.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		AADE53611CA928A800E6C9CF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AADE53621CA928C800E6C9CF /* MMHTML.h */,
+				AADE53631CA928C800E6C9CF /* MMHTML.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		C11C2729D9BAD3CF7CC87C7A /* Pods */ = {
@@ -762,6 +836,8 @@
 				AACD93D31CA22916002ACFC5 /* MMFriendCell.xib in Resources */,
 				AAD623BE1CA5215B001BD9F6 /* MMFriendBookCell.xib in Resources */,
 				AA8F87911C91091A003C93C0 /* Login.storyboard in Resources */,
+				AADE535D1CA91C5900E6C9CF /* MMHTML5Controller.xib in Resources */,
+				AADE53661CA9377E00E6C9CF /* html5.plist in Resources */,
 				AA1EB2301C929EF700970A53 /* addFriend.plist in Resources */,
 				AAF06B841CA22FCD0097FCF1 /* MMAddFriendViewController.xib in Resources */,
 				AA99C0441C8FF8AE00C9A477 /* Assets.xcassets in Resources */,
@@ -770,8 +846,10 @@
 				AA19DD331C98F24A00A038BB /* MMSearchFriendViewController.xib in Resources */,
 				AADC621C1CA2A68B0093D3F7 /* MMAgreeAddFriendTableViewController.xib in Resources */,
 				AA5E8BB41C9FE9D500EC4199 /* MJExtension in Resources */,
+				AADE536B1CA9496600E6C9CF /* MMWebViewViewController.xib in Resources */,
 				AAC25E3E1CA3DD87008EFF21 /* MMDidJoinGroupViewController.xib in Resources */,
 				AADC62211CA2B2730093D3F7 /* MMAgreeFriendCell.xib in Resources */,
+				AADE53471CA8E28700E6C9CF /* MeViewController.xib in Resources */,
 				AAC25E2E1CA38AA3008EFF21 /* MMAddressBookTableViewController.xib in Resources */,
 				AAC25E391CA39063008EFF21 /* MMGroupCell.xib in Resources */,
 			);
@@ -849,27 +927,32 @@
 				AACD93D21CA22916002ACFC5 /* MMFriendCell.m in Sources */,
 				AA8F87991C911464003C93C0 /* MMLoginRegisterTextField.m in Sources */,
 				AAD8E3C31C9F943900E67C00 /* MMTextFieldValidate.m in Sources */,
+				AADE53551CA913F500E6C9CF /* MMHTMLCell.m in Sources */,
 				AAC25E3D1CA3DD87008EFF21 /* MMDidJoinGroupViewController.m in Sources */,
 				AAC5D7EB1C97BD5900B69B24 /* MMChatViewController.m in Sources */,
+				AADE536A1CA9496600E6C9CF /* MMWebViewViewController.m in Sources */,
 				AA5E8BD81CA0077500EC4199 /* FMDatabase.m in Sources */,
 				AAE3F6F31C998C38003434DF /* MMAFHttpTool.m in Sources */,
 				AACB7EA31C916E4D00E8A85A /* UIView+JWExtension.m in Sources */,
+				AADE53521CA912EC00E6C9CF /* MMHTML5Footer.m in Sources */,
 				AA5E8BD91CA0077500EC4199 /* FMDatabaseAdditions.m in Sources */,
-				AA99C09D1C9033AD00C9A477 /* MeViewController.m in Sources */,
 				AA99C0A01C9034E800C9A477 /* MMNavigationController.m in Sources */,
 				AAC5D7E41C97A55000B69B24 /* MMConversationListViewController.m in Sources */,
 				AA5E8BB01C9FE4D000EC4199 /* MMModelConfig.m in Sources */,
 				AA1EB22E1C929A5000970A53 /* MMAddFriendTextField.m in Sources */,
 				AA5E8BA91C9F9EB600EC4199 /* NSString+Extension.m in Sources */,
+				AADE53601CA927D300E6C9CF /* MMHTMLButton.m in Sources */,
 				AA5E8BDC1CA0077500EC4199 /* FMResultSet.m in Sources */,
 				AA99C03C1C8FF8AE00C9A477 /* AppDelegate.m in Sources */,
 				AA8F87941C910C32003C93C0 /* MMLoginViewController.m in Sources */,
 				AAC25E381CA39063008EFF21 /* MMGroupCell.m in Sources */,
+				AADE535C1CA91C5900E6C9CF /* MMHTML5Controller.m in Sources */,
 				AA19DD321C98F24A00A038BB /* MMSearchFriendViewController.m in Sources */,
 				AA5E8BDB1CA0077500EC4199 /* FMDatabaseQueue.m in Sources */,
 				AADC62201CA2B2730093D3F7 /* MMAgreeFriendCell.m in Sources */,
 				AA7BFE641C99409B003BD0DC /* MMHttpTools.m in Sources */,
 				AACB7EA71C917C6700E8A85A /* KxMenu.m in Sources */,
+				AADE53641CA928C800E6C9CF /* MMHTML.m in Sources */,
 				AA5E8BC31CA0055700EC4199 /* MMGroupInfo.m in Sources */,
 				AA5E8BC61CA0061F00EC4199 /* MMUserInfo.m in Sources */,
 				AAD623BD1CA5215B001BD9F6 /* MMFriendBookCell.m in Sources */,
@@ -877,6 +960,7 @@
 				AA5E8BDA1CA0077500EC4199 /* FMDatabasePool.m in Sources */,
 				AAA43E081C9E412600C5B677 /* RCAnimatedImagesView.m in Sources */,
 				AACB7EAD1C917D5100E8A85A /* UIImage+RCImage.m in Sources */,
+				AADE53461CA8E28700E6C9CF /* MeViewController.m in Sources */,
 				AA99C0881C90219400C9A477 /* MMTabBarController.m in Sources */,
 				AA1EB2381C929FE900970A53 /* MMAddFriendCell.m in Sources */,
 				AA99C0391C8FF8AE00C9A477 /* main.m in Sources */,

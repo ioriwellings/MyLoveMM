@@ -1,5 +1,5 @@
 //
-//  MeViewController.h
+//  MMHTMLCell.h
 //  MM
 //
 //  Created by xiyang on 16/3/28.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MeViewController : UIViewController
+@interface MMHTMLCell : UITableViewCell
 
 @end

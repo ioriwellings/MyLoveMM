@@ -55,6 +55,8 @@
     [self setupChildVC:[[MMAddressBookTableViewController alloc] init] title:@"通讯录" image:[UIImage imageNamed:@"tabbar_contacts"] selectImage:[UIImage imageNamed:@"tabbar_contactsHL"]];
     // 群组
     [self setupChildVC:[[MMGroupsTableViewController alloc] init] title:@"群组" image:[UIImage imageNamed:@"tabbar_discover"] selectImage:[UIImage imageNamed:@"tabbar_discoverHL"]];
+    // HTML5
+    [self setupChildVC:[[MMHTML5Controller alloc] init] title:@"H5" image:[UIImage imageNamed:@"tabbar_new"] selectImage:[UIImage imageNamed:@"tabbar_newHL"]];
     // 我
     [self setupChildVC:[[MeViewController alloc] init] title:@"我" image:[UIImage imageNamed:@"tabbar_me"] selectImage:[UIImage imageNamed:@"tabbar_meHL"]];
 }
