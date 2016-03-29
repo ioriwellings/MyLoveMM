@@ -136,7 +136,7 @@ typedef enum {
     const CGFloat rectXM = fromRect.origin.x + fromRect.size.width * 0.5f;
     const CGFloat rectY0 = fromRect.origin.y;
     const CGFloat rectY1 = fromRect.origin.y + fromRect.size.height;
-    const CGFloat rectYM = fromRect.origin.y + fromRect.size.height * 0.5f;;
+    const CGFloat rectYM = fromRect.origin.y + fromRect.size.height * 0.5f;
     
     const CGFloat widthPlusArrow = contentSize.width + kArrowSize;
     const CGFloat heightPlusArrow = contentSize.height + kArrowSize;
