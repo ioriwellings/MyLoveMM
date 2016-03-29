@@ -29,12 +29,7 @@ static NSString *const MMHTMLCellID = @"MMHTMLCell";
     // 注册
     [self.tableView registerClass:[MMHTMLCell class] forCellReuseIdentifier:MMHTMLCellID];
     
-    // UIView
-//    UIView *view = [[UIView alloc] init];
-//    view.backgroundColor = [UIColor orangeColor];
-//    view.height = 40;
     MMHTML5Footer *html5Footer = [[MMHTML5Footer alloc] init];
-    NSLog(@"html5Footer = %zd, %zd, %zd, %zd", html5Footer.frame.origin.x, html5Footer.frame.origin.y,html5Footer.frame.size.width,html5Footer.frame.size.height);
     self.tableView.tableFooterView = html5Footer;
 }
 
