@@ -342,31 +342,36 @@
     
     NSArray *menuItems = @[
                            
-                           [KxMenuItem menuItem:@"发起聊天"
-                                          image:[UIImage imageNamed:@"chat_icon"]
+                           [JWMenuItem menuItem:@"发起聊天"
+                                          image:[[UIImage imageNamed:@"chat_icon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]
+                                     titleColor:[UIColor whiteColor]
                                          target:self
                                          action:@selector(pushChat:)],
-                           [KxMenuItem menuItem:@"添加朋友"
-                                          image:[UIImage imageNamed:@"addfriend_icon"]
+                           [JWMenuItem menuItem:@"添加朋友"
+                                          image:[[UIImage imageNamed:@"addfriend_icon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]
+                                     titleColor:[UIColor whiteColor]
                                          target:self
                                          action:@selector(pushAddFriend:)],
-                           [KxMenuItem menuItem:@"通讯录"
-                                          image:[UIImage imageNamed:@"contact_icon"]
+                           [JWMenuItem menuItem:@"通讯录"
+                                          image:[[UIImage imageNamed:@"contact_icon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]
+                                     titleColor:[UIColor whiteColor]
                                          target:self
                                          action:@selector(pushAddressBook:)],
-                           [KxMenuItem menuItem:@"公众账号"
-                                          image:[UIImage imageNamed:@"public_account"]
+                           [JWMenuItem menuItem:@"公众账号"
+                                          image:[[UIImage imageNamed:@"public_account"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]
+                                     titleColor:[UIColor whiteColor]
                                          target:self
                                          action:@selector(pushPublicService:)],
-                           [KxMenuItem menuItem:@"添加公众号"
-                                          image:[UIImage imageNamed:@"add_public_account"]
+                           [JWMenuItem menuItem:@"添加公众号"
+                                          image:[[UIImage imageNamed:@"add_public_account"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]
+                                     titleColor:[UIColor whiteColor]
                                          target:self
                                          action:@selector(pushAddPublicService:)],
                            ];
     CGRect targetFrame = self.tabBarController.navigationItem.rightBarButtonItem.customView.frame;
-    targetFrame.origin.x = MMWidth - 40;
+    targetFrame.origin.x = MMWidth - 24;
     targetFrame.origin.y = targetFrame.origin.y + 48;
-    [KxMenu showMenuInView:self.navigationController.view fromRect:targetFrame menuItems:menuItems];
+    [JWMenu showMenuInView:self.navigationController.view fromRect:targetFrame menuItems:menuItems viewBackgroundColor:@"2AB928"]; // 绿色
 }
 
 - (void)pushChat:(UIButton *)sender {

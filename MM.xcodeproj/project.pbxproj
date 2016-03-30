@@ -46,6 +46,9 @@
 		AA99C0881C90219400C9A477 /* MMTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA99C0871C90219400C9A477 /* MMTabBarController.m */; };
 		AA99C0A01C9034E800C9A477 /* MMNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA99C09F1C9034E800C9A477 /* MMNavigationController.m */; };
 		AAA43E081C9E412600C5B677 /* RCAnimatedImagesView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA43E071C9E412600C5B677 /* RCAnimatedImagesView.m */; };
+		AAA9A8151CABAB24002DF47A /* JWMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA9A8101CABAB24002DF47A /* JWMenu.m */; };
+		AAA9A8161CABAB24002DF47A /* UIColor+JWExtention.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA9A8121CABAB24002DF47A /* UIColor+JWExtention.m */; };
+		AAA9A8171CABAB24002DF47A /* UIImage+JWExtention.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA9A8141CABAB24002DF47A /* UIImage+JWExtention.m */; };
 		AAC25E2D1CA38AA3008EFF21 /* MMAddressBookTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC25E2B1CA38AA3008EFF21 /* MMAddressBookTableViewController.m */; };
 		AAC25E2E1CA38AA3008EFF21 /* MMAddressBookTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAC25E2C1CA38AA3008EFF21 /* MMAddressBookTableViewController.xib */; };
 		AAC25E321CA38DF9008EFF21 /* MMGroupsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC25E301CA38DF9008EFF21 /* MMGroupsTableViewController.m */; };
@@ -57,9 +60,6 @@
 		AAC5D7E41C97A55000B69B24 /* MMConversationListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC5D7E31C97A55000B69B24 /* MMConversationListViewController.m */; };
 		AAC5D7EB1C97BD5900B69B24 /* MMChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC5D7EA1C97BD5900B69B24 /* MMChatViewController.m */; };
 		AACB7EA31C916E4D00E8A85A /* UIView+JWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = AACB7EA21C916E4D00E8A85A /* UIView+JWExtension.m */; };
-		AACB7EA71C917C6700E8A85A /* KxMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = AACB7EA61C917C6700E8A85A /* KxMenu.m */; };
-		AACB7EAA1C917D2B00E8A85A /* UIColor+RCColor.m in Sources */ = {isa = PBXBuildFile; fileRef = AACB7EA91C917D2B00E8A85A /* UIColor+RCColor.m */; };
-		AACB7EAD1C917D5100E8A85A /* UIImage+RCImage.m in Sources */ = {isa = PBXBuildFile; fileRef = AACB7EAC1C917D5100E8A85A /* UIImage+RCImage.m */; };
 		AACB7EAF1C9186FB00E8A85A /* libc++abi.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AACB7EAE1C9186FB00E8A85A /* libc++abi.tbd */; };
 		AACD93D21CA22916002ACFC5 /* MMFriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AACD93D01CA22916002ACFC5 /* MMFriendCell.m */; };
 		AACD93D31CA22916002ACFC5 /* MMFriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AACD93D11CA22916002ACFC5 /* MMFriendCell.xib */; };
@@ -181,6 +181,12 @@
 		AA99C09F1C9034E800C9A477 /* MMNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMNavigationController.m; sourceTree = "<group>"; };
 		AAA43E061C9E412600C5B677 /* RCAnimatedImagesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAnimatedImagesView.h; sourceTree = "<group>"; };
 		AAA43E071C9E412600C5B677 /* RCAnimatedImagesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCAnimatedImagesView.m; sourceTree = "<group>"; };
+		AAA9A80F1CABAB24002DF47A /* JWMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JWMenu.h; sourceTree = "<group>"; };
+		AAA9A8101CABAB24002DF47A /* JWMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JWMenu.m; sourceTree = "<group>"; };
+		AAA9A8111CABAB24002DF47A /* UIColor+JWExtention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+JWExtention.h"; sourceTree = "<group>"; };
+		AAA9A8121CABAB24002DF47A /* UIColor+JWExtention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+JWExtention.m"; sourceTree = "<group>"; };
+		AAA9A8131CABAB24002DF47A /* UIImage+JWExtention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+JWExtention.h"; sourceTree = "<group>"; };
+		AAA9A8141CABAB24002DF47A /* UIImage+JWExtention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+JWExtention.m"; sourceTree = "<group>"; };
 		AAC25E2A1CA38AA3008EFF21 /* MMAddressBookTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMAddressBookTableViewController.h; sourceTree = "<group>"; };
 		AAC25E2B1CA38AA3008EFF21 /* MMAddressBookTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMAddressBookTableViewController.m; sourceTree = "<group>"; };
 		AAC25E2C1CA38AA3008EFF21 /* MMAddressBookTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMAddressBookTableViewController.xib; sourceTree = "<group>"; };
@@ -199,12 +205,6 @@
 		AAC5D7EA1C97BD5900B69B24 /* MMChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMChatViewController.m; sourceTree = "<group>"; };
 		AACB7EA11C916E4D00E8A85A /* UIView+JWExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+JWExtension.h"; sourceTree = "<group>"; };
 		AACB7EA21C916E4D00E8A85A /* UIView+JWExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+JWExtension.m"; sourceTree = "<group>"; };
-		AACB7EA51C917C6700E8A85A /* KxMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KxMenu.h; sourceTree = "<group>"; };
-		AACB7EA61C917C6700E8A85A /* KxMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KxMenu.m; sourceTree = "<group>"; };
-		AACB7EA81C917D2B00E8A85A /* UIColor+RCColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+RCColor.h"; sourceTree = "<group>"; };
-		AACB7EA91C917D2B00E8A85A /* UIColor+RCColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+RCColor.m"; sourceTree = "<group>"; };
-		AACB7EAB1C917D5100E8A85A /* UIImage+RCImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RCImage.h"; sourceTree = "<group>"; };
-		AACB7EAC1C917D5100E8A85A /* UIImage+RCImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RCImage.m"; sourceTree = "<group>"; };
 		AACB7EAE1C9186FB00E8A85A /* libc++abi.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++abi.tbd"; path = "usr/lib/libc++abi.tbd"; sourceTree = SDKROOT; };
 		AACD93CF1CA22916002ACFC5 /* MMFriendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMFriendCell.h; sourceTree = "<group>"; };
 		AACD93D01CA22916002ACFC5 /* MMFriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMFriendCell.m; sourceTree = "<group>"; };
@@ -662,12 +662,12 @@
 		AACB7EA41C917C5B00E8A85A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				AACB7EA51C917C6700E8A85A /* KxMenu.h */,
-				AACB7EA61C917C6700E8A85A /* KxMenu.m */,
-				AACB7EA81C917D2B00E8A85A /* UIColor+RCColor.h */,
-				AACB7EA91C917D2B00E8A85A /* UIColor+RCColor.m */,
-				AACB7EAB1C917D5100E8A85A /* UIImage+RCImage.h */,
-				AACB7EAC1C917D5100E8A85A /* UIImage+RCImage.m */,
+				AAA9A80F1CABAB24002DF47A /* JWMenu.h */,
+				AAA9A8101CABAB24002DF47A /* JWMenu.m */,
+				AAA9A8111CABAB24002DF47A /* UIColor+JWExtention.h */,
+				AAA9A8121CABAB24002DF47A /* UIColor+JWExtention.m */,
+				AAA9A8131CABAB24002DF47A /* UIImage+JWExtention.h */,
+				AAA9A8141CABAB24002DF47A /* UIImage+JWExtention.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -925,9 +925,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				AACD93D21CA22916002ACFC5 /* MMFriendCell.m in Sources */,
+				AAA9A8151CABAB24002DF47A /* JWMenu.m in Sources */,
 				AA8F87991C911464003C93C0 /* MMLoginRegisterTextField.m in Sources */,
 				AAD8E3C31C9F943900E67C00 /* MMTextFieldValidate.m in Sources */,
 				AADE53551CA913F500E6C9CF /* MMHTMLCell.m in Sources */,
+				AAA9A8161CABAB24002DF47A /* UIColor+JWExtention.m in Sources */,
 				AAC25E3D1CA3DD87008EFF21 /* MMDidJoinGroupViewController.m in Sources */,
 				AAC5D7EB1C97BD5900B69B24 /* MMChatViewController.m in Sources */,
 				AADE536A1CA9496600E6C9CF /* MMWebViewViewController.m in Sources */,
@@ -951,20 +953,18 @@
 				AA5E8BDB1CA0077500EC4199 /* FMDatabaseQueue.m in Sources */,
 				AADC62201CA2B2730093D3F7 /* MMAgreeFriendCell.m in Sources */,
 				AA7BFE641C99409B003BD0DC /* MMHttpTools.m in Sources */,
-				AACB7EA71C917C6700E8A85A /* KxMenu.m in Sources */,
 				AADE53641CA928C800E6C9CF /* MMHTML.m in Sources */,
 				AA5E8BC31CA0055700EC4199 /* MMGroupInfo.m in Sources */,
 				AA5E8BC61CA0061F00EC4199 /* MMUserInfo.m in Sources */,
 				AAD623BD1CA5215B001BD9F6 /* MMFriendBookCell.m in Sources */,
+				AAA9A8171CABAB24002DF47A /* UIImage+JWExtention.m in Sources */,
 				AAF06B831CA22FCD0097FCF1 /* MMAddFriendViewController.m in Sources */,
 				AA5E8BDA1CA0077500EC4199 /* FMDatabasePool.m in Sources */,
 				AAA43E081C9E412600C5B677 /* RCAnimatedImagesView.m in Sources */,
-				AACB7EAD1C917D5100E8A85A /* UIImage+RCImage.m in Sources */,
 				AADE53461CA8E28700E6C9CF /* MeViewController.m in Sources */,
 				AA99C0881C90219400C9A477 /* MMTabBarController.m in Sources */,
 				AA1EB2381C929FE900970A53 /* MMAddFriendCell.m in Sources */,
 				AA99C0391C8FF8AE00C9A477 /* main.m in Sources */,
-				AACB7EAA1C917D2B00E8A85A /* UIColor+RCColor.m in Sources */,
 				AA5E8BD71CA0077500EC4199 /* DBHelper.m in Sources */,
 				AADC621B1CA2A68B0093D3F7 /* MMAgreeAddFriendTableViewController.m in Sources */,
 				AA5E8BC01CA0043500EC4199 /* MMDataBaseManager.m in Sources */,

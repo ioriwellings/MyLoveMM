@@ -64,7 +64,7 @@
 #import "UIImage+JWExtension.h"
 #import "MJExtension/MJExtension.h"
 #import "NSString+Extension.h"
-#import "KxMenu.h"
+#import "JWMenu.h"
 #import <SVProgressHUD.h>
 #import <AFNetworking.h>
 #import <SDWebImage/UIImageView+WebCache.h>
