@@ -49,6 +49,11 @@
 		AAA9A8151CABAB24002DF47A /* JWMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA9A8101CABAB24002DF47A /* JWMenu.m */; };
 		AAA9A8161CABAB24002DF47A /* UIColor+JWExtention.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA9A8121CABAB24002DF47A /* UIColor+JWExtention.m */; };
 		AAA9A8171CABAB24002DF47A /* UIImage+JWExtention.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA9A8141CABAB24002DF47A /* UIImage+JWExtention.m */; };
+		AAA9A81B1CABC994002DF47A /* UIWebView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA9A81A1CABC994002DF47A /* UIWebView+Extension.m */; };
+		AAA9A8251CABDF56002DF47A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA9A8241CABDF56002DF47A /* UIKit.framework */; };
+		AAA9A8271CABDF68002DF47A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA9A8261CABDF68002DF47A /* Foundation.framework */; };
+		AAA9A8291CABDF7D002DF47A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA9A8281CABDF7D002DF47A /* CoreGraphics.framework */; };
+		AAA9A82A1CABE0D9002DF47A /* libc++abi.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AACB7EAE1C9186FB00E8A85A /* libc++abi.tbd */; };
 		AAC25E2D1CA38AA3008EFF21 /* MMAddressBookTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC25E2B1CA38AA3008EFF21 /* MMAddressBookTableViewController.m */; };
 		AAC25E2E1CA38AA3008EFF21 /* MMAddressBookTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAC25E2C1CA38AA3008EFF21 /* MMAddressBookTableViewController.xib */; };
 		AAC25E321CA38DF9008EFF21 /* MMGroupsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC25E301CA38DF9008EFF21 /* MMGroupsTableViewController.m */; };
@@ -60,7 +65,6 @@
 		AAC5D7E41C97A55000B69B24 /* MMConversationListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC5D7E31C97A55000B69B24 /* MMConversationListViewController.m */; };
 		AAC5D7EB1C97BD5900B69B24 /* MMChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC5D7EA1C97BD5900B69B24 /* MMChatViewController.m */; };
 		AACB7EA31C916E4D00E8A85A /* UIView+JWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = AACB7EA21C916E4D00E8A85A /* UIView+JWExtension.m */; };
-		AACB7EAF1C9186FB00E8A85A /* libc++abi.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AACB7EAE1C9186FB00E8A85A /* libc++abi.tbd */; };
 		AACD93D21CA22916002ACFC5 /* MMFriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AACD93D01CA22916002ACFC5 /* MMFriendCell.m */; };
 		AACD93D31CA22916002ACFC5 /* MMFriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AACD93D11CA22916002ACFC5 /* MMFriendCell.xib */; };
 		AAD623BD1CA5215B001BD9F6 /* MMFriendBookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD623BB1CA5215B001BD9F6 /* MMFriendBookCell.m */; };
@@ -187,6 +191,11 @@
 		AAA9A8121CABAB24002DF47A /* UIColor+JWExtention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+JWExtention.m"; sourceTree = "<group>"; };
 		AAA9A8131CABAB24002DF47A /* UIImage+JWExtention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+JWExtention.h"; sourceTree = "<group>"; };
 		AAA9A8141CABAB24002DF47A /* UIImage+JWExtention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+JWExtention.m"; sourceTree = "<group>"; };
+		AAA9A8191CABC994002DF47A /* UIWebView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+Extension.h"; sourceTree = "<group>"; };
+		AAA9A81A1CABC994002DF47A /* UIWebView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+Extension.m"; sourceTree = "<group>"; };
+		AAA9A8241CABDF56002DF47A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		AAA9A8261CABDF68002DF47A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		AAA9A8281CABDF7D002DF47A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		AAC25E2A1CA38AA3008EFF21 /* MMAddressBookTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMAddressBookTableViewController.h; sourceTree = "<group>"; };
 		AAC25E2B1CA38AA3008EFF21 /* MMAddressBookTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMAddressBookTableViewController.m; sourceTree = "<group>"; };
 		AAC25E2C1CA38AA3008EFF21 /* MMAddressBookTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMAddressBookTableViewController.xib; sourceTree = "<group>"; };
@@ -253,7 +262,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AACB7EAF1C9186FB00E8A85A /* libc++abi.tbd in Frameworks */,
+				AAA9A82A1CABE0D9002DF47A /* libc++abi.tbd in Frameworks */,
+				AAA9A8291CABDF7D002DF47A /* CoreGraphics.framework in Frameworks */,
+				AAA9A8271CABDF68002DF47A /* Foundation.framework in Frameworks */,
+				AAA9A8251CABDF56002DF47A /* UIKit.framework in Frameworks */,
 				194D78F78D8513846B02BECF /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,6 +290,9 @@
 		89924A75FE18301F80710EF6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AAA9A8281CABDF7D002DF47A /* CoreGraphics.framework */,
+				AAA9A8261CABDF68002DF47A /* Foundation.framework */,
+				AAA9A8241CABDF56002DF47A /* UIKit.framework */,
 				AACB7EAE1C9186FB00E8A85A /* libc++abi.tbd */,
 				BA2B2F5F6701B5344F6412DE /* libPods.a */,
 			);
@@ -485,6 +500,7 @@
 		AA99C0791C901A5600C9A477 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				AAA9A8181CABC796002DF47A /* UIWebView */,
 				AA5E8BC91CA0076600EC4199 /* DB */,
 				AA5E8BBD1CA003F800EC4199 /* DataBase */,
 				AA7BFE5E1C993E74003BD0DC /* Tools */,
@@ -614,6 +630,15 @@
 				AA99C09F1C9034E800C9A477 /* MMNavigationController.m */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		AAA9A8181CABC796002DF47A /* UIWebView */ = {
+			isa = PBXGroup;
+			children = (
+				AAA9A8191CABC994002DF47A /* UIWebView+Extension.h */,
+				AAA9A81A1CABC994002DF47A /* UIWebView+Extension.m */,
+			);
+			name = UIWebView;
 			sourceTree = "<group>";
 		};
 		AAC25E341CA39042008EFF21 /* View */ = {
@@ -958,6 +983,7 @@
 				AA5E8BC61CA0061F00EC4199 /* MMUserInfo.m in Sources */,
 				AAD623BD1CA5215B001BD9F6 /* MMFriendBookCell.m in Sources */,
 				AAA9A8171CABAB24002DF47A /* UIImage+JWExtention.m in Sources */,
+				AAA9A81B1CABC994002DF47A /* UIWebView+Extension.m in Sources */,
 				AAF06B831CA22FCD0097FCF1 /* MMAddFriendViewController.m in Sources */,
 				AA5E8BDA1CA0077500EC4199 /* FMDatabasePool.m in Sources */,
 				AAA43E081C9E412600C5B677 /* RCAnimatedImagesView.m in Sources */,

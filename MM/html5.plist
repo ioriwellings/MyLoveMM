@@ -20,27 +20,27 @@
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>天猫</string>
-		<key>icon</key>
-		<string>publish-picture</string>
-		<key>url</key>
-		<string>https://www.tmall.com</string>
-	</dict>
-	<dict>
-		<key>name</key>
 		<string>网易</string>
 		<key>icon</key>
-		<string>publish-review</string>
+		<string>publish-picture</string>
 		<key>url</key>
 		<string>http://www.163.com/</string>
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>凤凰</string>
+		<string>虎牙</string>
+		<key>icon</key>
+		<string>publish-review</string>
+		<key>url</key>
+		<string>http://www.huya.com/</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>熊猫</string>
 		<key>icon</key>
 		<string>publish-text</string>
 		<key>url</key>
-		<string>http://www.ifeng.com/</string>
+		<string>http://www.panda.tv/</string>
 	</dict>
 	<dict>
 		<key>name</key>

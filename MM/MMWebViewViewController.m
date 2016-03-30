@@ -7,6 +7,7 @@
 //
 
 #import "MMWebViewViewController.h"
+#import "UIWebView+Extension.h"
 
 @interface MMWebViewViewController () <UIWebViewDelegate>
 
@@ -21,11 +22,31 @@
 @implementation MMWebViewViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     self.navigationItem.title = self.html.name;
+    
     NSURL *url = [NSURL URLWithString:self.html.url];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
+//    self.webView.allowsInlineMediaPlayback = YES; // 全屏播放
+    
     [self.webView loadRequest:request];
+    
+//    NSURL *url = [NSURL URLWithString:self.html.url];
+//    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+//    self.webView = [UIWebView loadRequest:request loaded:^(UIWebView *webView) {
+//        
+//        NSLog(@"url = %@", webView.request.URL);
+//    } failed:^(UIWebView *webView, NSError *error) {
+//        
+//        NSLog(@"error = %@", error.localizedDescription);
+//    } loadStarted:^(UIWebView *webView) {
+//        
+//        NSLog(@"start loading to url = %@", webView.request.URL);
+//    } shouldLoad:^BOOL(UIWebView *webView, NSURLRequest *request, UIWebViewNavigationType navigationType) {
+//        
+//        return YES;
+//    }];
 }
 
 #pragma mark - 后退
@@ -51,6 +72,7 @@
     
     self.backItem.enabled = webView.canGoBack;
     self.forwardItem.enabled = webView.canGoForward;
+    webView.allowsInlineMediaPlayback = YES;
 }
 
 @end
