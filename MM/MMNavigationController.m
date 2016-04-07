@@ -99,6 +99,7 @@
 #pragma mark - 设置状态栏颜色
 - (UIStatusBarStyle)preferredStatusBarStyle {
     
+    // [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     return UIStatusBarStyleLightContent;
 }
 

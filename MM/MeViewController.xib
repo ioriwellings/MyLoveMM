@@ -18,7 +18,7 @@
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
             <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-            <point key="canvasLocation" x="365.5" y="124.5"/>
+            <point key="canvasLocation" x="481.5" y="-41.5"/>
         </view>
     </objects>
 </document>

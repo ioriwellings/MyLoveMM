@@ -36,11 +36,11 @@
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>熊猫</string>
+		<string>3G网</string>
 		<key>icon</key>
 		<string>publish-text</string>
 		<key>url</key>
-		<string>http://www.panda.tv/</string>
+		<string>http://xuan.3g.cn/</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -49,6 +49,14 @@
 		<string>publish-video</string>
 		<key>url</key>
 		<string>http://www.jd.com</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>固生堂</string>
+		<key>icon</key>
+		<string>publish-gst</string>
+		<key>url</key>
+		<string>http://weixin.gstzy.cn</string>
 	</dict>
 </array>
 </plist>

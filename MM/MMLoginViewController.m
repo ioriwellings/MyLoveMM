@@ -171,7 +171,8 @@
 
 - (BOOL)isExistTokenID {
     
-    return [[NSUserDefaults standardUserDefaults] objectForKey:@"tokenID"];
+    NSString *isExist = [[NSUserDefaults standardUserDefaults] objectForKey:@"tokenID"];
+    return isExist;
 }
 
 - (NSString *)getDefaultEmail {
@@ -300,6 +301,7 @@
         [[RCIM sharedRCIM] refreshUserInfoCache:user withUserId:userId];
         [[NSUserDefaults standardUserDefaults] setObject:user.portraitUri forKey:@"portraitUri"];
         [[NSUserDefaults standardUserDefaults] setObject:user.name forKey:@"username"];
+        [[NSUserDefaults standardUserDefaults] setObject:user.userId forKey:@"userId"];
         [[NSUserDefaults standardUserDefaults] synchronize];
         
     }];

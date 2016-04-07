@@ -58,7 +58,7 @@
     // HTML5
     [self setupChildVC:[[MMHTML5Controller alloc] init] title:@"H5" image:[UIImage imageNamed:@"tabbar_new"] selectImage:[UIImage imageNamed:@"tabbar_newHL"]];
     // 我
-    [self setupChildVC:[[MeViewController alloc] init] title:@"我" image:[UIImage imageNamed:@"tabbar_me"] selectImage:[UIImage imageNamed:@"tabbar_meHL"]];
+    [self setupChildVC:[[MMMineTableViewController alloc] init] title:@"我" image:[UIImage imageNamed:@"tabbar_me"] selectImage:[UIImage imageNamed:@"tabbar_meHL"]];
 }
 
 #pragma mark - 添加一个子控制器

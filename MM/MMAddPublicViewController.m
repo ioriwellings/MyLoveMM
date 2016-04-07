@@ -83,6 +83,7 @@ static NSString *const cellID = @"MMAddFriendCell";
 
 #pragma mark - 退出键盘
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    
     [self.view endEditing:YES];
 }
 

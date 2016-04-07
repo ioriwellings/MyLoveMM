@@ -58,7 +58,6 @@
     _isClick = YES;
     [self setupRightBarButtonItem];
     
-    [self setupLeftBarButtonItem];
     // 设置未读消息
     [self notifyUpdateUnreadMessageCount];
     // 刷新讨论组消息
@@ -320,22 +319,6 @@
     [rightButton addTarget:self action:@selector(rightButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *rightBarBtn = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
     self.navigationItem.rightBarButtonItem = rightBarBtn;
-}
-
-- (void)setupLeftBarButtonItem {
-    
-    UIButton *leftButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 70, 45)];
-    self.leftBarButton = leftButton;
-    leftButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 40);
-    [leftButton setImage:[UIImage imageNamed:@"barbuttonicon_add"] forState:UIControlStateNormal];
-    [leftButton addTarget:self action:@selector(leftButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *leftBarBtn = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
-    self.navigationItem.leftBarButtonItem = leftBarBtn;
-}
-
-- (void)leftButtonClick:(UIButton *)sender {
-    
-    
 }
 
 - (void)rightButtonClick:(UIButton *)sender {

@@ -31,7 +31,7 @@
 //    self.webView.allowsInlineMediaPlayback = YES; // 全屏播放
     
     [self.webView loadRequest:request];
-    
+    // 一种写法
 //    NSURL *url = [NSURL URLWithString:self.html.url];
 //    NSURLRequest *request = [NSURLRequest requestWithURL:url];
 //    self.webView = [UIWebView loadRequest:request loaded:^(UIWebView *webView) {
@@ -47,6 +47,10 @@
 //        
 //        return YES;
 //    }];
+    // 二种写法
+//    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"index1" ofType:@"html"];
+//    NSString *htmlString = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
+//    [self.webView loadHTMLString:htmlString baseURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] bundlePath]]];
 }
 
 #pragma mark - 后退

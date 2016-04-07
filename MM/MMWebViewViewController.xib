@@ -18,6 +18,13 @@
             <rect key="frame" x="0.0" y="64" width="375" height="603"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pJZ-zj-kCp" userLabel="分割线">
+                    <rect key="frame" x="0.0" y="557" width="375" height="1"/>
+                    <color key="backgroundColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="YMD-5e-tNT"/>
+                    </constraints>
+                </view>
                 <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vCs-cs-5Km">
                     <rect key="frame" x="0.0" y="559" width="375" height="44"/>
                     <constraints>
@@ -43,7 +50,7 @@
                     </items>
                 </toolbar>
                 <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JWG-2z-q3C">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="557"/>
                     <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="ki8-pJ-hux"/>
@@ -52,11 +59,14 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="pJZ-zj-kCp" firstAttribute="top" secondItem="JWG-2z-q3C" secondAttribute="bottom" id="0f7-M3-7bW"/>
+                <constraint firstItem="vCs-cs-5Km" firstAttribute="top" secondItem="pJZ-zj-kCp" secondAttribute="bottom" constant="1" id="643-hL-dYF"/>
                 <constraint firstAttribute="trailing" secondItem="vCs-cs-5Km" secondAttribute="trailing" id="9hZ-PG-jBW"/>
+                <constraint firstItem="pJZ-zj-kCp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="JJQ-P3-618"/>
                 <constraint firstItem="JWG-2z-q3C" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Ka0-P9-CwV"/>
                 <constraint firstAttribute="trailing" secondItem="JWG-2z-q3C" secondAttribute="trailing" id="W8Y-CU-wvj"/>
+                <constraint firstAttribute="trailing" secondItem="pJZ-zj-kCp" secondAttribute="trailing" id="WBV-Tq-bac"/>
                 <constraint firstItem="vCs-cs-5Km" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="XxM-Dt-BFh"/>
-                <constraint firstItem="vCs-cs-5Km" firstAttribute="top" secondItem="JWG-2z-q3C" secondAttribute="bottom" id="v4D-J3-cxb"/>
                 <constraint firstItem="JWG-2z-q3C" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="vOH-uu-nBI"/>
                 <constraint firstAttribute="bottom" secondItem="vCs-cs-5Km" secondAttribute="bottom" id="zQf-kr-MC6"/>
             </constraints>

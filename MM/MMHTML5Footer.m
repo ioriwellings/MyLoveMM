@@ -40,7 +40,7 @@
     int colsCount = 3;
     // 每一列宽度
     CGFloat buttonW = View_Width / colsCount;
-    CGFloat buttonH = buttonW * 1.2;
+    CGFloat buttonH = buttonW * 1.1;
     NSInteger count = arrayUrl.count;
     for (int i = 0; i < count; i++) {
         
