@@ -19,8 +19,11 @@ static NSString *const MMHTMLCellID = @"MMHTMLCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"HTML5";
     
+    self.navigationItem.title = @"HTML5";
+    UIView *view = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    view.backgroundColor = DEFAULT_BACKGROUND_COLOR;
+    self.tableView.backgroundView = view;
     [self setupTableView];
 }
 

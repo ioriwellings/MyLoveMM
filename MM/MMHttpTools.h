@@ -99,4 +99,23 @@
          withGroupName:(NSString*)groupName
           andintroduce:(NSString*)introduce
               complete:(void (^)(BOOL result))result;
+/**
+ * 删除好友
+ */
+- (void)deleteFriend:(NSString *)userId
+            complete:(void (^)(BOOL result))result;
+
+/** 
+ * 更新用户的昵称
+ */
+- (void)updateUserName:(NSString *)userName
+               success:(void (^)(RCUserInfo *userInfo))success
+               failure:(void (^)(NSError *error))failure;
+
+//从demo server 获取用户的信息，更新本地数据库
+- (void)updateUserInfo:(NSString *) userID
+               success:(void (^)(RCUserInfo * user))success
+               failure:(void (^)(NSError* err))failure;
+
+
 @end

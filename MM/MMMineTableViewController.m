@@ -7,8 +7,6 @@
 //
 
 #import "MMMineTableViewController.h"
-#import "MMSettingItem.h"
-#import "MMSettingGroup.h"
 
 @interface MMMineTableViewController ()
 
@@ -28,7 +26,8 @@
     return _data;
 }
 
-static NSString *const identifyID = @"MMUserDetailCell";
+static NSString *const userDetailCell = @"MMUserDetailCell";
+static NSString *const settingCell = @"MMSettingCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -37,38 +36,26 @@ static NSString *const identifyID = @"MMUserDetailCell";
     self.tableView.contentInset = UIEdgeInsetsMake(-20, 0, 0, 0); // 设置tableView的内边距，向上移20
     [self.tableView setBackgroundColor:[UIColor whiteColor]];
     self.tableView.sectionHeaderHeight = 5;
-
+    UIView *view = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    view.backgroundColor = DEFAULT_BACKGROUND_COLOR;
+    self.tableView.backgroundView = view;
+    
     // 注册
-    [self.tableView registerClass:[MMUserDetailCell class] forCellReuseIdentifier:identifyID];
+    [self.tableView registerClass:[MMUserDetailCell class] forCellReuseIdentifier:userDetailCell];
+    [self.tableView registerClass:[MMSettingCell class] forCellReuseIdentifier:settingCell];
     // 加载数据
     [self reloadDetailData];
 }
 
 - (void)reloadDetailData {
     
-    self.data = [self getMineVCItems];
-    self.userInfo = [[RCIM sharedRCIM] currentUserInfo];
+    self.data = [MMMineHelper getMineVCItems];
+    RCUserInfo *currentUser = [[RCIM sharedRCIM] currentUserInfo];
+    [MMHTTPTOOLS getUserInfoWithUserID:currentUser.userId completion:^(RCUserInfo *user) {
+        
+        self.userInfo = user;
+    }];
     [self.tableView reloadData];
-}
-
-- (NSMutableArray *)getMineVCItems {
-    
-    NSMutableArray *items   = [NSMutableArray array];
-    MMSettingItem *album    = [MMSettingItem createWithImageName:@"MoreMyAlbum" title:@"相册"];
-    MMSettingItem *favorite = [MMSettingItem createWithImageName:@"MoreMyFavorites" title:@"收藏"];
-    MMSettingItem *bank     = [MMSettingItem createWithImageName:@"MoreMyBankCard" title:@"钱包"];
-    MMSettingItem *card     = [MMSettingItem createWithImageName:@"MyCardPackageIcon" title:@"卡包"];
-    MMSettingGroup *groupOne = [[MMSettingGroup alloc] initWithHeaderTitle:nil footerTitle:nil settingItems:album, favorite, bank, card, nil];
-    [items addObject:groupOne];
-    
-    MMSettingItem *expression = [MMSettingItem createWithImageName:@"MoreExpressionShops" title:@"表情"];
-    MMSettingGroup *groupTwo = [[MMSettingGroup alloc] initWithHeaderTitle:nil footerTitle:nil settingItems:expression, nil];
-    [items addObject:groupTwo];
-    
-    MMSettingItem *setting = [MMSettingItem createWithImageName:@"MoreSetting" title:@"设置"];
-    MMSettingGroup *groupThree = [[MMSettingGroup alloc] initWithHeaderTitle:nil footerTitle:nil settingItems:setting, nil];
-    [items addObject:groupThree];
-    return items;
 }
 
 #pragma mark - UITableViewDataSource
@@ -97,7 +84,7 @@ static NSString *const identifyID = @"MMUserDetailCell";
     
     if (indexPath.section == 0) {
         
-        MMUserDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:identifyID forIndexPath:indexPath];
+        MMUserDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:userDetailCell forIndexPath:indexPath];
         cell.userInfo = self.userInfo;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator; // 右边小箭头
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -106,16 +93,45 @@ static NSString *const identifyID = @"MMUserDetailCell";
     }
     else {
         
-        UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cellID"];
+        MMSettingGroup *group = [self.data objectAtIndex:indexPath.section - 1];
+        MMSettingItem *item = [group itemAtIndex:indexPath.row];
+        MMSettingCell *cell = [tableView dequeueReusableCellWithIdentifier:settingCell];
+        // 设置数据
+        [cell setItem:item];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator; // 右边小箭头
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    id vc = nil;
+    if (indexPath.section == 0 && indexPath.row == 0) {
+        
+        vc = [[MMMineDetailViewController alloc] initWithNibName:nil bundle:nil withUserInfo:self.userInfo];
+    }
+    else {
+        
+        MMSettingGroup *group = [self.data objectAtIndex:indexPath.section - 1];
+        MMSettingItem *item = [group itemAtIndex:indexPath.row];
+        if ([item.title isEqualToString:@"表情"]) {
+            
+            vc = [[MMExpresionViewController alloc] init];
+        }
+        else if ([item.title isEqualToString:@"设置"]) {
+            
+            vc = [[MMSettingViewController alloc] init];
+        }
+    }
+    if (vc != nil) {
+        
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
+}
 
 #pragma mark - UITableViewDelegate
-
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {

@@ -42,6 +42,10 @@ static NSString *const registerID = @"MMFriendBookCell";
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([MMFriendBookCell class]) bundle:nil] forCellReuseIdentifier:registerID];
     // 去掉分割线
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    UIView *view = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    view.backgroundColor = DEFAULT_BACKGROUND_COLOR;
+    self.tableView.backgroundView = view;
 }
 
 - (void)viewWillAppear:(BOOL)animated {

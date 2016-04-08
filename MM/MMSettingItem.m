@@ -15,7 +15,7 @@
     if (self = [super init]) {
         
         self.alignment = MMSettingItemAlignmentRight;
-        self.bgColor = [UIColor blackColor];
+        self.bgColor = [UIColor whiteColor];
         
         self.titleColor = [UIColor blackColor];
         self.titleFont = [UIFont systemFontOfSize:15.5f];

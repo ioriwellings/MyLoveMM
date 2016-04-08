@@ -118,4 +118,16 @@ typedef NS_ENUM(NSInteger, RequestMethodType){
 + (void)updateGroupByID:(int) groupID withGroupName:(NSString*) groupName andGroupIntroduce:(NSString*) introduce
                 success:(void (^)(id response))success
                 failure:(void (^)(NSError* error))failure;
+
+// 删除好友
++ (void)deleteFriend:(NSString *)userId
+             success:(void (^)(id response))success
+             failure:(void (^)(NSError *error))failure;
+
+// 更新用户昵称
++ (void)updateUserName:(NSString *)userName
+               success:(void (^)(id response))success
+               failure:(void (^)(NSError *error))failure;
+
+
 @end

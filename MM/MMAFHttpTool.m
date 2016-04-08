@@ -263,5 +263,25 @@
                           failure:failure];
 }
 
+#pragma mark - 删除好友
++ (void)deleteFriend:(NSString *)userId success:(void (^)(id))success failure:(void (^)(NSError *))failure {
+    
+    [MMAFHttpTool requestWihtMethod:RequestMethodTypePost
+                                url:@"delete_friend"
+                             params:@{@"id" : userId}
+                            success:success
+                            failure:failure];
+}
+
+#pragma mark - 更新用户昵称
++ (void)updateUserName:(NSString *)userName success:(void (^)(id))success failure:(void (^)(NSError *))failure {
+    
+    [MMAFHttpTool requestWihtMethod:RequestMethodTypePost
+                                url:@"update_profile"
+                             params:@{@"username" : userName}
+                            success:success
+                            failure:failure];
+}
+
 
 @end

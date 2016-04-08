@@ -570,7 +570,75 @@
             result(NO);
         }
     }];
+}
 
+#pragma mark - 删除好友
+- (void)deleteFriend:(NSString *)userId complete:(void (^)(BOOL))result {
+    
+    [MMAFHttpTool deleteFriend:userId success:^(id response) {
+        
+        NSString *code = [NSString stringWithFormat:@"%@", response[@"code"]];
+        if (result) {
+            
+            if ([code isEqualToString:@"200"]) {
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                   
+                    result(YES);
+                });
+                [[MMDataBaseManager shareInstance] deleteFriendFromDB:userId];
+            }
+            else {
+                result(NO);
+            }
+        }
+    } failure:^(NSError *error) {
+        
+        if (result) {
+            result(NO);
+        }
+    }];
+}
+
+#pragma mark - 更新用户昵称
+- (void)updateUserName:(NSString *)userName success:(void (^)(RCUserInfo *))success failure:(void (^)(NSError *))failure {
+    
+    [MMAFHttpTool updateUserName:userName success:^(id response) {
+        
+        success(response);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
+
+#pragma mark - 更新用户本地数据库
+- (void)updateUserInfo:(NSString *)userID success:(void (^)(RCUserInfo *))success failure:(void (^)(NSError *))failure {
+    
+    [MMAFHttpTool getUserWithUserId:userID success:^(id response) {
+        
+        NSString *code = [NSString stringWithFormat:@"%@",response[@"code"]];
+        if (response) {
+            
+            if ([code isEqualToString:@"200"]) {
+                
+                NSDictionary *dic = response[@"result"];
+                RCUserInfo *user = [RCUserInfo new];
+                NSNumber *idNum = [dic objectForKey:@"id"];
+                user.userId = [NSString stringWithFormat:@"%d",idNum.intValue];
+                user.portraitUri = [dic objectForKey:@"portrait"];
+                user.name = [dic objectForKey:@"username"];
+                [[MMDataBaseManager shareInstance] insertUserToDB:user];
+                if (success) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        success(user);
+                    });
+                }
+            }
+        }
+    } failure:^(NSError *error) {
+        
+        failure(error);
+    }];
 }
 
 @end

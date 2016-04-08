@@ -94,7 +94,7 @@
     
     _userInfo = userInfo;
     // 设置头像
-    [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:userInfo.portraitUri] placeholderImage:[[UIImage imageNamed:@"icon_person"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:userInfo.portraitUri] placeholderImage:[[UIImage imageNamed:@"publish-gst"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     // 昵称
     if (userInfo.name && userInfo.name.length > 0) {
         

@@ -38,6 +38,12 @@
 		AA7D83061CB62F2A0074FCB0 /* MMUserDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7D83051CB62F2A0074FCB0 /* MMUserDetailCell.m */; };
 		AA7D83091CB64AA30074FCB0 /* MMSettingItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7D83081CB64AA30074FCB0 /* MMSettingItem.m */; };
 		AA7D830C1CB64AB50074FCB0 /* MMSettingGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7D830B1CB64AB50074FCB0 /* MMSettingGroup.m */; };
+		AA7D830F1CB7454A0074FCB0 /* MMSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7D830E1CB7454A0074FCB0 /* MMSettingCell.m */; };
+		AA7D83121CB74E5F0074FCB0 /* UIDevice+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7D83111CB74E5F0074FCB0 /* UIDevice+Extension.m */; };
+		AA7D83151CB75BAC0074FCB0 /* MMMineHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7D83141CB75BAC0074FCB0 /* MMMineHelper.m */; };
+		AA7D831B1CB762000074FCB0 /* MMMineDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7D831A1CB762000074FCB0 /* MMMineDetailViewController.m */; };
+		AA7D831E1CB762260074FCB0 /* MMSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7D831D1CB762260074FCB0 /* MMSettingViewController.m */; };
+		AA7D83211CB762610074FCB0 /* MMExpresionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7D83201CB762610074FCB0 /* MMExpresionViewController.m */; };
 		AA8F87911C91091A003C93C0 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA8F87901C91091A003C93C0 /* Login.storyboard */; };
 		AA8F87941C910C32003C93C0 /* MMLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA8F87931C910C32003C93C0 /* MMLoginViewController.m */; };
 		AA8F87991C911464003C93C0 /* MMLoginRegisterTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = AA8F87981C911464003C93C0 /* MMLoginRegisterTextField.m */; };
@@ -57,6 +63,7 @@
 		AAA9A8271CABDF68002DF47A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA9A8261CABDF68002DF47A /* Foundation.framework */; };
 		AAA9A8291CABDF7D002DF47A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA9A8281CABDF7D002DF47A /* CoreGraphics.framework */; };
 		AAA9A82A1CABE0D9002DF47A /* libc++abi.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AACB7EAE1C9186FB00E8A85A /* libc++abi.tbd */; };
+		AAAF78B41CB7A00400B03D5E /* MMMineEditingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAAF78B31CB7A00400B03D5E /* MMMineEditingViewController.m */; };
 		AAB81C6E1CB60F880055FA4D /* MMMineTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB81C6D1CB60F880055FA4D /* MMMineTableViewController.m */; };
 		AAC25E2D1CA38AA3008EFF21 /* MMAddressBookTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC25E2B1CA38AA3008EFF21 /* MMAddressBookTableViewController.m */; };
 		AAC25E2E1CA38AA3008EFF21 /* MMAddressBookTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAC25E2C1CA38AA3008EFF21 /* MMAddressBookTableViewController.xib */; };
@@ -78,8 +85,6 @@
 		AADC621C1CA2A68B0093D3F7 /* MMAgreeAddFriendTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AADC621A1CA2A68B0093D3F7 /* MMAgreeAddFriendTableViewController.xib */; };
 		AADC62201CA2B2730093D3F7 /* MMAgreeFriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AADC621E1CA2B2730093D3F7 /* MMAgreeFriendCell.m */; };
 		AADC62211CA2B2730093D3F7 /* MMAgreeFriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AADC621F1CA2B2730093D3F7 /* MMAgreeFriendCell.xib */; };
-		AADE53461CA8E28700E6C9CF /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AADE53441CA8E28700E6C9CF /* MeViewController.m */; };
-		AADE53471CA8E28700E6C9CF /* MeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AADE53451CA8E28700E6C9CF /* MeViewController.xib */; };
 		AADE53521CA912EC00E6C9CF /* MMHTML5Footer.m in Sources */ = {isa = PBXBuildFile; fileRef = AADE53511CA912EC00E6C9CF /* MMHTML5Footer.m */; };
 		AADE53551CA913F500E6C9CF /* MMHTMLCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AADE53541CA913F500E6C9CF /* MMHTMLCell.m */; };
 		AADE535C1CA91C5900E6C9CF /* MMHTML5Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = AADE535A1CA91C5900E6C9CF /* MMHTML5Controller.m */; };
@@ -171,6 +176,18 @@
 		AA7D83081CB64AA30074FCB0 /* MMSettingItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMSettingItem.m; sourceTree = "<group>"; };
 		AA7D830A1CB64AB50074FCB0 /* MMSettingGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMSettingGroup.h; sourceTree = "<group>"; };
 		AA7D830B1CB64AB50074FCB0 /* MMSettingGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMSettingGroup.m; sourceTree = "<group>"; };
+		AA7D830D1CB7454A0074FCB0 /* MMSettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMSettingCell.h; sourceTree = "<group>"; };
+		AA7D830E1CB7454A0074FCB0 /* MMSettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMSettingCell.m; sourceTree = "<group>"; };
+		AA7D83101CB74E5F0074FCB0 /* UIDevice+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Extension.h"; sourceTree = "<group>"; };
+		AA7D83111CB74E5F0074FCB0 /* UIDevice+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Extension.m"; sourceTree = "<group>"; };
+		AA7D83131CB75BAC0074FCB0 /* MMMineHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMMineHelper.h; sourceTree = "<group>"; };
+		AA7D83141CB75BAC0074FCB0 /* MMMineHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMMineHelper.m; sourceTree = "<group>"; };
+		AA7D83191CB762000074FCB0 /* MMMineDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMMineDetailViewController.h; sourceTree = "<group>"; };
+		AA7D831A1CB762000074FCB0 /* MMMineDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMMineDetailViewController.m; sourceTree = "<group>"; };
+		AA7D831C1CB762260074FCB0 /* MMSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMSettingViewController.h; sourceTree = "<group>"; };
+		AA7D831D1CB762260074FCB0 /* MMSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMSettingViewController.m; sourceTree = "<group>"; };
+		AA7D831F1CB762610074FCB0 /* MMExpresionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMExpresionViewController.h; sourceTree = "<group>"; };
+		AA7D83201CB762610074FCB0 /* MMExpresionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMExpresionViewController.m; sourceTree = "<group>"; };
 		AA8F87901C91091A003C93C0 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		AA8F87921C910C32003C93C0 /* MMLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMLoginViewController.h; sourceTree = "<group>"; };
 		AA8F87931C910C32003C93C0 /* MMLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMLoginViewController.m; sourceTree = "<group>"; };
@@ -206,6 +223,8 @@
 		AAA9A8241CABDF56002DF47A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		AAA9A8261CABDF68002DF47A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AAA9A8281CABDF7D002DF47A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		AAAF78B21CB7A00400B03D5E /* MMMineEditingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMMineEditingViewController.h; sourceTree = "<group>"; };
+		AAAF78B31CB7A00400B03D5E /* MMMineEditingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMMineEditingViewController.m; sourceTree = "<group>"; };
 		AAB81C6C1CB60F880055FA4D /* MMMineTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMMineTableViewController.h; sourceTree = "<group>"; };
 		AAB81C6D1CB60F880055FA4D /* MMMineTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMMineTableViewController.m; sourceTree = "<group>"; };
 		AAC25E2A1CA38AA3008EFF21 /* MMAddressBookTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMAddressBookTableViewController.h; sourceTree = "<group>"; };
@@ -241,9 +260,6 @@
 		AADC621D1CA2B2730093D3F7 /* MMAgreeFriendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMAgreeFriendCell.h; sourceTree = "<group>"; };
 		AADC621E1CA2B2730093D3F7 /* MMAgreeFriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMAgreeFriendCell.m; sourceTree = "<group>"; };
 		AADC621F1CA2B2730093D3F7 /* MMAgreeFriendCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMAgreeFriendCell.xib; sourceTree = "<group>"; };
-		AADE53431CA8E28700E6C9CF /* MeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeViewController.h; sourceTree = "<group>"; };
-		AADE53441CA8E28700E6C9CF /* MeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeViewController.m; sourceTree = "<group>"; };
-		AADE53451CA8E28700E6C9CF /* MeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeViewController.xib; sourceTree = "<group>"; };
 		AADE53501CA912EC00E6C9CF /* MMHTML5Footer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMHTML5Footer.h; sourceTree = "<group>"; };
 		AADE53511CA912EC00E6C9CF /* MMHTML5Footer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMHTML5Footer.m; sourceTree = "<group>"; };
 		AADE53531CA913F500E6C9CF /* MMHTMLCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMHTMLCell.h; sourceTree = "<group>"; };
@@ -628,11 +644,16 @@
 		AA99C09A1C90339C00C9A477 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				AADE53431CA8E28700E6C9CF /* MeViewController.h */,
-				AADE53441CA8E28700E6C9CF /* MeViewController.m */,
-				AADE53451CA8E28700E6C9CF /* MeViewController.xib */,
 				AAB81C6C1CB60F880055FA4D /* MMMineTableViewController.h */,
 				AAB81C6D1CB60F880055FA4D /* MMMineTableViewController.m */,
+				AA7D83191CB762000074FCB0 /* MMMineDetailViewController.h */,
+				AA7D831A1CB762000074FCB0 /* MMMineDetailViewController.m */,
+				AA7D831C1CB762260074FCB0 /* MMSettingViewController.h */,
+				AA7D831D1CB762260074FCB0 /* MMSettingViewController.m */,
+				AA7D831F1CB762610074FCB0 /* MMExpresionViewController.h */,
+				AA7D83201CB762610074FCB0 /* MMExpresionViewController.m */,
+				AAAF78B21CB7A00400B03D5E /* MMMineEditingViewController.h */,
+				AAAF78B31CB7A00400B03D5E /* MMMineEditingViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -662,6 +683,12 @@
 			children = (
 				AA7D83041CB62F2A0074FCB0 /* MMUserDetailCell.h */,
 				AA7D83051CB62F2A0074FCB0 /* MMUserDetailCell.m */,
+				AA7D830D1CB7454A0074FCB0 /* MMSettingCell.h */,
+				AA7D830E1CB7454A0074FCB0 /* MMSettingCell.m */,
+				AA7D83101CB74E5F0074FCB0 /* UIDevice+Extension.h */,
+				AA7D83111CB74E5F0074FCB0 /* UIDevice+Extension.m */,
+				AA7D83131CB75BAC0074FCB0 /* MMMineHelper.h */,
+				AA7D83141CB75BAC0074FCB0 /* MMMineHelper.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -910,7 +937,6 @@
 				AADE536B1CA9496600E6C9CF /* MMWebViewViewController.xib in Resources */,
 				AAC25E3E1CA3DD87008EFF21 /* MMDidJoinGroupViewController.xib in Resources */,
 				AADC62211CA2B2730093D3F7 /* MMAgreeFriendCell.xib in Resources */,
-				AADE53471CA8E28700E6C9CF /* MeViewController.xib in Resources */,
 				AAC25E2E1CA38AA3008EFF21 /* MMAddressBookTableViewController.xib in Resources */,
 				AAC25E391CA39063008EFF21 /* MMGroupCell.xib in Resources */,
 			);
@@ -997,9 +1023,11 @@
 				AA5E8BD81CA0077500EC4199 /* FMDatabase.m in Sources */,
 				AAE3F6F31C998C38003434DF /* MMAFHttpTool.m in Sources */,
 				AACB7EA31C916E4D00E8A85A /* UIView+JWExtension.m in Sources */,
+				AA7D83211CB762610074FCB0 /* MMExpresionViewController.m in Sources */,
 				AADE53521CA912EC00E6C9CF /* MMHTML5Footer.m in Sources */,
 				AA7D83061CB62F2A0074FCB0 /* MMUserDetailCell.m in Sources */,
 				AA5E8BD91CA0077500EC4199 /* FMDatabaseAdditions.m in Sources */,
+				AA7D83121CB74E5F0074FCB0 /* UIDevice+Extension.m in Sources */,
 				AA7D83091CB64AA30074FCB0 /* MMSettingItem.m in Sources */,
 				AA99C0A01C9034E800C9A477 /* MMNavigationController.m in Sources */,
 				AAC5D7E41C97A55000B69B24 /* MMConversationListViewController.m in Sources */,
@@ -1010,6 +1038,7 @@
 				AADE53601CA927D300E6C9CF /* MMHTMLButton.m in Sources */,
 				AA5E8BDC1CA0077500EC4199 /* FMResultSet.m in Sources */,
 				AA99C03C1C8FF8AE00C9A477 /* AppDelegate.m in Sources */,
+				AA7D831B1CB762000074FCB0 /* MMMineDetailViewController.m in Sources */,
 				AA8F87941C910C32003C93C0 /* MMLoginViewController.m in Sources */,
 				AAC25E381CA39063008EFF21 /* MMGroupCell.m in Sources */,
 				AADE535C1CA91C5900E6C9CF /* MMHTML5Controller.m in Sources */,
@@ -1018,7 +1047,9 @@
 				AADC62201CA2B2730093D3F7 /* MMAgreeFriendCell.m in Sources */,
 				AA7BFE641C99409B003BD0DC /* MMHttpTools.m in Sources */,
 				AADE53641CA928C800E6C9CF /* MMHTML.m in Sources */,
+				AA7D83151CB75BAC0074FCB0 /* MMMineHelper.m in Sources */,
 				AA5E8BC31CA0055700EC4199 /* MMGroupInfo.m in Sources */,
+				AA7D830F1CB7454A0074FCB0 /* MMSettingCell.m in Sources */,
 				AA5E8BC61CA0061F00EC4199 /* MMUserInfo.m in Sources */,
 				AAD623BD1CA5215B001BD9F6 /* MMFriendBookCell.m in Sources */,
 				AA7D830C1CB64AB50074FCB0 /* MMSettingGroup.m in Sources */,
@@ -1027,16 +1058,17 @@
 				AAF06B831CA22FCD0097FCF1 /* MMAddFriendViewController.m in Sources */,
 				AA5E8BDA1CA0077500EC4199 /* FMDatabasePool.m in Sources */,
 				AAA43E081C9E412600C5B677 /* RCAnimatedImagesView.m in Sources */,
-				AADE53461CA8E28700E6C9CF /* MeViewController.m in Sources */,
 				AA99C0881C90219400C9A477 /* MMTabBarController.m in Sources */,
 				AA1EB2381C929FE900970A53 /* MMAddFriendCell.m in Sources */,
 				AA99C0391C8FF8AE00C9A477 /* main.m in Sources */,
 				AA5E8BD71CA0077500EC4199 /* DBHelper.m in Sources */,
 				AADC621B1CA2A68B0093D3F7 /* MMAgreeAddFriendTableViewController.m in Sources */,
 				AA5E8BC01CA0043500EC4199 /* MMDataBaseManager.m in Sources */,
+				AA7D831E1CB762260074FCB0 /* MMSettingViewController.m in Sources */,
 				AA71936D1CA2935C00337F94 /* MMChatListCell.m in Sources */,
 				AAC25E321CA38DF9008EFF21 /* MMGroupsTableViewController.m in Sources */,
 				AA1EB2291C92779D00970A53 /* MMAddPublicViewController.m in Sources */,
+				AAAF78B41CB7A00400B03D5E /* MMMineEditingViewController.m in Sources */,
 				AA5E8BDF1CA0D7C500EC4199 /* MMIMDataSource.m in Sources */,
 				AA564D0D1C92B806008B3F4E /* UIImageView+JWExtension.m in Sources */,
 				AAC25E2D1CA38AA3008EFF21 /* MMAddressBookTableViewController.m in Sources */,
