@@ -573,7 +573,7 @@
 }
 
 #pragma mark - 删除好友
-- (void)deleteFriend:(NSString *)userId complete:(void (^)(BOOL))result {
+- (void)deleteFriendWithUseId:(NSString *)userId complete:(void (^)(BOOL))result {
     
     [MMAFHttpTool deleteFriend:userId success:^(id response) {
         

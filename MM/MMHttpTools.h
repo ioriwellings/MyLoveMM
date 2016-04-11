@@ -102,7 +102,7 @@
 /**
  * 删除好友
  */
-- (void)deleteFriend:(NSString *)userId
+- (void)deleteFriendWithUseId:(NSString *)userId
             complete:(void (^)(BOOL result))result;
 
 /** 

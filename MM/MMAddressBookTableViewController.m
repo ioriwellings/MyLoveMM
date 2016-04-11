@@ -115,4 +115,28 @@ static NSString *const registerID = @"MMFriendBookCell";
     [self.navigationController pushViewController:chat animated:YES];
 }
 
+#pragma mark - 删除好友
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        MMUserInfo *userInfo = self.friends[indexPath.row];
+        [MMHTTPTOOLS deleteFriendWithUseId:userInfo.userId complete:^(BOOL result) {
+            
+            if (result) {
+                
+                [SVProgressHUD showSuccessWithStatus:@"删除好友成功!" maskType:SVProgressHUDMaskTypeBlack];
+                [[MMDataBaseManager shareInstance] deleteFriendFromDB:userInfo.userId];
+                [self.friends removeObject:userInfo];
+                [self.tableView reloadData];
+            }
+        }];
+    }
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    return @"删除好友";
+}
+
 @end
