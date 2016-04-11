@@ -47,7 +47,7 @@
 
 + (MMSettingItem *) createWithImageName:(NSString *)imageName title:(NSString *)title middleImageName:(NSString *)middleImageName subTitle:(NSString *)subTitle {
     
-    return [MMSettingItem createWithImageName:imageName title:title subTitle:subTitle rightImageName:nil];
+    return [MMSettingItem createWithImageName:imageName title:title middleImageName:middleImageName subTitle:subTitle rightImageName:nil];
 }
 
 + (MMSettingItem *) createWithImageName:(NSString *)imageName title:(NSString *)title subTitle:(NSString *)subTitle rightImageName:(NSString *)rightImageName {

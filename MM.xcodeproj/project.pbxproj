@@ -33,6 +33,8 @@
 		AA5E8BDB1CA0077500EC4199 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = AA5E8BD31CA0077500EC4199 /* FMDatabaseQueue.m */; };
 		AA5E8BDC1CA0077500EC4199 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = AA5E8BD61CA0077500EC4199 /* FMResultSet.m */; };
 		AA5E8BDF1CA0D7C500EC4199 /* MMIMDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = AA5E8BDE1CA0D7C500EC4199 /* MMIMDataSource.m */; };
+		AA629FE41CBB84D3005EE0D2 /* MMNewMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA629FE31CBB84D3005EE0D2 /* MMNewMessageViewController.m */; };
+		AA629FE71CBB91AA005EE0D2 /* MMHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA629FE61CBB91AA005EE0D2 /* MMHeaderFooterView.m */; };
 		AA71936D1CA2935C00337F94 /* MMChatListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA71936C1CA2935C00337F94 /* MMChatListCell.m */; };
 		AA7BFE641C99409B003BD0DC /* MMHttpTools.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7BFE631C99409B003BD0DC /* MMHttpTools.m */; };
 		AA7D83061CB62F2A0074FCB0 /* MMUserDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7D83051CB62F2A0074FCB0 /* MMUserDetailCell.m */; };
@@ -166,6 +168,10 @@
 		AA5E8BD61CA0077500EC4199 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		AA5E8BDD1CA0D7C500EC4199 /* MMIMDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMIMDataSource.h; sourceTree = "<group>"; };
 		AA5E8BDE1CA0D7C500EC4199 /* MMIMDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMIMDataSource.m; sourceTree = "<group>"; };
+		AA629FE21CBB84D3005EE0D2 /* MMNewMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMNewMessageViewController.h; sourceTree = "<group>"; };
+		AA629FE31CBB84D3005EE0D2 /* MMNewMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMNewMessageViewController.m; sourceTree = "<group>"; };
+		AA629FE51CBB91AA005EE0D2 /* MMHeaderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMHeaderFooterView.h; sourceTree = "<group>"; };
+		AA629FE61CBB91AA005EE0D2 /* MMHeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMHeaderFooterView.m; sourceTree = "<group>"; };
 		AA71936B1CA2935C00337F94 /* MMChatListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMChatListCell.h; sourceTree = "<group>"; };
 		AA71936C1CA2935C00337F94 /* MMChatListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMChatListCell.m; sourceTree = "<group>"; };
 		AA7BFE621C99409B003BD0DC /* MMHttpTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMHttpTools.h; sourceTree = "<group>"; };
@@ -654,6 +660,8 @@
 				AA7D83201CB762610074FCB0 /* MMExpresionViewController.m */,
 				AAAF78B21CB7A00400B03D5E /* MMMineEditingViewController.h */,
 				AAAF78B31CB7A00400B03D5E /* MMMineEditingViewController.m */,
+				AA629FE21CBB84D3005EE0D2 /* MMNewMessageViewController.h */,
+				AA629FE31CBB84D3005EE0D2 /* MMNewMessageViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -689,6 +697,8 @@
 				AA7D83111CB74E5F0074FCB0 /* UIDevice+Extension.m */,
 				AA7D83131CB75BAC0074FCB0 /* MMMineHelper.h */,
 				AA7D83141CB75BAC0074FCB0 /* MMMineHelper.m */,
+				AA629FE51CBB91AA005EE0D2 /* MMHeaderFooterView.h */,
+				AA629FE61CBB91AA005EE0D2 /* MMHeaderFooterView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1022,6 +1032,7 @@
 				AADE536A1CA9496600E6C9CF /* MMWebViewViewController.m in Sources */,
 				AA5E8BD81CA0077500EC4199 /* FMDatabase.m in Sources */,
 				AAE3F6F31C998C38003434DF /* MMAFHttpTool.m in Sources */,
+				AA629FE41CBB84D3005EE0D2 /* MMNewMessageViewController.m in Sources */,
 				AACB7EA31C916E4D00E8A85A /* UIView+JWExtension.m in Sources */,
 				AA7D83211CB762610074FCB0 /* MMExpresionViewController.m in Sources */,
 				AADE53521CA912EC00E6C9CF /* MMHTML5Footer.m in Sources */,
@@ -1034,6 +1045,7 @@
 				AAB81C6E1CB60F880055FA4D /* MMMineTableViewController.m in Sources */,
 				AA5E8BB01C9FE4D000EC4199 /* MMModelConfig.m in Sources */,
 				AA1EB22E1C929A5000970A53 /* MMAddFriendTextField.m in Sources */,
+				AA629FE71CBB91AA005EE0D2 /* MMHeaderFooterView.m in Sources */,
 				AA5E8BA91C9F9EB600EC4199 /* NSString+Extension.m in Sources */,
 				AADE53601CA927D300E6C9CF /* MMHTMLButton.m in Sources */,
 				AA5E8BDC1CA0077500EC4199 /* FMResultSet.m in Sources */,

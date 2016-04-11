@@ -89,7 +89,7 @@ static NSString *const settingCell = @"MMSettingCell";
         MMUserDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:userDetailCell forIndexPath:indexPath];
         cell.userInfo = self.userInfo;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator; // 右边小箭头
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         [cell setBackgroundColor:[UIColor whiteColor]];
         return cell;
     }
@@ -123,7 +123,7 @@ static NSString *const settingCell = @"MMSettingCell";
         }
         else if ([item.title isEqualToString:@"设置"]) {
             
-            vc = [[MMSettingViewController alloc] init];
+            vc = [[MMSettingViewController alloc] initWithNibName:nil bundle:nil withUserInfo:self.userInfo];
         }
     }
     if (vc != nil) {

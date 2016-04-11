@@ -14,4 +14,8 @@
 
 + (NSMutableArray *)getMineVCItems;
 
++ (NSMutableArray *)getSettingVCItems;
+
++ (NSMutableArray *)getNewMessageItems;
+
 @end

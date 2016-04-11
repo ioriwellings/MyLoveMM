@@ -85,7 +85,7 @@ static NSString *const settingCellID = @"MMSettingCell";
     MMSettingItem *item = [group itemAtIndex:indexPath.row];
     [cell setItem:item];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator; // 右边小箭头
-    cell.selectionStyle = UITableViewCellSelectionStyleNone; // 取消选中颜色
+//    cell.selectionStyle = UITableViewCellSelectionStyleNone; // 取消选中颜色
     return cell;
 }
 

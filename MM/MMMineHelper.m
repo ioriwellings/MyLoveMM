@@ -32,6 +32,7 @@
     return items;
 }
 
+#pragma mark - getMineDetailVCItems设置数据
 + (NSMutableArray *)getMineDetailVCItems:(RCUserInfo *)userInfo {
     
     NSMutableArray *items = [NSMutableArray array];
@@ -50,8 +51,79 @@
     [items addObject:groupTwo];
     return items;
 }
+#pragma mark - getSettingVCItems设置数据
++ (NSMutableArray *)getSettingVCItems {
+    
+    NSMutableArray *items = [NSMutableArray array];
+    MMSettingItem *safe = [MMSettingItem createWithImageName:nil title:@"账号和安全" middleImageName:@"ProfileLockOn" subTitle:@"已保护"];
+    MMSettingGroup *groupOne = [[MMSettingGroup alloc] initWithHeaderTitle:nil footerTitle:nil settingItems:safe, nil];
+    [items addObject:groupOne];
+    
+    MMSettingItem *not = [MMSettingItem createWithTitle:@"新消息通知"];
+    MMSettingItem *privacy = [MMSettingItem createWithTitle:@"隐私"];
+    MMSettingItem *normal = [MMSettingItem createWithTitle:@"通用"];
+    MMSettingGroup *groupTwo = [[MMSettingGroup alloc] initWithHeaderTitle:nil footerTitle:nil settingItems:not, privacy, normal, nil];
+    [items addObject:groupTwo];
+    
+    MMSettingItem *feedBack = [MMSettingItem createWithTitle:@"帮助与回馈"];
+    MMSettingItem *about = [MMSettingItem createWithTitle:@"关于MM"];
+    MMSettingItem *clear = [MMSettingItem createWithTitle:@"清除缓存"];
+    MMSettingGroup *groupThree = [[MMSettingGroup alloc] initWithHeaderTitle:nil footerTitle:nil settingItems:feedBack, about, clear, nil];
+    [items addObject:groupThree];
+    
+    MMSettingItem *exit = [MMSettingItem createWithTitle:@"退出登录"];
+    MMSettingGroup *groupFour = [[MMSettingGroup alloc] initWithHeaderTitle:nil footerTitle:nil settingItems:exit, nil];
+    [items addObject:groupFour];
+    return items;
+}
 
+#pragma mark - getNewMessageItems设置数据
++ (NSMutableArray *)getNewMessageItems {
+    
+    NSMutableArray *items = [NSMutableArray array];
+    MMSettingItem *recNoti = [MMSettingItem createWithTitle:@"接受新消息通知" subTitle:@"已开启"];
+    MMSettingGroup *groupOne = [[MMSettingGroup alloc] initWithHeaderTitle:nil footerTitle:@"如果你要关闭或开启MM的新消息通知，请在iPhone的“设置” - “通知”功能中，找到应用程序“MM”更改。" settingItems:recNoti, nil];
+    [items addObject:groupOne];
+    
+    
+    MMSettingItem *showDetail = [MMSettingItem createWithTitle:@"通知显示详情信息"];
+    showDetail.type = MMSettingItemTypeSwitch;
+    MMSettingGroup *groupTwo = [[MMSettingGroup alloc] initWithHeaderTitle:nil footerTitle:@"关闭后，当收到MM消息时，通知提示将不显示发信人和内容摘要。" settingItems:showDetail, nil];
+    [items addObject:groupTwo];
+    
+    MMSettingItem *disturb = [MMSettingItem createWithTitle:@"功能消息免打扰"];
+    MMSettingGroup *groupThree = [[MMSettingGroup alloc] initWithHeaderTitle:nil footerTitle:@"设置系统功能消息提示声音和振动时段。" settingItems:disturb, nil];
+    [items addObject:groupThree];
+    
+    MMSettingItem *voice = [MMSettingItem createWithTitle:@"声音"];
+    voice.type = MMSettingItemTypeSwitch;
+    MMSettingItem *shake = [MMSettingItem createWithTitle:@"震动"];
+    shake.type = MMSettingItemTypeSwitch;
+    MMSettingGroup *groupFour = [[MMSettingGroup alloc] initWithHeaderTitle:nil footerTitle:@"当MM在运行时，你可以设置是否需要声音或者振动。" settingItems:voice, shake, nil];
+    [items addObject:groupFour];
+    
+    MMSettingItem *friends = [MMSettingItem createWithTitle:@"朋友圈照片更新"];
+    friends.type = MMSettingItemTypeSwitch;
+    MMSettingGroup *groupFith = [[MMSettingGroup alloc] initWithHeaderTitle:nil footerTitle:@"关闭后，有朋友更新照片时，界面下面的“发现”切换按钮上不再出现红点提示。" settingItems:friends, nil];
+    [items addObject:groupFith];
+    return items;
+}
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

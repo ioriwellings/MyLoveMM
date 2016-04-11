@@ -17,6 +17,9 @@
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *forwardItem;
 
+@property (weak, nonatomic) IBOutlet UIToolbar *hiddenToobar;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *ToobarHeightConstrait;
 @end
 
 @implementation MMWebViewViewController
@@ -25,7 +28,11 @@
     
     [super viewDidLoad];
     self.navigationItem.title = self.html.name;
-    
+    if ([self.html.name isEqualToString:@"固生堂"]) {
+        
+        self.hiddenToobar.hidden = YES;
+        self.ToobarHeightConstrait.constant = 0;
+    }
     NSURL *url = [NSURL URLWithString:self.html.url];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
 //    self.webView.allowsInlineMediaPlayback = YES; // 全屏播放
