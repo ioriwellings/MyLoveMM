@@ -601,7 +601,7 @@
 }
 
 #pragma mark - 更新用户昵称
-- (void)updateUserName:(NSString *)userName success:(void (^)(RCUserInfo *))success failure:(void (^)(NSError *))failure {
+- (void)updateUserName:(NSString *)userName success:(void (^)(id response))success failure:(void (^)(NSError *))failure {
     
     [MMAFHttpTool updateUserName:userName success:^(id response) {
         

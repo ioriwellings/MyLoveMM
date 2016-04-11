@@ -45,16 +45,18 @@ static NSString *const settingCell = @"MMSettingCell";
     [self.tableView registerClass:[MMSettingCell class] forCellReuseIdentifier:settingCell];
     // 加载数据
     [self reloadDetailData];
+    // 通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadDetailData) name:@"kRCNeedEditingUserNameNotification" object:nil];
 }
 
 - (void)reloadDetailData {
     
-    self.data = [MMMineHelper getMineVCItems];
-    RCUserInfo *currentUser = [[RCIM sharedRCIM] currentUserInfo];
-    [MMHTTPTOOLS getUserInfoWithUserID:currentUser.userId completion:^(RCUserInfo *user) {
+   RCUserInfo *user = [[RCIM sharedRCIM] currentUserInfo];
+    [MMHTTPTOOLS getUserInfoWithUserID:user.userId completion:^(RCUserInfo *user) {
         
         self.userInfo = user;
     }];
+    self.data = [MMMineHelper getMineVCItems];
     [self.tableView reloadData];
 }
 
@@ -135,6 +137,7 @@ static NSString *const settingCell = @"MMSettingCell";
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
+        
         return 90.0f;
     }
     return [super tableView:tableView heightForRowAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section - 1]];
@@ -146,6 +149,11 @@ static NSString *const settingCell = @"MMSettingCell";
         return [super tableView:tableView heightForFooterInSection:0];
     }
     return [super tableView:tableView heightForFooterInSection:section - 1];
+}
+
+- (void)dealloc {
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end

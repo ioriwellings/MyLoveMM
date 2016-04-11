@@ -86,15 +86,18 @@
         return;
     }
     __weak __typeof(&*self) weakSelf = self;
-    [MMHTTPTOOLS updateUserName:self.myTextField.text success:^(RCUserInfo *userInfo) {
+    [MMHTTPTOOLS updateUserName:self.myTextField.text success:^(id response) {
         
         RCUserInfo *user = [RCIMClient sharedRCIMClient].currentUserInfo;
         user.name = weakSelf.myTextField.text;
         [[MMDataBaseManager shareInstance] insertUserToDB:user];
-        [RCIM sharedRCIM].currentUserInfo = userInfo;
+        [RCIM sharedRCIM].currentUserInfo = user;
         [[RCIM sharedRCIM] refreshUserInfoCache:user withUserId:user.userId];
         [SVProgressHUD showSuccessWithStatus:@"修改成功" maskType:SVProgressHUDMaskTypeBlack];
-        [weakSelf.navigationController popViewControllerAnimated:YES]; // 返回上一层
+        // 添加一个通知修改昵称
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"kRCNeedEditingUserNameNotification" object:nil];
+        [self.navigationController popViewControllerAnimated:YES];
+        
     } failure:^(NSError *error) {
         
         [SVProgressHUD showErrorWithStatus:@"修改失败" maskType:SVProgressHUDMaskTypeBlack];
@@ -104,6 +107,11 @@
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     
     [self.view endEditing:YES];
+}
+
+- (void)dealloc {
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];;
 }
 
 @end

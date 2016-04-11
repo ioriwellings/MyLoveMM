@@ -50,7 +50,16 @@ static NSString *const settingCellID = @"MMSettingCell";
     self.tableView.sectionHeaderHeight = 5;
     // 注册
     [self.tableView registerClass:[MMSettingCell class] forCellReuseIdentifier:settingCellID];
-    // 获取数据
+    // Reload数据
+    self.data = [MMMineHelper getMineDetailVCItems:_userInfo];
+    [self.tableView reloadData];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadNotificationData) name:@"kRCNeedEditingUserNameNotification" object:nil];
+}
+
+#pragma mark - 通知显示更新数据
+- (void)reloadNotificationData {
+    
+    _userInfo = [RCIM sharedRCIM].currentUserInfo;
     self.data = [MMMineHelper getMineDetailVCItems:_userInfo];
     [self.tableView reloadData];
 }
@@ -104,6 +113,11 @@ static NSString *const settingCellID = @"MMSettingCell";
         [self.navigationController pushViewController:vc animated:YES];
     }
     [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
+}
+
+- (void)dealloc {
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end

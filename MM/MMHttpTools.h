@@ -109,7 +109,7 @@
  * 更新用户的昵称
  */
 - (void)updateUserName:(NSString *)userName
-               success:(void (^)(RCUserInfo *userInfo))success
+               success:(void (^)(id response))success
                failure:(void (^)(NSError *error))failure;
 
 //从demo server 获取用户的信息，更新本地数据库
