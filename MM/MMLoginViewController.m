@@ -226,7 +226,6 @@
                 
                 [SVProgressHUD dismiss];
                 int errorCode = [response[@"code"] intValue];
-                NSLog(@"NSError is %d",errorCode);
                 if (errorCode == 500) {
                     
                     [SVProgressHUD showErrorWithStatus:@"APP服务器错误" maskType:SVProgressHUDMaskTypeBlack];
@@ -239,7 +238,6 @@
         } failure:^(NSError *error) {
             
             [SVProgressHUD dismiss];
-            NSLog(@"NSError is %ld",(long)error.code);
             if (error.code == 3840) {
                 
                 [SVProgressHUD showErrorWithStatus:@"用户名或密码错误" maskType:SVProgressHUDMaskTypeBlack];
@@ -290,7 +288,7 @@
     [[NSUserDefaults standardUserDefaults] setObject:email forKey:@"email"];
     [[NSUserDefaults standardUserDefaults] setObject:password forKey:@"password"];
     [[NSUserDefaults standardUserDefaults] setObject:token forKey:@"token"];
-    [[NSUserDefaults standardUserDefaults] setObject:userId forKey:@"userID"];
+    [[NSUserDefaults standardUserDefaults] setObject:userId forKey:@"userId"];
     [[NSUserDefaults standardUserDefaults] synchronize]; // 命令直接同步到文件里，来避免数据的丢失
     // 设置当前用户信息
     RCUserInfo *currentUserInfo = [[RCUserInfo alloc] initWithUserId:userId name:email portrait:nil];
@@ -309,12 +307,7 @@
     // 同步群组
     [MMDataSource syncGroups];
     [MMDataSource syncFriendList:^(NSMutableArray *friends) {}];
-//    BOOL notFirstTimeLogin = [[NSUserDefaults standardUserDefaults] boolForKey:@"notFirstTimeLogin"];
-//    if (!notFirstTimeLogin) {
-//        [MMDataSource cacheAllData:^{
-//            
-//        }];
-//    }
+
     dispatch_async(dispatch_get_main_queue(), ^{
         
         MMTabBarController *tab = [[MMTabBarController alloc] init];

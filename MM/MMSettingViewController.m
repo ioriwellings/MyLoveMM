@@ -8,6 +8,8 @@
 
 #import "MMSettingViewController.h"
 
+#define DEFAULTS [NSUserDefaults standardUserDefaults]
+
 @interface MMSettingViewController () {
     
     RCUserInfo *_userInfo;
@@ -154,7 +156,18 @@ static NSString *const settingCellID = @"MMSettingCell";
 #pragma mark - 退出登录
 - (void)exitLogin {
     
-    
+    // 清除用户登录记录
+    [DEFAULTS removeObjectForKey:@"email"];
+    [DEFAULTS removeObjectForKey:@"password"];
+    [DEFAULTS removeObjectForKey:@"token"];
+    [DEFAULTS removeObjectForKey:@"userId"];
+    [DEFAULTS removeObjectForKey:@"username"];
+    [DEFAULTS synchronize]; // 同步数据
+    // 退出
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
+    MMLoginViewController *login = [storyBoard instantiateViewControllerWithIdentifier:@"MMLogin"]; // 本来已经继承NavigationVC(MMLogin在NavigationController的storyBoard ID中设置)
+    self.view.window.rootViewController = login;
+    [[RCIM sharedRCIM] logout];
 }
 
 @end

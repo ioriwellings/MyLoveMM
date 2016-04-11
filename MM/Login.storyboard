@@ -10,7 +10,7 @@
         <!--Navigation Controller-->
         <scene sceneID="dii-cf-Ynv">
             <objects>
-                <navigationController id="v9Y-Sr-RZa" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MMLogin" id="v9Y-Sr-RZa" sceneMemberID="viewController">
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="W9A-Ze-xxv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

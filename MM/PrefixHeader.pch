@@ -46,6 +46,7 @@
 #import "MMExpresionViewController.h"
 #import "MMMineEditingViewController.h"
 #import "MMNewMessageViewController.h"
+#import "MMLoginViewController.h"
 /**********************View&Cell******************************/
 #import "MMLoginRegisterTextField.h"
 #import "MMAddFriendCell.h"
