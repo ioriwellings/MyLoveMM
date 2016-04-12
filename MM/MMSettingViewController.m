@@ -127,32 +127,6 @@ static NSString *const settingCellID = @"MMSettingCell";
     [self presentViewController:alert animated:YES completion:nil];
 }
 
-#pragma mark - 清除缓存
-- (void)clearYourCache {
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        
-        // 获取沙盒路径
-        NSString *cachePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-        // 获取该路径下的所有文件夹
-        NSArray *files = [[NSFileManager defaultManager] subpathsAtPath:cachePath];
-        for (NSString *p in files) {
-            
-            NSError *error;
-            NSString *path = [cachePath stringByAppendingPathComponent:p]; // 拼接路径
-            if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
-                
-                [[NSFileManager defaultManager] removeItemAtPath:path error:&error];
-            }
-        }
-        [SVProgressHUD showInfoWithStatus:@"清除缓存成功" maskType:SVProgressHUDMaskTypeBlack];
-        [UIView animateWithDuration:2.5 animations:^{
-            
-            [SVProgressHUD dismiss];
-        }];
-    });
-}
-
 #pragma mark - 退出登录
 - (void)exitLogin {
     
@@ -169,6 +143,35 @@ static NSString *const settingCellID = @"MMSettingCell";
     self.view.window.rootViewController = login;
     [[RCIM sharedRCIM] logout];
 }
+
+#pragma mark - 清除缓存
+- (void)clearYourCache {
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        // 获取沙盒路径
+        NSString *cachePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
+        // 拼接default路径
+        NSString *filePath = [cachePath stringByAppendingPathComponent:@"default"];
+        // 获取default路径下的所有文件夹
+        NSArray *files = [[NSFileManager defaultManager] subpathsAtPath:filePath];
+        for (NSString *subPath in files) {
+            
+            NSError *error;
+            NSString *path = [cachePath stringByAppendingPathComponent:subPath]; // 拼接路径
+            if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
+                
+                [[NSFileManager defaultManager] removeItemAtPath:path error:&error];
+            }
+        }
+        [SVProgressHUD showInfoWithStatus:@"清除缓存成功" maskType:SVProgressHUDMaskTypeBlack];
+        [UIView animateWithDuration:2.5 animations:^{
+            
+            [SVProgressHUD dismiss];
+        }];
+    });
+}
+
 
 @end
 

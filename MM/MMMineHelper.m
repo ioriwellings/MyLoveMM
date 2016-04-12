@@ -67,7 +67,7 @@
     
     MMSettingItem *feedBack = [MMSettingItem createWithTitle:@"帮助与回馈"];
     MMSettingItem *about = [MMSettingItem createWithTitle:@"关于MM"];
-    MMSettingItem *clear = [MMSettingItem createWithTitle:@"清除缓存"];
+    MMSettingItem *clear = [MMSettingItem createWithTitle:@"清除缓存" subTitle:[NSString getCacheSize]];
     MMSettingGroup *groupThree = [[MMSettingGroup alloc] initWithHeaderTitle:nil footerTitle:nil settingItems:feedBack, about, clear, nil];
     [items addObject:groupThree];
     

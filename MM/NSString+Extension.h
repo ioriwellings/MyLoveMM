@@ -18,4 +18,11 @@
 
 /** 当前时间转为时间戳 */
 + (NSString *)switchNowTimeToTimeStamp;
+
+/** 计算缓存大小 */
++ (NSString *)getCacheSize;
+
+/** 计算文件大小 */
+- (NSInteger)fileSize;
+
 @end
