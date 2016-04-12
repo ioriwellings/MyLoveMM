@@ -35,6 +35,8 @@
 		AA5E8BDF1CA0D7C500EC4199 /* MMIMDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = AA5E8BDE1CA0D7C500EC4199 /* MMIMDataSource.m */; };
 		AA629FE41CBB84D3005EE0D2 /* MMNewMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA629FE31CBB84D3005EE0D2 /* MMNewMessageViewController.m */; };
 		AA629FE71CBB91AA005EE0D2 /* MMHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA629FE61CBB91AA005EE0D2 /* MMHeaderFooterView.m */; };
+		AA629FEA1CBCE9B1005EE0D2 /* MMBubbleAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA629FE91CBCE9B1005EE0D2 /* MMBubbleAnimationViewController.m */; };
+		AA629FED1CBCED98005EE0D2 /* MMBubbleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AA629FEC1CBCED98005EE0D2 /* MMBubbleButton.m */; };
 		AA71936D1CA2935C00337F94 /* MMChatListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA71936C1CA2935C00337F94 /* MMChatListCell.m */; };
 		AA7BFE641C99409B003BD0DC /* MMHttpTools.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7BFE631C99409B003BD0DC /* MMHttpTools.m */; };
 		AA7D83061CB62F2A0074FCB0 /* MMUserDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7D83051CB62F2A0074FCB0 /* MMUserDetailCell.m */; };
@@ -172,6 +174,10 @@
 		AA629FE31CBB84D3005EE0D2 /* MMNewMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMNewMessageViewController.m; sourceTree = "<group>"; };
 		AA629FE51CBB91AA005EE0D2 /* MMHeaderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMHeaderFooterView.h; sourceTree = "<group>"; };
 		AA629FE61CBB91AA005EE0D2 /* MMHeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMHeaderFooterView.m; sourceTree = "<group>"; };
+		AA629FE81CBCE9B1005EE0D2 /* MMBubbleAnimationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMBubbleAnimationViewController.h; sourceTree = "<group>"; };
+		AA629FE91CBCE9B1005EE0D2 /* MMBubbleAnimationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMBubbleAnimationViewController.m; sourceTree = "<group>"; };
+		AA629FEB1CBCED98005EE0D2 /* MMBubbleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMBubbleButton.h; sourceTree = "<group>"; };
+		AA629FEC1CBCED98005EE0D2 /* MMBubbleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMBubbleButton.m; sourceTree = "<group>"; };
 		AA71936B1CA2935C00337F94 /* MMChatListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMChatListCell.h; sourceTree = "<group>"; };
 		AA71936C1CA2935C00337F94 /* MMChatListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMChatListCell.m; sourceTree = "<group>"; };
 		AA7BFE621C99409B003BD0DC /* MMHttpTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMHttpTools.h; sourceTree = "<group>"; };
@@ -662,6 +668,10 @@
 				AAAF78B31CB7A00400B03D5E /* MMMineEditingViewController.m */,
 				AA629FE21CBB84D3005EE0D2 /* MMNewMessageViewController.h */,
 				AA629FE31CBB84D3005EE0D2 /* MMNewMessageViewController.m */,
+				AA629FE81CBCE9B1005EE0D2 /* MMBubbleAnimationViewController.h */,
+				AA629FE91CBCE9B1005EE0D2 /* MMBubbleAnimationViewController.m */,
+				AA629FEB1CBCED98005EE0D2 /* MMBubbleButton.h */,
+				AA629FEC1CBCED98005EE0D2 /* MMBubbleButton.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -1048,6 +1058,7 @@
 				AA629FE71CBB91AA005EE0D2 /* MMHeaderFooterView.m in Sources */,
 				AA5E8BA91C9F9EB600EC4199 /* NSString+Extension.m in Sources */,
 				AADE53601CA927D300E6C9CF /* MMHTMLButton.m in Sources */,
+				AA629FEA1CBCE9B1005EE0D2 /* MMBubbleAnimationViewController.m in Sources */,
 				AA5E8BDC1CA0077500EC4199 /* FMResultSet.m in Sources */,
 				AA99C03C1C8FF8AE00C9A477 /* AppDelegate.m in Sources */,
 				AA7D831B1CB762000074FCB0 /* MMMineDetailViewController.m in Sources */,
@@ -1086,6 +1097,7 @@
 				AAC25E2D1CA38AA3008EFF21 /* MMAddressBookTableViewController.m in Sources */,
 				AA564D0C1C92B806008B3F4E /* UIImage+JWExtension.m in Sources */,
 				AAE3F6EE1C9949AD003434DF /* MMRequestBLL.m in Sources */,
+				AA629FED1CBCED98005EE0D2 /* MMBubbleButton.m in Sources */,
 				AA1EB2341C929FCE00970A53 /* MMAddFriend.m in Sources */,
 				AA5E8BAC1C9FDE7000EC4199 /* MMLoginInfo.m in Sources */,
 			);

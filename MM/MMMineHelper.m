@@ -22,13 +22,17 @@
     MMSettingGroup *groupOne = [[MMSettingGroup alloc] initWithHeaderTitle:nil footerTitle:nil settingItems:album, favorite, bank, card, nil];
     [items addObject:groupOne];
     
-    MMSettingItem *expression = [MMSettingItem createWithImageName:@"MoreExpressionShops" title:@"表情"];
-    MMSettingGroup *groupTwo = [[MMSettingGroup alloc] initWithHeaderTitle:nil footerTitle:nil settingItems:expression, nil];
+    MMSettingItem *animation = [MMSettingItem createWithImageName:@"animationExpression" title:@"炫酷动画"];
+    MMSettingGroup *groupTwo = [[MMSettingGroup alloc] initWithHeaderTitle:nil footerTitle:nil settingItems:animation, nil];
     [items addObject:groupTwo];
     
-    MMSettingItem *setting = [MMSettingItem createWithImageName:@"MoreSetting" title:@"设置"];
-    MMSettingGroup *groupThree = [[MMSettingGroup alloc] initWithHeaderTitle:nil footerTitle:nil settingItems:setting, nil];
+    MMSettingItem *expression = [MMSettingItem createWithImageName:@"MoreExpressionShops" title:@"表情"];
+    MMSettingGroup *groupThree = [[MMSettingGroup alloc] initWithHeaderTitle:nil footerTitle:nil settingItems:expression, nil];
     [items addObject:groupThree];
+    
+    MMSettingItem *setting = [MMSettingItem createWithImageName:@"MoreSetting" title:@"设置"];
+    MMSettingGroup *groupFour = [[MMSettingGroup alloc] initWithHeaderTitle:nil footerTitle:nil settingItems:setting, nil];
+    [items addObject:groupFour];
     return items;
 }
 

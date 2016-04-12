@@ -7,6 +7,7 @@
 //
 
 #import "MMMineTableViewController.h"
+#import "MMBubbleAnimationViewController.h"
 
 @interface MMMineTableViewController ()
 
@@ -120,6 +121,10 @@ static NSString *const settingCell = @"MMSettingCell";
         if ([item.title isEqualToString:@"表情"]) {
             
             vc = [[MMExpresionViewController alloc] init];
+        }
+        else if ([item.title isEqualToString:@"炫酷动画"]) {
+            
+            vc = [[MMBubbleAnimationViewController alloc] init];
         }
         else if ([item.title isEqualToString:@"设置"]) {
             
