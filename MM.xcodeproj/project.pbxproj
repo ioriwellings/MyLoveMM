@@ -58,6 +58,7 @@
 		AA99C05D1C8FF8AF00C9A477 /* MMUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA99C05C1C8FF8AF00C9A477 /* MMUITests.m */; };
 		AA99C0881C90219400C9A477 /* MMTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA99C0871C90219400C9A477 /* MMTabBarController.m */; };
 		AA99C0A01C9034E800C9A477 /* MMNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA99C09F1C9034E800C9A477 /* MMNavigationController.m */; };
+		AAA2CEA61CBDF72E00E070E7 /* MMMouseTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA2CEA51CBDF72E00E070E7 /* MMMouseTouch.m */; };
 		AAA43E081C9E412600C5B677 /* RCAnimatedImagesView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA43E071C9E412600C5B677 /* RCAnimatedImagesView.m */; };
 		AAA9A8151CABAB24002DF47A /* JWMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA9A8101CABAB24002DF47A /* JWMenu.m */; };
 		AAA9A8161CABAB24002DF47A /* UIColor+JWExtention.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA9A8121CABAB24002DF47A /* UIColor+JWExtention.m */; };
@@ -222,6 +223,8 @@
 		AA99C0871C90219400C9A477 /* MMTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMTabBarController.m; sourceTree = "<group>"; };
 		AA99C09E1C9034E800C9A477 /* MMNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMNavigationController.h; sourceTree = "<group>"; };
 		AA99C09F1C9034E800C9A477 /* MMNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMNavigationController.m; sourceTree = "<group>"; };
+		AAA2CEA41CBDF72E00E070E7 /* MMMouseTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMMouseTouch.h; sourceTree = "<group>"; };
+		AAA2CEA51CBDF72E00E070E7 /* MMMouseTouch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMMouseTouch.m; sourceTree = "<group>"; };
 		AAA43E061C9E412600C5B677 /* RCAnimatedImagesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAnimatedImagesView.h; sourceTree = "<group>"; };
 		AAA43E071C9E412600C5B677 /* RCAnimatedImagesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCAnimatedImagesView.m; sourceTree = "<group>"; };
 		AAA9A80F1CABAB24002DF47A /* JWMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JWMenu.h; sourceTree = "<group>"; };
@@ -670,8 +673,6 @@
 				AA629FE31CBB84D3005EE0D2 /* MMNewMessageViewController.m */,
 				AA629FE81CBCE9B1005EE0D2 /* MMBubbleAnimationViewController.h */,
 				AA629FE91CBCE9B1005EE0D2 /* MMBubbleAnimationViewController.m */,
-				AA629FEB1CBCED98005EE0D2 /* MMBubbleButton.h */,
-				AA629FEC1CBCED98005EE0D2 /* MMBubbleButton.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -709,6 +710,10 @@
 				AA7D83141CB75BAC0074FCB0 /* MMMineHelper.m */,
 				AA629FE51CBB91AA005EE0D2 /* MMHeaderFooterView.h */,
 				AA629FE61CBB91AA005EE0D2 /* MMHeaderFooterView.m */,
+				AA629FEB1CBCED98005EE0D2 /* MMBubbleButton.h */,
+				AA629FEC1CBCED98005EE0D2 /* MMBubbleButton.m */,
+				AAA2CEA41CBDF72E00E070E7 /* MMMouseTouch.h */,
+				AAA2CEA51CBDF72E00E070E7 /* MMMouseTouch.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1058,6 +1063,7 @@
 				AA629FE71CBB91AA005EE0D2 /* MMHeaderFooterView.m in Sources */,
 				AA5E8BA91C9F9EB600EC4199 /* NSString+Extension.m in Sources */,
 				AADE53601CA927D300E6C9CF /* MMHTMLButton.m in Sources */,
+				AAA2CEA61CBDF72E00E070E7 /* MMMouseTouch.m in Sources */,
 				AA629FEA1CBCE9B1005EE0D2 /* MMBubbleAnimationViewController.m in Sources */,
 				AA5E8BDC1CA0077500EC4199 /* FMResultSet.m in Sources */,
 				AA99C03C1C8FF8AE00C9A477 /* AppDelegate.m in Sources */,

@@ -8,6 +8,7 @@
 
 #import "MMBubbleAnimationViewController.h"
 #import "MMBubbleButton.h"
+#import "MMMouseTouch.h"
 
 #define BubbleButtonHeight 40
 
@@ -27,7 +28,8 @@
     self.navigationItem.title = @"动画";
     self.view = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.view.backgroundColor = [UIColor whiteColor];
-    
+    // 点击圆圈动画
+    [self.view addSubview:[MMMouseTouch viewWithCicle:self.view.frame]];
     [self setupBubbleButton];
 }
 
