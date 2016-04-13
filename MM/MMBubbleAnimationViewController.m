@@ -35,16 +35,14 @@
     
     self.bubbleButton = [[MMBubbleButton alloc] initWithFrame:CGRectMake((MMWidth - BubbleButtonHeight) * 0.5, MMHeight - BubbleButtonHeight - NavHeight, BubbleButtonHeight, BubbleButtonHeight)];
     [self.bubbleButton addTarget:self action:@selector(bubbleButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-    self.bubbleButton.backgroundColor = [UIColor orangeColor];
-//    self.bubbleButton.layer.masksToBounds = YES;
-//    self.bubbleButton.layer.cornerRadius = BubbleButtonHeight * 0.5;
+    [self.bubbleButton setImage:[UIImage imageNamed:@"Oval"] forState:UIControlStateNormal];
     [self.view addSubview:self.bubbleButton];
     
-    self.bubbleButton.maxLeft = 250;
-    self.bubbleButton.maxRight = 200;
-    self.bubbleButton.maxHeight = 480;
-    self.bubbleButton.duration = 8;
-    self.bubbleButton.images = @[[UIImage imageNamed:@"MoreExpressionShops"], [UIImage imageNamed:@"animationExpression"]];
+    self.bubbleButton.maxLeft = MMWidth * 0.5;
+    self.bubbleButton.maxRight = MMWidth * 0.5;
+    self.bubbleButton.maxHeight = MMHeight;
+    self.bubbleButton.duration = 30;
+    self.bubbleButton.images = @[[UIImage imageNamed:@"animationRed"], [UIImage imageNamed:@"animationGray"], [UIImage imageNamed:@"animationGreen"], [UIImage imageNamed:@"animationBlue"]];
 }
 
 #pragma mark - 显示动画

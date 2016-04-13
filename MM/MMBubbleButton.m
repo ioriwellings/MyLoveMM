@@ -59,7 +59,8 @@
     }
     else {
         
-        UIImage *image = self.images[arc4random() % self.images.count];
+        NSInteger index = arc4random() % self.images.count; // 取余
+        UIImage *image = self.images[index];
         layer = [self createLayerWithImage:image];
     }
     
@@ -78,31 +79,32 @@
 
 - (void)generateBubbleWithCAlayer:(CALayer *)layer {
     
+    // 图片位置的变化
     _maxWidth = _maxLeft + _maxRight;
     _startPoint = CGPointMake(self.frame.size.width / 2, 0);
-    CGPoint endPoint = CGPointMake(_maxWidth * [self randomFloat] - _maxLeft, _maxHeight);
+    // [self randomFloat] 范围0 ~ 1随机数
+    CGPoint endPoint = CGPointMake(_maxWidth * [self randomFloat] - _maxLeft, -_maxHeight);
     CGPoint controlPoint1 =
-    CGPointMake(_maxWidth * [self randomFloat] - _maxLeft, -_maxHeight * 0.2);
+    CGPointMake(_maxWidth * [self randomFloat] - _maxLeft, -_maxHeight * 0.4);
     CGPoint controlPoint2 =
-    CGPointMake(_maxWidth * [self randomFloat] - _maxLeft, -_maxHeight * 0.6);
+    CGPointMake(_maxWidth * [self randomFloat] - _maxLeft, -_maxHeight * 0.8);
     
     CGMutablePathRef curvedPath = CGPathCreateMutable();
     CGPathMoveToPoint(curvedPath, NULL, _startPoint.x, _startPoint.y);
     CGPathAddCurveToPoint(curvedPath, NULL, controlPoint1.x, controlPoint1.y, controlPoint2.x, controlPoint2.y, endPoint.x, endPoint.y);
-    
+    /*-------------------------------------------------------*/
     CAKeyframeAnimation *keyFrame = [CAKeyframeAnimation animation];
     keyFrame.keyPath = @"position";
     keyFrame.path = CFAutorelease(curvedPath);
     keyFrame.duration = self.duration;
     keyFrame.calculationMode = kCAAnimationPaced;
-    
     [layer addAnimation:keyFrame forKey:@"keyFrame"];
     
     CABasicAnimation *scale = [CABasicAnimation animation];
     scale.keyPath = @"transform.scale";
-    scale.toValue = @1;
+    scale.toValue = @2;
     scale.fromValue = [NSValue valueWithCATransform3D:CATransform3DMakeScale(0.1, 0.1, 0.1)];
-    scale.duration = 0.5;
+    scale.duration = self.duration;
     
     CABasicAnimation *alpha = [CABasicAnimation animation];
     alpha.keyPath = @"opacity";
@@ -127,14 +129,17 @@
     return (arc4random() % 100)/100.0f;
 }
 
+#pragma mark - 设置图片大小
 - (CALayer *)createLayerWithImage:(UIImage *)image {
     
-    CGFloat scale = [UIScreen mainScreen].scale;
+    CGFloat scale = [UIScreen mainScreen].scale; // 屏幕分辨率
     CALayer *layer = [CALayer layer];
-    layer.frame = CGRectMake(0, 0, image.size.width / scale, image.size.height / scale);
+    layer.frame = CGRectMake(0, 0, image.size.width / scale * 2, image.size.height / scale * 2);
     layer.contents = (__bridge id)image.CGImage;
     return layer;
 }
+
+
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
     
     if (flag) {
