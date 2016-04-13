@@ -62,11 +62,11 @@
 #pragma mark - UIControlEventValueChanged
 - (void)segmentedControlChanged:(UISegmentedControl *)segmentedControl {
     
-    NSLog(@"%s", __func__);
+
 }
 
 - (void)rightBarButtonDown:(UIButton *)button {
     
-    NSLog(@"%s", __func__);
+    
 }
 @end

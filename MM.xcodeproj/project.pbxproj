@@ -59,6 +59,8 @@
 		AA99C0881C90219400C9A477 /* MMTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA99C0871C90219400C9A477 /* MMTabBarController.m */; };
 		AA99C0A01C9034E800C9A477 /* MMNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA99C09F1C9034E800C9A477 /* MMNavigationController.m */; };
 		AAA2CEA61CBDF72E00E070E7 /* MMMouseTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA2CEA51CBDF72E00E070E7 /* MMMouseTouch.m */; };
+		AAA2CEA91CBE240100E070E7 /* MMSwitchPicture.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA2CEA81CBE240100E070E7 /* MMSwitchPicture.m */; };
+		AAA2CEAC1CBE356500E070E7 /* MMPictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA2CEAB1CBE356500E070E7 /* MMPictureViewController.m */; };
 		AAA43E081C9E412600C5B677 /* RCAnimatedImagesView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA43E071C9E412600C5B677 /* RCAnimatedImagesView.m */; };
 		AAA9A8151CABAB24002DF47A /* JWMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA9A8101CABAB24002DF47A /* JWMenu.m */; };
 		AAA9A8161CABAB24002DF47A /* UIColor+JWExtention.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA9A8121CABAB24002DF47A /* UIColor+JWExtention.m */; };
@@ -225,6 +227,10 @@
 		AA99C09F1C9034E800C9A477 /* MMNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMNavigationController.m; sourceTree = "<group>"; };
 		AAA2CEA41CBDF72E00E070E7 /* MMMouseTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMMouseTouch.h; sourceTree = "<group>"; };
 		AAA2CEA51CBDF72E00E070E7 /* MMMouseTouch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMMouseTouch.m; sourceTree = "<group>"; };
+		AAA2CEA71CBE240100E070E7 /* MMSwitchPicture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMSwitchPicture.h; sourceTree = "<group>"; };
+		AAA2CEA81CBE240100E070E7 /* MMSwitchPicture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMSwitchPicture.m; sourceTree = "<group>"; };
+		AAA2CEAA1CBE356500E070E7 /* MMPictureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMPictureViewController.h; sourceTree = "<group>"; };
+		AAA2CEAB1CBE356500E070E7 /* MMPictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMPictureViewController.m; sourceTree = "<group>"; };
 		AAA43E061C9E412600C5B677 /* RCAnimatedImagesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCAnimatedImagesView.h; sourceTree = "<group>"; };
 		AAA43E071C9E412600C5B677 /* RCAnimatedImagesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCAnimatedImagesView.m; sourceTree = "<group>"; };
 		AAA9A80F1CABAB24002DF47A /* JWMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JWMenu.h; sourceTree = "<group>"; };
@@ -673,6 +679,8 @@
 				AA629FE31CBB84D3005EE0D2 /* MMNewMessageViewController.m */,
 				AA629FE81CBCE9B1005EE0D2 /* MMBubbleAnimationViewController.h */,
 				AA629FE91CBCE9B1005EE0D2 /* MMBubbleAnimationViewController.m */,
+				AAA2CEAA1CBE356500E070E7 /* MMPictureViewController.h */,
+				AAA2CEAB1CBE356500E070E7 /* MMPictureViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -714,6 +722,8 @@
 				AA629FEC1CBCED98005EE0D2 /* MMBubbleButton.m */,
 				AAA2CEA41CBDF72E00E070E7 /* MMMouseTouch.h */,
 				AAA2CEA51CBDF72E00E070E7 /* MMMouseTouch.m */,
+				AAA2CEA71CBE240100E070E7 /* MMSwitchPicture.h */,
+				AAA2CEA81CBE240100E070E7 /* MMSwitchPicture.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1045,6 +1055,7 @@
 				AAC25E3D1CA3DD87008EFF21 /* MMDidJoinGroupViewController.m in Sources */,
 				AAC5D7EB1C97BD5900B69B24 /* MMChatViewController.m in Sources */,
 				AADE536A1CA9496600E6C9CF /* MMWebViewViewController.m in Sources */,
+				AAA2CEAC1CBE356500E070E7 /* MMPictureViewController.m in Sources */,
 				AA5E8BD81CA0077500EC4199 /* FMDatabase.m in Sources */,
 				AAE3F6F31C998C38003434DF /* MMAFHttpTool.m in Sources */,
 				AA629FE41CBB84D3005EE0D2 /* MMNewMessageViewController.m in Sources */,
@@ -1100,6 +1111,7 @@
 				AAAF78B41CB7A00400B03D5E /* MMMineEditingViewController.m in Sources */,
 				AA5E8BDF1CA0D7C500EC4199 /* MMIMDataSource.m in Sources */,
 				AA564D0D1C92B806008B3F4E /* UIImageView+JWExtension.m in Sources */,
+				AAA2CEA91CBE240100E070E7 /* MMSwitchPicture.m in Sources */,
 				AAC25E2D1CA38AA3008EFF21 /* MMAddressBookTableViewController.m in Sources */,
 				AA564D0C1C92B806008B3F4E /* UIImage+JWExtension.m in Sources */,
 				AAE3F6EE1C9949AD003434DF /* MMRequestBLL.m in Sources */,
