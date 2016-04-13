@@ -49,6 +49,7 @@
     [self.layer addSublayer:waveLayer];
 }
 
+#pragma mark - 实现动画效果
 - (void)setAnimation:(CALayer *)layer {
     
     const int max = 20;
