@@ -57,13 +57,15 @@
         frame.origin.x = (ScreenWidth - frame.size.width) * 0.5;
         frame.origin.y = MarginY;
         imageView.frame = frame;
-        imageView.userInteractionEnabled = YES;
+        imageView.userInteractionEnabled = YES; // 允许交互
+        self.imageView = imageView;
         [self.backView addSubview:imageView];
         [self.backView sendSubviewToBack:imageView];
         [imageView sd_setImageWithURL:[NSURL URLWithString:self.urlArray[_index]]];
         
         // 拖拽
         UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panImageView:)];
+        pan.delegate = self;
         [imageView addGestureRecognizer:pan];
         self.index++;
     }
@@ -72,13 +74,19 @@
 #pragma mark - 拖拽图片实现
 - (void)panImageView:(UIPanGestureRecognizer *)pan {
     
+    // 获取手势移动时相对开始的位置
+    CGPoint movePoint = [pan translationInView:pan.view];
+    pan.view.transform = CGAffineTransformTranslate(pan.view.transform, movePoint.x, movePoint.y);
+    // 复位
+    [pan setTranslation:CGPointZero inView:pan.view];
+    
     if (pan.state == UIGestureRecognizerStateEnded) {
         
         // 使用 UIView 动画使 view 滑行到终点
         [UIView animateWithDuration:0.4 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
             
             pan.view.center = CGPointMake(-ScreenWidth * 0.5, pan.view.center.y);
-            [pan setTranslation:CGPointMake(0, 0) inView:pan.view];
+            [pan setTranslation:CGPointZero inView:pan.view];
             [self switchBackGroundPicture]; // 切换背景图片
         } completion:^(BOOL finished) {
             

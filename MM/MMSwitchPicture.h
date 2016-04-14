@@ -8,12 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MMSwitchPicture : UIView
+@interface MMSwitchPicture : UIView <UIGestureRecognizerDelegate>
 
 @property (strong, nonatomic) UIView *backView;
 
 /** 背景图片 */
 @property (strong, nonatomic) UIImageView *backImageView;
+
+/** 图片 */
+@property (strong, nonatomic) UIImageView *imageView;
 
 /** 下一张图片 */
 @property (assign, nonatomic) NSInteger index;
