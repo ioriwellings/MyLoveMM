@@ -23,7 +23,8 @@
     [items addObject:groupOne];
     
     MMSettingItem *animation = [MMSettingItem createWithImageName:@"animationExpression" title:@"炫酷动画"];
-    MMSettingGroup *groupTwo = [[MMSettingGroup alloc] initWithHeaderTitle:nil footerTitle:nil settingItems:animation, nil];
+    MMSettingItem *picture = [MMSettingItem createWithImageName:@"picture" title:@"图片动画"];
+    MMSettingGroup *groupTwo = [[MMSettingGroup alloc] initWithHeaderTitle:nil footerTitle:nil settingItems:animation, picture, nil];
     [items addObject:groupTwo];
     
     MMSettingItem *expression = [MMSettingItem createWithImageName:@"MoreExpressionShops" title:@"表情"];

@@ -12,6 +12,11 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
+@property (strong, nonatomic) UIImageView *imageView;
+
+@property (assign, nonatomic) CGPoint pushCenter;
+
+@property (assign, nonatomic) CGPoint popCenter;
 
 @end
 

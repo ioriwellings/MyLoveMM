@@ -122,4 +122,7 @@
 // 约束
 #define MMConstantMargin 20;
 
+// 间隙
+#define MMMargin 10
+
 #endif

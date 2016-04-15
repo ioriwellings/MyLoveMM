@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		194D78F78D8513846B02BECF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2B2F5F6701B5344F6412DE /* libPods.a */; };
+		AA16B22A1CC0852400CB9B52 /* MMPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA16B2291CC0852400CB9B52 /* MMPhotoViewController.m */; };
+		AA16B22F1CC088F100CB9B52 /* MyCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA16B22E1CC088F100CB9B52 /* MyCollectionViewCell.m */; };
+		AA16B2321CC08D2600CB9B52 /* MMHomePictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA16B2311CC08D2600CB9B52 /* MMHomePictureViewController.m */; };
 		AA19DD321C98F24A00A038BB /* MMSearchFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA19DD301C98F24A00A038BB /* MMSearchFriendViewController.m */; };
 		AA19DD331C98F24A00A038BB /* MMSearchFriendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA19DD311C98F24A00A038BB /* MMSearchFriendViewController.xib */; };
 		AA1EB2291C92779D00970A53 /* MMAddPublicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1EB2271C92779D00970A53 /* MMAddPublicViewController.m */; };
@@ -127,6 +130,12 @@
 /* Begin PBXFileReference section */
 		1C850C95AF4F7F938F3ABCF4 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		394B8A5A3E38284EC3C72591 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		AA16B2281CC0852400CB9B52 /* MMPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMPhotoViewController.h; sourceTree = "<group>"; };
+		AA16B2291CC0852400CB9B52 /* MMPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMPhotoViewController.m; sourceTree = "<group>"; };
+		AA16B22D1CC088F100CB9B52 /* MyCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCollectionViewCell.h; sourceTree = "<group>"; };
+		AA16B22E1CC088F100CB9B52 /* MyCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCollectionViewCell.m; sourceTree = "<group>"; };
+		AA16B2301CC08D2600CB9B52 /* MMHomePictureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMHomePictureViewController.h; sourceTree = "<group>"; };
+		AA16B2311CC08D2600CB9B52 /* MMHomePictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMHomePictureViewController.m; sourceTree = "<group>"; };
 		AA19DD2F1C98F24A00A038BB /* MMSearchFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMSearchFriendViewController.h; sourceTree = "<group>"; };
 		AA19DD301C98F24A00A038BB /* MMSearchFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMSearchFriendViewController.m; sourceTree = "<group>"; };
 		AA19DD311C98F24A00A038BB /* MMSearchFriendViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMSearchFriendViewController.xib; sourceTree = "<group>"; };
@@ -679,8 +688,12 @@
 				AA629FE31CBB84D3005EE0D2 /* MMNewMessageViewController.m */,
 				AA629FE81CBCE9B1005EE0D2 /* MMBubbleAnimationViewController.h */,
 				AA629FE91CBCE9B1005EE0D2 /* MMBubbleAnimationViewController.m */,
+				AA16B2281CC0852400CB9B52 /* MMPhotoViewController.h */,
+				AA16B2291CC0852400CB9B52 /* MMPhotoViewController.m */,
 				AAA2CEAA1CBE356500E070E7 /* MMPictureViewController.h */,
 				AAA2CEAB1CBE356500E070E7 /* MMPictureViewController.m */,
+				AA16B2301CC08D2600CB9B52 /* MMHomePictureViewController.h */,
+				AA16B2311CC08D2600CB9B52 /* MMHomePictureViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -708,6 +721,8 @@
 		AAB81C6F1CB610720055FA4D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				AA16B22D1CC088F100CB9B52 /* MyCollectionViewCell.h */,
+				AA16B22E1CC088F100CB9B52 /* MyCollectionViewCell.m */,
 				AA7D83041CB62F2A0074FCB0 /* MMUserDetailCell.h */,
 				AA7D83051CB62F2A0074FCB0 /* MMUserDetailCell.m */,
 				AA7D830D1CB7454A0074FCB0 /* MMSettingCell.h */,
@@ -1080,10 +1095,12 @@
 				AA99C03C1C8FF8AE00C9A477 /* AppDelegate.m in Sources */,
 				AA7D831B1CB762000074FCB0 /* MMMineDetailViewController.m in Sources */,
 				AA8F87941C910C32003C93C0 /* MMLoginViewController.m in Sources */,
+				AA16B2321CC08D2600CB9B52 /* MMHomePictureViewController.m in Sources */,
 				AAC25E381CA39063008EFF21 /* MMGroupCell.m in Sources */,
 				AADE535C1CA91C5900E6C9CF /* MMHTML5Controller.m in Sources */,
 				AA19DD321C98F24A00A038BB /* MMSearchFriendViewController.m in Sources */,
 				AA5E8BDB1CA0077500EC4199 /* FMDatabaseQueue.m in Sources */,
+				AA16B22F1CC088F100CB9B52 /* MyCollectionViewCell.m in Sources */,
 				AADC62201CA2B2730093D3F7 /* MMAgreeFriendCell.m in Sources */,
 				AA7BFE641C99409B003BD0DC /* MMHttpTools.m in Sources */,
 				AADE53641CA928C800E6C9CF /* MMHTML.m in Sources */,
@@ -1108,6 +1125,7 @@
 				AA71936D1CA2935C00337F94 /* MMChatListCell.m in Sources */,
 				AAC25E321CA38DF9008EFF21 /* MMGroupsTableViewController.m in Sources */,
 				AA1EB2291C92779D00970A53 /* MMAddPublicViewController.m in Sources */,
+				AA16B22A1CC0852400CB9B52 /* MMPhotoViewController.m in Sources */,
 				AAAF78B41CB7A00400B03D5E /* MMMineEditingViewController.m in Sources */,
 				AA5E8BDF1CA0D7C500EC4199 /* MMIMDataSource.m in Sources */,
 				AA564D0D1C92B806008B3F4E /* UIImageView+JWExtension.m in Sources */,

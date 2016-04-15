@@ -93,7 +93,7 @@
 
 - (void)backClick {
     
-    [self popToRootViewControllerAnimated:YES];
+    [self popViewControllerAnimated:YES];
 }
 
 #pragma mark - 设置状态栏颜色
