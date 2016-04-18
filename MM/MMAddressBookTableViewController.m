@@ -10,11 +10,12 @@
 
 // #import <ctype.h>
 
-@interface MMAddressBookTableViewController ()
+@interface MMAddressBookTableViewController () <UITableViewDelegate, UITableViewDataSource>
 
 //#字符索引对应的user object
 @property (nonatomic,strong) NSMutableArray *tempOtherArr;
 @property (strong, nonatomic) NSMutableArray *friends;
+@property (strong, nonatomic) UITableView *tableView;
 
 @end
 
@@ -38,6 +39,11 @@ static NSString *const registerID = @"MMFriendBookCell";
     self.navigationItem.title = @"通讯录";
     self.view.backgroundColor = MMRandomColor;
     self.edgesForExtendedLayout = UIRectEdgeNone;
+    
+    self.tableView = [[UITableView alloc] initWithFrame:[UIScreen mainScreen].bounds style:UITableViewStylePlain];
+    [self.view addSubview:self.tableView];
+    self.tableView.delegate   = self;
+    self.tableView.dataSource = self;
     // 注册
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([MMFriendBookCell class]) bundle:nil] forCellReuseIdentifier:registerID];
     // 去掉分割线

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MMHTML5Controller : UITableViewController
+@interface MMHTML5Controller : MMBaseViewController
 
 @end

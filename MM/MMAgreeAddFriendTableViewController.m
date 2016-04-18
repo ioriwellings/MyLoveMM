@@ -8,10 +8,12 @@
 
 #import "MMAgreeAddFriendTableViewController.h"
 
-@interface MMAgreeAddFriendTableViewController ()
+@interface MMAgreeAddFriendTableViewController () <UITableViewDelegate, UITableViewDataSource>
 {
     RCConversationModel *_model;
 }
+
+@property (strong, nonatomic) UITableView *tableView;
 
 @property (strong, nonatomic) NSMutableArray *friends;
 
@@ -35,6 +37,11 @@ static NSString *const cellID = @"agreeFriend";
     
     self.title = @"添加好友";
     self.friends = [[[RCIMClient sharedRCIMClient] getLatestMessages:self.conversationType targetId:self.targetId count:30] mutableCopy];
+    
+    self.tableView = [[UITableView alloc] initWithFrame:[UIScreen mainScreen].bounds style:UITableViewStylePlain];
+    [self.view addSubview:self.tableView];
+    self.tableView.delegate   = self;
+    self.tableView.dataSource = self;
     
     // 注册
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([MMAgreeFriendCell class]) bundle:nil] forCellReuseIdentifier:cellID];

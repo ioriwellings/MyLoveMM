@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MMAgreeAddFriendTableViewController : UITableViewController
+@interface MMAgreeAddFriendTableViewController : MMBaseViewController
 
 /**
  *  targetId

@@ -10,6 +10,8 @@
 
 @interface MMHTML5Controller () <UITableViewDelegate, UITableViewDataSource>
 
+@property (strong, nonatomic) UITableView *tableView;
+
 @end
 
 @implementation MMHTML5Controller
@@ -21,13 +23,18 @@ static NSString *const MMHTMLCellID = @"MMHTMLCell";
     [super viewDidLoad];
     
     self.navigationItem.title = @"HTML5";
-    UIView *view = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    view.backgroundColor = DEFAULT_BACKGROUND_COLOR;
-    self.tableView.backgroundView = view;
     [self setupTableView];
 }
 
 - (void)setupTableView {
+    
+    self.tableView = [[UITableView alloc] initWithFrame:[UIScreen mainScreen].bounds style:UITableViewStylePlain];
+    [self.view addSubview:self.tableView];
+    self.tableView.delegate   = self;
+    self.tableView.dataSource = self;
+    UIView *view = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    view.backgroundColor = DEFAULT_BACKGROUND_COLOR;
+    self.tableView.backgroundView = view;
     
     // 注册
     [self.tableView registerClass:[MMHTMLCell class] forCellReuseIdentifier:MMHTMLCellID];

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MMAddressBookTableViewController : UITableViewController
+@interface MMAddressBookTableViewController : MMBaseViewController
 
 /** 索引 */
 @property (strong, nonatomic) NSArray *keys;

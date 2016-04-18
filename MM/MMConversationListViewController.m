@@ -114,7 +114,7 @@
         if (conversationModelType == RC_CONVERSATION_MODEL_TYPE_CUSTOMIZATION) {
             
             RCConversationModel *model = self.conversationListDataSource[indexPath.row];
-            MMAgreeAddFriendTableViewController *agreeAddFriend = [[MMAgreeAddFriendTableViewController alloc] initWithNibName:@"MMAgreeAddFriendTableViewController" bundle:nil withConversationModel:model];
+            MMAgreeAddFriendTableViewController *agreeAddFriend = [[MMAgreeAddFriendTableViewController alloc] initWithNibName:nil bundle:nil withConversationModel:model];
             agreeAddFriend.conversationType = model.conversationType;
             agreeAddFriend.targetId = model.targetId;
             agreeAddFriend.userName = model.conversationTitle;

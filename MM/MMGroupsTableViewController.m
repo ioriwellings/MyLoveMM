@@ -14,6 +14,8 @@
 
 @property (strong, nonatomic) UIButton *rightBarButton;
 
+@property (strong, nonatomic) UITableView *tableView;
+
 @end
 
 @implementation MMGroupsTableViewController
@@ -35,6 +37,12 @@ static NSString *const cellID = @"MMGroupCell";
 
     self.navigationItem.title = @"群组";
     self.view.backgroundColor = MMRandomColor;
+    
+    self.tableView = [[UITableView alloc] initWithFrame:[UIScreen mainScreen].bounds style:UITableViewStylePlain];
+    [self.view addSubview:self.tableView];
+    self.tableView.delegate   = self;
+    self.tableView.dataSource = self;
+    
     // 注册
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([MMGroupCell class]) bundle:nil] forCellReuseIdentifier:cellID];
     // 去掉分割线

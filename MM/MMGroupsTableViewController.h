@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MMGroupsTableViewController : UITableViewController
+@interface MMGroupsTableViewController : MMBaseViewController
 
 
 
