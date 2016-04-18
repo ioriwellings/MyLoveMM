@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MMExpresionViewController : UIViewController
+@interface MMExpresionViewController : MMBaseViewController
 
 @end

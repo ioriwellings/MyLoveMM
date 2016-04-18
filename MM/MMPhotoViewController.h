@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MMPhotoViewController : UIViewController
+@interface MMPhotoViewController : MMBaseViewController
 
 @end

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MMBubbleAnimationViewController : UIViewController
+@interface MMBubbleAnimationViewController : MMBaseViewController
 
 @end

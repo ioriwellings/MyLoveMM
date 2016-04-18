@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MMMineEditingViewController : UIViewController
+@interface MMMineEditingViewController : MMBaseViewController
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil withUserInfo:(RCUserInfo *)userInfo;
 

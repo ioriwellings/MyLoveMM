@@ -106,6 +106,7 @@
 		AADE536B1CA9496600E6C9CF /* MMWebViewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AADE53691CA9496600E6C9CF /* MMWebViewViewController.xib */; };
 		AAE3F6EE1C9949AD003434DF /* MMRequestBLL.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE3F6ED1C9949AD003434DF /* MMRequestBLL.m */; };
 		AAE3F6F31C998C38003434DF /* MMAFHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE3F6F21C998C38003434DF /* MMAFHttpTool.m */; };
+		AAE598751CC4721E00829449 /* MMBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE598741CC4721E00829449 /* MMBaseViewController.m */; };
 		AAF06B831CA22FCD0097FCF1 /* MMAddFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF06B811CA22FCD0097FCF1 /* MMAddFriendViewController.m */; };
 		AAF06B841CA22FCD0097FCF1 /* MMAddFriendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAF06B821CA22FCD0097FCF1 /* MMAddFriendViewController.xib */; };
 /* End PBXBuildFile section */
@@ -309,6 +310,8 @@
 		AAE3F6ED1C9949AD003434DF /* MMRequestBLL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMRequestBLL.m; sourceTree = "<group>"; };
 		AAE3F6F11C998C38003434DF /* MMAFHttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMAFHttpTool.h; sourceTree = "<group>"; };
 		AAE3F6F21C998C38003434DF /* MMAFHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMAFHttpTool.m; sourceTree = "<group>"; };
+		AAE598731CC4721E00829449 /* MMBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMBaseViewController.h; sourceTree = "<group>"; };
+		AAE598741CC4721E00829449 /* MMBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMBaseViewController.m; sourceTree = "<group>"; };
 		AAF06B801CA22FCD0097FCF1 /* MMAddFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMAddFriendViewController.h; sourceTree = "<group>"; };
 		AAF06B811CA22FCD0097FCF1 /* MMAddFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMAddFriendViewController.m; sourceTree = "<group>"; };
 		AAF06B821CA22FCD0097FCF1 /* MMAddFriendViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMAddFriendViewController.xib; sourceTree = "<group>"; };
@@ -705,6 +708,8 @@
 				AA99C0871C90219400C9A477 /* MMTabBarController.m */,
 				AA99C09E1C9034E800C9A477 /* MMNavigationController.h */,
 				AA99C09F1C9034E800C9A477 /* MMNavigationController.m */,
+				AAE598731CC4721E00829449 /* MMBaseViewController.h */,
+				AAE598741CC4721E00829449 /* MMBaseViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -1098,6 +1103,7 @@
 				AA16B2321CC08D2600CB9B52 /* MMHomePictureViewController.m in Sources */,
 				AAC25E381CA39063008EFF21 /* MMGroupCell.m in Sources */,
 				AADE535C1CA91C5900E6C9CF /* MMHTML5Controller.m in Sources */,
+				AAE598751CC4721E00829449 /* MMBaseViewController.m in Sources */,
 				AA19DD321C98F24A00A038BB /* MMSearchFriendViewController.m in Sources */,
 				AA5E8BDB1CA0077500EC4199 /* FMDatabaseQueue.m in Sources */,
 				AA16B22F1CC088F100CB9B52 /* MyCollectionViewCell.m in Sources */,

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MMHomePictureViewController : UIViewController
+@interface MMHomePictureViewController : MMBaseViewController
 
 @property (strong, nonatomic) UIImage *headImage;
 

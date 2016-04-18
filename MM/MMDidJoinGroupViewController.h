@@ -20,7 +20,7 @@
 typedef void (^clearMessageCompletion)(BOOL isSuccess);
 
 @class MMGroupInfo;
-@interface MMDidJoinGroupViewController : UIViewController
+@interface MMDidJoinGroupViewController : MMBaseViewController
 
 /**
  *  清除历史消息后，会话界面调用roload data

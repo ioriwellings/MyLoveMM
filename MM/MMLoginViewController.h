@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MMLoginViewController : UIViewController
+@interface MMLoginViewController : MMBaseViewController
 
 @end

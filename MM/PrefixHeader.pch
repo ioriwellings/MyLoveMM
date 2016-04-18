@@ -27,6 +27,7 @@
 #endif
 
 /**********************Controller******************************/
+#import "MMBaseViewController.h"
 #import "MMTabBarController.h"
 #import "MMConversationListViewController.h"
 #import "MMChatViewController.h"

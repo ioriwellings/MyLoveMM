@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @class MMHTML;
-@interface MMWebViewViewController : UIViewController
+@interface MMWebViewViewController : MMBaseViewController
 
 // 模型数据
 @property (strong, nonatomic) MMHTML *html;

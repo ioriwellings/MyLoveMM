@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MMAddFriendViewController : UIViewController
+@interface MMAddFriendViewController : MMBaseViewController
 
 /**
  * 初始化

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MMAddPublicViewController : UIViewController
+@interface MMAddPublicViewController : MMBaseViewController
 
 @end

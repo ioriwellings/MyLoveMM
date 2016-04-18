@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MMSearchFriendViewController : UIViewController
+@interface MMSearchFriendViewController : MMBaseViewController
 
 @end
