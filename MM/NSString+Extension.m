@@ -42,7 +42,14 @@
     return [regextestmobile evaluateWithObject:mobileNum];
 }
 
-
+#pragma mark - 获取当前时间
++ (NSString *)getCurrentTime {
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString *currentTime = [formatter stringFromDate:[NSDate date]]; // [NSDate date]当前时间
+    return currentTime;
+}
 
 #pragma mark - 第一种计算缓存大小
 + (NSInteger)getCacheSizeFirstMethod {

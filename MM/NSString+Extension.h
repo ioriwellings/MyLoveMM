@@ -16,6 +16,9 @@
 /** 正则表达式判断是否为手机号码 */
 + (BOOL)isMobileNumber:(NSString *)mobileNum;
 
+/** 获取当前时间 */
++ (NSString *)getCurrentTime;
+
 /** 当前时间转为时间戳 */
 + (NSString *)switchNowTimeToTimeStamp;
 

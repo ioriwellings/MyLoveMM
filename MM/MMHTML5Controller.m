@@ -23,6 +23,7 @@ static NSString *const MMHTMLCellID = @"MMHTMLCell";
     [super viewDidLoad];
     
     self.navigationItem.title = @"HTML5";
+    self.navigationController.navigationBar.translucent = NO;
     [self setupTableView];
 }
 
